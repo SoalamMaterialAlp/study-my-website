@@ -18,52 +18,6 @@
             width: 100%;
             height: 100%;
         }
-            /* Preloader covers whole screen */
-#preloader {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* Spinner animation */
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
-
-/* Logo animation (simple scale) */
-.logo {
-  width: 80px;
-  animation: pulse 1s infinite alternate;
-}
-
-/* Spinner rotation */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Logo pulse animation */
-@keyframes pulse {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.2); }
-}
-
-/* Hide content initially */
-#content {
-  display: none;
-}
         .co{
           width: 100%;
           height: 100px;
@@ -258,18 +212,6 @@
 
 </head>
 <body>
-  <!-- Preloader / Spinner -->
-  <!-- <div id="preloader">
-    <div class="spinner"></div>
-    <img src="logo.png" alt="Website Logo" class="logo">
-  </div>
- -->
-  <!-- Main Website Content -->
-  <!-- <div id="content">
-    <h1>Welcome to My Website</h1>
-    <p>Website content goes here...</p>
-  </div> -->
-
 <!--start header-->
     <section>
         <div class="co">
@@ -320,17 +262,6 @@
       <div class="part3"><h2>Information</h2><P> <br>Alam Study Element is the one of the most <br>famous Study website in our country. <br>It has good study material. <br>
       <span style="color:green;">Thank You</span></p>
     </div>
-        <script>
-            //wait until page fully loads
-            window.addEventListener("load",function(){
-                const preloader = document.getElementById("preloader");
-                const content = document.getElementId("content");
-                //hide preloader
-                preloader.style.display="non";
-                //show main content
-                content.style.display="block";
-            });
-        </script>
          <script> 
     function searchFunction() {
       let query = document.getElementById("search").value;
@@ -351,6 +282,7 @@
 </body>
 
 </html>
+
 
 
 
