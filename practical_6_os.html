@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: 1200px;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        span{
+            font-size: xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        #copyBtn{
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:20px;
+            border-radius:25%;
+        }
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-6</h1>
+        <p>
+    <span  style="color:deeppink;">Aim:-</span>Simulate Banker Algorithm for Deadlock Avoidance and prevention.<br>
+    <span style="color:brown;">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
+     <span style="color:brown;">Procedure:-</span> <br>
+    Banker Algorithm for Deadlock Avoidance and Prevention.
+    <!--Banker Algorithm-->
+     Banker Algorithm <br>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-clipboard">  copy code</i></button>
+        <pre id="program"><code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    #include <stdio.h>
+    int main() {
+    int n,i;
+    printf("Banker Algorithm by Kadir Alam\n ");
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+    //RA,RB,RC=resource a,b,c;ARA,ARB,ARC=available resourcea,b,c;DRA,DRB,DRC=demand resources 
+     int RA,RB,RC,//total resources
+     ARA,ARB,ARC;//AVAILABLE resources
+    
+     int pid[n],
+    HRA[n],HRB[n],HRC[n],
+        DRA[n],DRB[n],DRC[n],
+    needA[n],needB[n],needC[n];
+     int f[n], ans[n], ind = 0;
+
+    printf("Resourse instace provided by Kadir Alam\n");
+    printf("Total Resources RA available are:");
+    scanf("%d",&RA);
+    printf("Total Resources RB available are:");
+    scanf("%d",&RB);
+    printf("Total Resources RC available are:");
+    scanf("%d",&RC);
+    printf("How many Resources allocate/hold by process:- ");
+    for(i = 0; i < n; i++) {
+        pid[i] = i;
+          printf("\nEnter resources RA of P%d: ", i );
+        scanf("%d", &HRA[i]);
+        printf("Enter resources RB P%d: ", i) ;
+        scanf("%d", &HRB[i]);
+        printf("Enter resource RC P%d: ", i );
+        scanf("%d", &HRC[i]);
+    }
+    printf("\nPID\tRA\tRB\tRC\n");
+    for(i = 0; i < n; i++) {
+        printf("P%d\t%d\t%d\t%d\n", pid[i], HRA[i], HRB[i], HRC[i]);
+        }
+        printf("Now, available resources  RA,RB,RC are:-");
+        scanf("%d %d %d",&ARA,&ARB,&ARC);
+            printf("How many Resources demand/wait by process:- ");
+    for(i = 0; i < n; i++) {
+        pid[i] = i;
+          printf("\nEnter resources RA of P%d: ", i);
+        scanf("%d", &DRA[i]);
+        printf("Enter resources RB P%d: ", i );
+        scanf("%d", &DRB[i]);
+        printf("Enter resource RC P%d: ", i );
+        scanf("%d", & DRC[i]);
+    }
+    printf("\nPID\tRA\tRB\tRC\n");
+    for(i = 0; i < n; i++) {
+        printf("P%d\t%d\t%d\t%d\n", pid[i], DRA[i], DRB[i], DRC[i]);
+
+    }
+    
+    // Need calculation
+    for (i = 0; i < n; i++) {
+        needA[i] = DRA[i] - HRA[i];
+        needB[i] = DRB[i] - HRB[i];
+        needC[i] = DRC[i] - HRC[i];
+    }
+
+    // Print Need Table
+    printf("\nProcess\tAlloc(RA RB RC)\tDemand(RA RB RC)\tNeed(RA RB RC)\n");
+    for (i = 0; i < n; i++) {
+        printf("P%d\t%d %d %d\t\t%d %d %d\t\t%d %d %d\n",
+               i, HRA[i], HRB[i], HRC[i],
+               DRA[i], DRB[i], DRC[i],
+               needA[i], needB[i], needC[i]);
+    }
+    
+    // Initialize finish array
+    for (i = 0; i < n; i++) f[i] = 0;
+
+    int k;
+    for (k = 0; k < n; k++) { // n rounds
+        for (i = 0; i < n; i++) {
+            if (f[i] == 0) { // not finished yet
+                if (needA[i] <= ARA && needB[i] <= ARB && needC[i] <= ARC) {
+                    // Process executes
+                    ARA += HRA[i];
+                    ARB += HRB[i];
+                    ARC += HRC[i];
+
+                    ans[ind++] = i;
+                    f[i] = 1;
+                }
+            }
+        }
+    }
+
+    // Final Safe State Check
+    int safe = 1;
+    for (i = 0; i < n; i++) {
+        if (f[i] == 0) {
+            safe = 0;
+            printf("\nSystem is NOT in safe state!\n");
+            break;
+        }
+    }
+
+    if (safe == 1) {
+        printf("\nSystem is in SAFE state.\nSafe Sequence: ");
+        for (i = 0; i < n - 1; i++) {
+            printf("P%d -> ", ans[i]);
+        }
+        printf("P%d\n", ans[n - 1]);
+    }
+      return 0;
+}
+
+</code>
+</pre>
+</div>
+<span style="color:maroon">Deadlock Avoidance:-<br> </span>
+<p>Banker's Algorithm keeps the system in safe state before allocating resources,it check wheather the system will remain safe after allocation. In safe, resources are given , otherwise the process waits thus avoiding deadlock. <br>
+<span style="color:magenta">Deadlock Prevention:- <br> </span>
+<p> If a resource is not available or ,the process is stoped or made to wait until the resource become free.</p>
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+
+
+<script>
+hljs.highlightAll();
+</script>
+</body>
+
+</html>
