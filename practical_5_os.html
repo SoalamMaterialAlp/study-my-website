@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: 1200px;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-5</h1>
+        <p>
+    <span style="color:deeppink;font-size:xx-large ;">Aim:-</span>Simulate the concept of Dining Philospher Algorithm.<br>
+    <span style="color:brown;font-size:xx-large ;">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
+     <span style="color:brown;font-size:xx-large ;">Procedure:-</span> <br>
+     
+     <!--Dinning Philospher Problem-->    
+     Dinning Philospher Problem<br>
+
+     <div class="code"><button id="copyBtn" ><i class="fa-solid fa-copy">copy</i></button>
+        <pre id="program">
+        #include<stdio.h>
+int main(){
+    //Dinning-Philospher Problem
+    printf("Dinning-Philospher Problem by Kadir Alam\n");
+    printf("Deadlock condition : 4 condition\n");
+        for(int i = 1;i<=5;i++){
+        printf("Philospher:P%d\n",i);
+       
+    }
+     for(int i = 1;i<=5;i++){
+     printf("Fork:F%d\n",i);
+     }
+    printf("Philospher P1 :F1 left and F5 right\n");
+    printf("Philospher P2 :F2 left and F1 right\n");
+    printf("Philospher P3 :F3 left and F2 right\n");
+    printf("Philospher P4 :F4 left and F3 right\n");
+    printf("Philospher P5 :F5 left and F4 right\n");
+    printf("1. mutual condition(Non-shareable device):- fork is not sharable , because fork is already using \n");
+    printf("2. hold and wait:-\n");
+    printf("Philospher P1 :Hold F1 left and Wait F5 right\n");
+    printf("Philospher P2 :Hold F2 left and Wait F1 right\n");
+    printf("Philospher P3 :Hold F3 left and Wait F2 right\n");
+    printf("Philospher P4 : Hold F4 left and Wait F3 right\n");
+    printf("Philospher P5 : Hold F5 left and Wait F4 right\n");
+    printf("3. No Premtion :-\n");
+    printf("Once a philospher pick up a fork ,other cannot snatch it even if they need it.\n");
+    printf("4. Circular Wait \n");
+    printf("Philospher P1 :use F1 left and Wait F5 right\n");
+    printf("Philospher P2 :use F2 left and Wait F1 right\n");
+    printf("Philospher P3 :use F3 left and Wait F2 right\n");
+    printf("Philospher P4 : use F4 left and Wait F3 right\n");
+    printf("Philospher P5 : use F5 left and Wait F4 right\n");
+    printf("deadlock avoidance : any one condition is false\n ");
+    printf("Fork is sharable device because on the dinning table there  is one glass water.\n After eating one philospher will rinse(wash) the fork in that glass and use it again.(Mutual Condition is false.)");
+    
+    return 0;
+}
+
+
+</pre>
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+</body>
+</html>
