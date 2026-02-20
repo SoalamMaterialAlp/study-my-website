@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        span{
+            font-size:xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            overflow:auto;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+                /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-9</h1>
+        <p>
+    <span style="color:deeppink;">Aim:-</span>Write a program to simulate disks scheduling algorithms.<br> (a)- FCFS (b)- SCAN (c)- C-SCAN Robin <br>
+    <span style="color:brown;">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
+     <span style="color:brown;">Procedure:-</span> <br>
+        Disks Scheduling Algorithms-
+     <!-- FCFS disks Scheduling Algorithm -->
+     (a). FCFS Disks Scheduling Algorithm <br>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+        <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    int main() {
+    int n, head, i, total = 0;
+    printf("FCFS disk scheduling algorithm performed by Kadir Alam\n");
+    
+    printf("Enter number of disk requests: ");
+    scanf("%d", &n);
+
+    int req[n];
+    printf("Enter the disk request sequence:\n");
+    for(i = 0; i < n; i++)
+        scanf("%d", &req[i]);
+
+    printf("Enter the initial head position: ");
+    scanf("%d", &head);
+       printf("Seek Sequence is\n");
+  
+      for (int i = 0; i < n; i++) {
+        printf("%d\n",req[i]);
+    }
+
+
+    printf("\nMovement of Disk Head:\n");
+    for(i = 0; i < n; i++) {
+        printf("Head moves from %d to %d -> Seek: %d\n", head, req[i], abs(head - req[i]));
+        total += abs(head - req[i]);
+        head = req[i];
+    }
+
+    printf("\nTotal Seek Time = %d\n", total);
+    printf("Average Seek Time = %.2f\n", (float)total / n);
+
+    return 0;
+}
+</code>
+        </pre>
+</div>
+        <!--SCAN disks Scheduling Algorithm -->
+     <p>(b). SCAN Disks Scheduling Algorithm</p> <br>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+        <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+        #include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, head, size, direction, total = 0;
+    printf("SCAN disk sheduling Algorithm performed by Kadir Alam\n");
+    printf("Enter number of disk requests: ");
+    scanf("%d", &n);
+
+    int req[n];
+    printf("Enter the disk request sequence:\n ");
+    for(int i = 0; i < n; i++)
+        scanf("%d", &req[i]);
+
+    printf("Enter initial head position: ");
+    scanf("%d", &head);
+
+    printf("Enter range/size disk(e.g., 200): ");
+    scanf("%d", &size);
+
+    printf("Enter direction (1 = RIGHT, 0 = LEFT): ");
+    scanf("%d", &direction);
+
+    // Sort requests
+    for(int i = 0; i < n - 1; i++)
+        for(int j = i + 1; j < n; j++)
+            if(req[i] > req[j]) {
+                int temp = req[i];
+                req[i] = req[j];
+                req[j] = temp;
+            }
+
+    // Find index where head fits
+    int index = 0;
+    for(int i = 0; i < n; i++)
+        if(req[i] >= head) {
+            index = i;
+            break;
+        }
+
+    int order[200], k = 0; // To store the request order
+
+    printf("\nSCAN Disk Movement:\n");
+
+    if(direction == 1) { // RIGHT
+        for(int i = index; i < n; i++) {
+            printf("Head moves from %d to %d  Seek = %d\n", head, req[i], abs(head - req[i]));
+            total += abs(head - req[i]);
+            head = req[i];
+            order[k++] = head;
+        }
+
+        printf("Head moves from %d to %d (Disk End) Seek = %d\n", head, size, abs(head - size));
+        total += abs(head - size);
+        head = size;
+
+        for(int i = index - 1; i >= 0; i--) {
+            printf("Head moves from %d to %d  Seek = %d\n", head, req[i], abs(head - req[i]));
+            total += abs(head - req[i]);
+            head = req[i];
+            order[k++] = head;
+        }
+    }
+    else { // LEFT
+        for(int i = index - 1; i >= 0; i--) {
+            printf("Head moves from %d to %d  Seek = %d\n", head, req[i], abs(head - req[i]));
+            total += abs(head - req[i]);
+            head = req[i];
+            order[k++] = head;
+        }
+
+        printf("Head moves from %d to 0 (Disk Start) Seek = %d\n", head, head);
+        total += head;
+        head = 0;
+
+        for(int i = index; i < n; i++) {
+            printf("Head moves from %d to %d  Seek = %d\n", head, req[i], abs(head - req[i]));
+            total += abs(head - req[i]);
+            head = req[i];
+            order[k++] = head;
+        }
+    }
+
+    printf("\n=== SCAN Request Order ===\n");
+    for(int i = 0; i < k; i++) {
+        if(i == k-1) printf("%d\n", order[i]);
+        else printf("%d ", order[i]);
+    }
+
+
+    printf("\n\nTotal Seek Time = %d\n", total);
+    printf("\n\nAverage Seek Time = %.2f\n",(float) total/n);
+
+    return 0;
+}
+</code>
+
+        </pre>
+</div>
+        <!-- C-SCAN disks Scheduling Algorithm -->
+     <p>(c). C-SCAN Disks Scheduling Algorithm <br></p>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+        <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+        #include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, head, size, total = 0;
+     printf("C-SCAN Disak Sheduling Algorithm performed by Kadir Alam\n");
+    printf("Enter number of disk requests: ");
+    scanf("%d", &n);
+
+    int req[n];
+    printf("Enter the disk request sequence: \n");
+    for(int i = 0; i < n; i++)
+        scanf("%d", &req[i]);
+
+    printf("Enter initial head position: ");
+    scanf("%d", &head);
+
+    printf("Enter disk end cylinder number (e.g., 200): ");
+    scanf("%d", &size);   // Now size = last cylinder (not size-1)
+
+    // Sort the requests
+    for(int i = 0; i < n - 1; i++)
+        for(int j = i + 1; j < n; j++)
+            if(req[i] > req[j]) {
+                int temp = req[i];
+                req[i] = req[j];
+                req[j] = temp;
+            }
+
+    // Find where head fits
+    int index = 0;
+    for(int i = 0; i < n; i++) {
+        if(req[i] >= head) {
+            index = i;
+            break;
+        }
+    }
+
+    int order[200], k = 0;
+
+    printf("\nC-SCAN Head Movement:\n");
+
+    // Move RIGHT first
+    for(int i = index; i < n; i++) {
+        printf("Head moves from %d to %d  Seek = %d\n", head, req[i], abs(head - req[i]));
+        total += abs(head - req[i]);
+        head = req[i];
+        order[k++] = head;
+    }
+
+    // Move to disk END
+    printf("Head moves from %d to %d (Disk End)  Seek = %d\n", head, size, abs(head - size));
+    total += abs(head - size);
+    head = size;
+
+    // Jump to 0 (NO Seek counted because it is circular)
+    printf("Head jumps from %d to 0 (No Seek Count)\n", head);
+    head = 0;
+
+    // Now move again from start
+    for(int i = 0; i < index; i++) {
+        printf("Head moves from %d to %d  Seek = %d\n", head, req[i], abs(head - req[i]));
+        total += abs(head - req[i]);
+        head = req[i];
+        order[k++] = head;
+    }
+
+    // Print Request Order
+    printf("\n=== C-SCAN Request Order ===\n");
+    for(int i = 0; i < k; i++) {
+        if(i == k-1) printf("%d\t", order[i]);
+        else printf("%d ", order[i]);
+    }
+
+    // Total and Average Seek Time
+    printf("\n\nTotal Seek Time = %d\n", total);
+    printf("Average Seek Time = %.2f\n", (float)total / k);
+
+    return 0;
+}
+
+</code>
+        </pre>
+</div>
+        <span style="color:navy;font-size:xx-large">Results:- <br> </span>
+        <p>FCSS, SCAN and C-SCAN was successfully.</p>
+
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+
+</body>
+</html>
