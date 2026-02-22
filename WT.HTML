@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alam Study Element</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+  font-family:Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  width:100%;
+  min-height:110px;
+   background-color: lawngreen;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+
+.header h1{
+  font-size:2.5rem;
+  color:red;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background-color: lawngreen;
+  padding:15px 20px;
+  position:relative;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:blue;
+  font-size:18px;
+}
+
+.nav-links li a:hover{
+  background:red;
+  color:white;
+  padding:5px 10px;
+  font-weight: 700;
+  border-radius:5px;
+}
+
+.hamburger{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.box1{
+  display:flex;
+  width:100%;
+}
+
+.box2{
+  width:25%;
+  padding:15px;
+  background:#f9f9f9;
+}
+
+.box3{
+  width:75%;
+  padding:20px;
+}
+
+span{
+  font-size:larger;
+}
+p3{
+  font-size:large;
+}
+/* ================= MENU GROUP ================= */
+
+.menu-group{
+  margin-bottom:15px;
+  background:white;
+  border-radius:8px;
+  padding:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.group-head{
+  cursor:pointer;
+  font-weight:bold;
+  padding:8px;
+}
+
+.group-body{
+  display:none;
+  padding-left:15px;
+}
+
+.group-body a{
+  display:block;
+  padding:6px 0;
+  text-decoration:none;
+  color:black;
+}
+
+.group-body a:hover{
+  color:green;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.header{
+  flex-direction:column;
+}
+
+.header h1{
+  font-size:20px;
+}
+
+.box1{
+  flex-direction:column;
+}
+
+.box2,
+.box3{
+  width:100%;
+}
+
+.nav-links{
+  position:fixed;
+  top:0;
+  right:-260px;
+  height:auto;
+  width:250px;
+  background:yellow;
+  flex-direction:column;
+  padding-top:80px;
+  border-radius: 5%;
+  padding-left: 10px;
+  transition:right 0.4s ease;
+  z-index:1000;
+}
+
+.nav-links.active{
+  right:0;
+}
+
+.hamburger{
+  display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <img src="logo.png" alt="">
+  </div>
+  <h1>ALAM STUDY ELEMENT</h1>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+        <li><a href="OS.html">Operating System</a></li>
+        <li><a href="DBMS.html">DBMS</a></li>
+        <li><a href="CPUC.html">CPUC</a></li>
+        <li><a href="CN.html">Computer Network</a></li>
+        <li><a href="WT.HTML">Web Technology</a></li>
+        <li><a href="DSUC.html">DSUC</a></li>
+        <li><a href="Python.html">Python</a></li>
+        <li><a href="SE.html">Software Engineering</a></li>
+        <li><a href="Project_Management.html">Project Management</a></li>
+        <li><a href="CSO.html">CSO</a></li>  
+ </ul>
+
+  <div class="hamburger" id="hamburger">☰</div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="box1">
+
+  <!-- Sidebar -->
+  <div class="box2">
+
+    <div class="menu-group">
+      <div class="group-head">Notes</div>
+      <div class="group-body">
+        <a href="#">Unit 1</a>
+        <a href="#">Unit 2</a>
+        <a href="#">Unit 3</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Assignment</div>
+      <div class="group-body">
+        <a href="#">Assignment 1</a>
+        <a href="#">Assignment 2</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Practical</div>
+      <div class="group-body">
+        <a href="#">Practical 1</a>
+        <a href="#">Practical 2</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+        <div class="box3">
+    <h1 style="color:orangered">Web Technology</h1><br>
+    <Span style="color:purple;">COURSE CONTENT </Span> <br> <br>
+<Span style="color:magenta;">Unit 1: Web Development Introduction   <br> </Span> <br>                                              
+<p3>WWW, Internet, Browser, Search engine Client Server Model, URL, Web Pages, Website and Web
+Services, Types of Websites (Static, Dynamic and Responsive), Developer options of Browser (View
+page source, Developer Tools, Inspect Element etc) <br></p3> <br>
+<Span style="color:brown;">Practical Exercise:  <br></Span> <br>
+<p3>1. Install, configure and start using developer tools /Code Editor/Browser. <br>
+2. Pick any three websites and categorize them as Static, Dynamic, or Responsive with reasons for
+your classification <br>
+3. List the 5 web browser and search engine .  <br>
+4. Open any website using Chrome Developer Tools. Modify the text and background color of a para
+graph and take a screenshot. <br></p3> <br>
+<Span style="color:magenta;">Unit 2: HTML Basics    </Span> <br> <br>                                             
+<p3>HTML Document, Basic Structure of HTML, Syntax, HTML Tags and Attributes, Types of HTML
+Tags, Rules of nesting, Basic Tags (HTML Tag. Head Tag, Title Tag, Body Tags).
+Page Formatting: Adding a new Paragraph, Adding a line break, Inserting a blank space, changing page
+background, Div and Span tags
+Text Formatting: Html Headings, Formatting elements (<b> Bold text</b>, <strong> Important text</strong>,<i>
+Italic text</i>, <em> Emphasized text</em>, <mark> Marked text</mark>, <small> Small text</small>, <del> Deleted text</del>, <ins>
+Inserted text</ins>, <sub> Subscript text</sub>, <sup> Superscript text)</sup>, Comments, Horizontal Lines
+Creating Lists: Ordered List, Unordered Lists, Definition Lists Others: Images, Text Links, Image
+Links, opening a page in New Window or Tab, Linking to an area of same page, Introduction to Table
+Tags, Frames & I frame, HTML Forms <br></p3> <br>
+<Span style="color:brown;">Practical Exercise: </Span> <br> <br>
+<p3>1. Create an HTML file that contains your name, a brief bio, an image, and a list of hobbies. <br>
+2. Design an HTML table listing five products with their names, prices, and descriptions. Add  proper 
+column headers and styling. <br>
+3. Build an HTML form with fields for name, email, message, radio buttons for gender, a checkbox for
+subscribing to newsletters, and a submit button. <br> <br></p3>
+<Span style="color:magenta;">Unit 3: Cascading Style Sheets </Span> <br> <br>                                              
+<p3>Introduction, Benefits of CSS, CSS Syntax, CSS Implementation (inline, internal and external), CSS
+Selectors (ID Selectors, Class Selectors, Grouping Selectors, Universal Selectors, CSS Pseudo-classes),
+CSS properties (background-color, background-image, border-style, height, width, color, text-align,
+font-family, font-style, font-size, font- weight), Box Model in CSS (margin, border, padding) <br></p3> <br>
+<Span style="color:brown;">Practical Exercise:  </Span> <br> <br>
+<p3>1. Create an HTML file and use CSS to style elements using element selectors, class selectors, ID 
+selectors, and pseudo-classes. <br>
+2. Create a navigation bar using Flexbox. The navigation bar should contain a logo and several
+navigation links, evenly spaced and aligned. <br>
+3. Create a webpage layout using CSS Grid. The layout should have a header, a sidebar, a main content 
+area, and a footer.. <br></p3> <br>
+<Span style="color:magenta;">Unit 4: Java Scripts     </Span> <br> <br>                                              
+<p3>Java Script Introduction , variables , data types , operators, control flow (if-else, for loop, while loop,
+do-while loop), Declaring Functions, Calling functions with parameters, Adding JavaScript to Web
+Documents, JavaScript Objects, Document Object Models, HTML Events and calling Java Script
+functions on Events. <br></p3> <br>
+<Span style="color:brown;">Practical Exercise:  </Span> <br> <br>
+<p3>1. Write a JavaScript program that checks a user's input password and categorizes it as Weak, Medium,
+or Strong based on length. <br>
+2. Validate a form to ensure that the user has entered a valid email and password (minimum 8
+characters, at least one number). <br> <br></p3>
+<Span style="color:magenta;">Unit 5: PHP     </Span><br>         <br>                                
+<p3>Server side scripting, Arrays, function and forms, advance PHP Databases: Basic command with PHP
+examples, Connection to server, creating database, selecting a database, listing database, listing table
+names creating a table, inserting data, altering tables, queries, deleting database, deleting data and
+tables, PHP my admin and database bugs. <br> <br></p3>
+<Span style="color:brown;">Practical Exercise:  </Span> <br> <br>
+<p3>1. Practicing PHP: Basics <br>
+2. Practicing PHP: Web Development Application <br>
+3. Practicing PHP: MySqL <br>
+4. Installation of WAMP/XAMPP Server <br> <br><br></p3>
+  </div>
+
+</div>
+
+<!-- JS -->
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".group-head").forEach(head=>{
+  head.addEventListener("click",()=>{
+    const body = head.nextElementSibling;
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+</body>
+</html>
