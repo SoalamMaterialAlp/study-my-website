@@ -1,0 +1,331 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alam Study Element</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+  font-family:Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  width:100%;
+  min-height:110px;
+  background:linear-gradient(to left,khaki,lawngreen);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+
+.header h1{
+  font-size:2.5rem;
+  color:red;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(to left,khaki,lawngreen);
+  padding:15px 20px;
+  position:relative;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:blue;
+  font-size:18px;
+}
+
+.nav-links li a:hover{
+  background:red;
+  color:white;
+  font-size: larger;
+  font-weight: 700;
+  padding:5px 10px;
+  border-radius:5px;
+}
+
+.hamburger{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.box1{
+  display:flex;
+  width:100%;
+}
+
+.box2{
+  width:25%;
+  padding:15px;
+  background:#f9f9f9;
+}
+
+.box3{
+  width:75%;
+  padding:20px;
+}
+span{
+  font-size:larger;
+}
+p3{
+  font-size:large;
+}
+/* ================= MENU GROUP ================= */
+
+.menu-group{
+  margin-bottom:15px;
+  background:white;
+  border-radius:8px;
+  padding:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.group-head{
+  cursor:pointer;
+  font-weight:bold;
+  padding:8px;
+}
+
+.group-body{
+  display:none;
+  padding-left:15px;
+}
+
+.group-body a{
+  display:block;
+  padding:6px 0;
+  text-decoration:none;
+  color:black;
+}
+
+.group-body a:hover{
+  color:green;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.header{
+  flex-direction:column;
+}
+
+.header h1{
+  font-size:20px;
+}
+
+.box1{
+  flex-direction:column;
+}
+
+.box2,
+.box3{
+  width:100%;
+}
+.nav-links{
+  position:fixed;
+  top:0;
+  right:-260px;
+  height:auto;
+  width:250px;
+  background:yellow;
+  padding-left: 10px;
+  flex-direction:column;
+  padding-top:80px;
+  transition:right 0.4s ease;
+  z-index:1000;
+  border-radius: 5%;
+}
+
+.nav-links.active{
+  right:0;
+}
+.hamburger{
+  color: blue;
+  display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <img src="logo.png" alt="">
+  </div>
+  <h1>ALAM STUDY ELEMENT</h1>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="OS.html">Operating System</a></li>
+        <li><a href="DBMS.html">DBMS</a></li>
+        <li><a href="CPUC.html">CPUC</a></li>
+        <li><a href="CN.html">Computer Network</a></li>
+        <li><a href="WT.HTML">Web Technology</a></li>
+        <li><a href="DSUC.html">DSUC</a></li>
+        <li><a href="Python.html">Python</a></li>
+        <li><a href="SE.html">Software Engineering</a></li>
+        <li><a href="Project_Management.html">Project Management</a></li>
+        <li><a href="CSO.html">CSO</a></li>
+
+  </ul>
+
+  <div class="hamburger" id="hamburger">☰</div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="box1">
+
+  <!-- Sidebar -->
+  <div class="box2">
+
+    <div class="menu-group">
+      <div class="group-head">Notes</div>
+      <div class="group-body">
+        <a href="#">Unit 1</a>
+        <a href="#">Unit 2</a>
+        <a href="#">Unit 3</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Assignment</div>
+      <div class="group-body">
+        <a href="#">Assignment 1</a>
+        <a href="#">Assignment 2</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Practical</div>
+      <div class="group-body">
+        <a href="practical_1_os.html" class="active">Practical 1</a>
+        <a href="practical_2_os.html">Practical 2</a>
+        <a href="practical_3_os.html">Practical 3</a>
+        <a href="practical_4_os.html">Practical 4</a>
+        <a href="practical_5_os.html">Practical 5</a>
+        <a href="practical_6_os.html">Practical 6</a>
+        <a href="practical_7_os.html">Practical 7</a>
+        <a href="practical_8_os.html">Practical 8</a>
+        <a href="practical_9_os.html">Practical 9</a>
+        <a href="practical_10_os.html">Practical 10</a>
+        <a href="practical_11_os.html">Practical 11</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+               <div class="box3">
+      <h1 style="color: lawngreen;text-decoration: underline">Operating System</h1>
+    <span style="color:deepskyblue;">COURSE CONTENT</span> <br>
+    <br>
+   <span style="color:darkorchid;">UNIT 1: Overview of Operating System  </span> <br> <br>
+<p3>Introduction, Different types of OS, Functions & Services of OS, UNIX/LINUX Architecture, Kernel,
+Services and systems calls, System programs. <br></p3> <br>
+   <span style="color:darkmagenta;">UNIT 2: Process Management:    </span> <br> <br>
+<p3>Process concepts, Operations on processes, CPU Scheduling, Scheduling Algorithms, IPC,  Process
+synchronization, critical section,  Deadlock, Condition, Avoidance & Prevention. <br></p3> <br>
+   <span style="color:darkorange;">UNIT 3: Memory Management:   </span>  <br><br>                                           
+<p3>Memory allocation, First Fit, Best fit & Worst Fit, Swapping, Paging and Segmentation, Page faults,
+Page Replacement Algorithm, Fragmentation & Compaction, Concept of virtual Memory. <br></p3> <br>
+   <span style="color:darkred;">UNIT 4:  I/O System:   </span> <br>   <br>     
+<p3>Mass storage structure - Overview, Disk structure, Disk attachment, Disk scheduling algorithms, swap
+space management, RAID types. <br></p3> <br>
+   <span style="color:darkgreen;">UNIT 5: File management:</span>  <br><br>                                  
+<p3>Concept of a file, access methods, directory structure, file system mounting, file sharing and
+protection, file system structure and implementation, directory implementation, free- space
+management, efficiency and performance. Different types of file systems.</p3>
+</span> <br> <br>
+
+   <span style="color:indigo;">NAME OF EXPERIMENT</span> <br> <br>
+<p3>1.Practice of various Linux/ Unix commands like man, cp, mv, ln, rm, unlink, mkdir, rmdir, 
+etc. <br>
+2.Format and Install Windows Operating System. <br>
+3.Use Task Manager to monitor and terminate processes.  Understand process priorities. <br>
+4.Simulate the following CPU scheduling algorithms. <br>
+ a) FCFS  b) SJF  c) Round Robin  d) Priority. <br>
+5.Simulate the concept of Dining-philosophers problem. <br>
+6.Simulate Bankers Algorithm for Deadlock Avoidance and deadlock Prevention <br>
+7.Write a program to simulate the following contiguous memory allocation Techniques  <br>
+a) Worst fit b) Best fit c) First fit. <br>
+8.Simulate all page replacement algorithms  <br>
+a)FIFO   b) LRU  c) OPTIMAL <br>
+9.Write a program to simulate disk scheduling algorithms.   <br>
+a) FCFS  b) SCAN c) C-SCAN <br>
+10.Simulate all File Organization Techniques <br>
+a) Single level directory b) Two level directory <br>
+11.Simulate all file allocation strategies  <br>
+a) Sequential  b) Indexed  c) Linked. <br><br><br></p3>
+</p3>
+
+  </div>
+
+</div>
+
+<!-- JS -->
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".group-head").forEach(head=>{
+  head.addEventListener("click",()=>{
+    const body = head.nextElementSibling;
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+</body>
+</html>
