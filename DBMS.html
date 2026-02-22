@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alam Study Element</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  width:100%;
+  min-height:110px;
+  background:linear-gradient(to right,khaki,lawngreen);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+
+.header h1{
+  font-size:4rem;
+  color:red;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(to right,khaki,lawngreen);
+  padding:15px 20px;
+  position:relative;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:blue;
+  font-size:18px;
+}
+
+.nav-links li a:hover{
+  background:red;
+  color:white;
+  font-size: larger;
+  font-weight: 700;
+  padding:5px 10px;
+  border-radius:5px;
+}
+
+.hamburger{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+
+/* ================= MAIN LAYOUT ================= */
+
+.box1{
+  display:flex;
+  width:100%;
+}
+
+.box2{
+  width:25%;
+  padding:15px;
+  background:#f9f9f9;
+}
+
+.box3{
+  width:75%;
+  padding:20px;
+}
+span{
+  font-size: larger;
+}
+p3{
+  font-size: large;
+}
+
+/* ================= MENU GROUP ================= */
+
+.menu-group{
+  margin-bottom:15px;
+  background:white;
+  border-radius:8px;
+  padding:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.group-head{
+  cursor:pointer;
+  font-weight:bold;
+  padding:8px;
+}
+
+.group-body{
+  display:none;
+  padding-left:15px;
+}
+
+.group-body a{
+  display:block;
+  padding:6px 0;
+  text-decoration:none;
+  color:black;
+}
+
+.group-body a:hover{
+  color:green;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.header{
+  flex-direction:column;
+}
+
+.header h1{
+  font-size:20px;
+}
+
+.box1{
+  flex-direction:column;
+}
+
+.box2,
+.box3{
+  width:100%;
+}
+
+.nav-links{
+  position:fixed;
+  top:0;
+  right:-260px;
+  height:auto;
+  width:250px;
+  background-color: yellow;
+  flex-direction:column;
+  padding-top:80px;
+  border-radius: 5%;
+  padding-left: 10px;
+  transition:right 0.4s ease;
+  z-index:1000;
+}
+
+.nav-links.active{
+  right:0;
+}
+
+.hamburger{
+  color:magenta;
+  display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <img src="logo.png" alt="">
+  </div>
+  <h1>ALAM STUDY ELEMENT</h1>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+        <li><a href="OS.html">Operating System</a></li>
+        <li><a href="DBMS.html">DBMS</a></li>
+        <li><a href="CPUC.html">CPUC</a></li>
+        <li><a href="CN.html">Computer Network</a></li>
+        <li><a href="WT.HTML">Web Technology</a></li>
+        <li><a href="DSUC.html">DSUC</a></li>
+        <li><a href="Python.html">Python</a></li>
+        <li><a href="SE.html">Software Engineering</a></li>
+        <li><a href="Project_Management.html">Project Management</a></li>
+        <li><a href="CSO.html">CSO</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger">☰</div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="box1">
+
+  <!-- Sidebar -->
+  <div class="box2">
+
+    <div class="menu-group">
+      <div class="group-head">Notes</div>
+      <div class="group-body">
+        <a href="#">Unit 1</a>
+        <a href="#">Unit 2</a>
+        <a href="#">Unit 3</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Assignment</div>
+      <div class="group-body">
+        <a href="#">Assignment 1</a>
+        <a href="#">Assignment 2</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Practical</div>
+      <div class="group-body">
+        <a href="#">Practical 1</a>
+        <a href="#">Practical 2</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="box3">
+        <h1 style="color: aqua;">DataBase Management System</h1> <br>
+<span style="color:maroon;">COURSE CONTENT</span> <br> <br>
+<span style="color:purple;">UNIT 1: Introduction </span> <br> <br>
+<p3>Database System Concepts and Architecture, Components of DBMS, Table Structure, Schema
+definition, ,Three views of Data (External View, Conceptual View, Internal View). <br></p3> <br>
+<span style="color:tomato;">UNIT2: Data Model and Keys: </span> <br> <br>
+<p3>Define data model, Data Models :  Network Model Hierarchical Model, E-R Model, Advantage &
+Disadvantages of each Data Model, Concept of Keys (Primary, Candidate, Super, Foreign), Constraints,
+Strong Entity Set and Weak Entity Set. </p3><br> <br>
+<span style="color:rebeccapurple;">UNIT 3: Relational Model:  </span> <br>     <br>                       
+<p3>The Relational Data Model and Relational Database Constraints; ER/EER to Relational Model mapping;
+Relational Algebra and Relational Calculus, Relations algebra (Basic operation: Union intersection
+difference and Cartesian product), Additional Relational Algebraic Operations (Projection, Selection rows,
+Division, rename  and join ) <br></p3> <br> 
+<span style="color:crimson;">UNIT 4:  Relational Database Design : </span> <br> <br>      
+<p3>Functional dependencies and normalization for relational databases, Types of Normalization (1NF, 2NF,
+3NF, multivalued dependencies and BCNF, Forth Normal Form, Fifth Normal Form). <br></p3> <br>
+
+<span style="color:chocolate;">UNIT 5: SQL/MySQL:  </span> <br>  <br>
+<p3>MySQL data types -Data Definition Commands - Data Manipulation Commands- Data Retrieval
+Commands, Types of operators- Arithmetic, Comparison and Logical Operators. </p3><br> <br>
+ 
+ 
+ <span style="color:gold;">S.No.</span>
+<span style="color:green;">NAME OF EXPERIMENT</span> <br>
+<p3>1.Install and configure a database system (MySQL through XAMPP Server, MySQL, PostgreSQL,
+or SQLite) <br>
+2.Design an ER Model for a Library Management System. <br>
+3.Study of the different properties present in an ER Model <br> 
+4.Creating Database <br>
+Creating a database <br>
+Creating a table <br>
+Specifying relational data types <br>
+Specifying constraints <br>
+Creating indexes <br>
+5.Table and Record Handling <br>
+INSERT statement <br>
+Using SELECT and INSERT together <br>
+DELETE, UPDATE, TRUNCATE Statement. <br>
+DROP, ALTER statement <br>
+6.Retrieving Data From a Database The SELECT statement <br>
+Using the WHERE clause <br>
+Using Logical Operators in the WHERE clause <br>
+Using In, BETWEEN, LIKE, ORDER BY, GROUP BY & HAVING clause <br>
+Using Aggregate Functions <br>
+Combining Tables Using JOINS <br>
+7.Case Study 1: SQL - Library Management System
+Scenario: <br>
+An institute manges a Library Management System with following column
+BookID, Title, Author_Name, Year_of_publication, Publisher_name, Subject,
+MemberID, (You may add other fields also) <br>
+Task: <br>
+Design and implement a database for a library management system.  <br>
+The library wants to track information about its books, members, authors, and
+publishers.  <br>
+1. Retrieve the names of all books with specific author “A” <br>
+2. Retrieve the names of books of particular subject “X” <br>
+3. Decrease the book count by 1 from the table for BookID =”101” <br>
+4. Add a new member in the database <br>
+8.Case Study 2: SQL - Employee Database
+Scenario: <br>
+An organization maintains an employee database with the following columns: EmployeeID,
+FirstName, LastName, Department, Salary, JoiningDate. <br>
+Task: <br>
+1. Retrieve the names of all employees in the "Sales" department. <br>
+2. Find all employees who joined after January 1, 2020. <br>
+3. Update the salary of employee EmployeeID = 102 by 10%. <br>
+4. Delete an employee record where EmployeeID = 105. <br>
+9.Case Study 3: SQL – Bookstore Inventory 
+Scenario : <br>
+A bookstore stores information about books in the following columns: BookID, Title,
+Author, Price, Genre, StockCount. <br>
+Task: <br>
+1. List all books in the "Science Fiction" genre. <br>
+2. Find all books priced greater than 200. <br>
+3. Increase stock count by 5 for all books authored by "John Doe". <br>
+4. Remove a book from inventory with BookID = 201 <br>
+10.Case Study 4: SQL - Student Grades Database
+Scenario: <br>
+A school database stores students' grades with columns: StudentID, FirstName, LastName,
+Subject, Grade. <br>
+Task: <br>
+1. Retrieve the names of all students with an "A" grade in the subject "Math". <br>
+2. Find the average grade of all students in the "English" subject. <br>
+3. Update the grade for StudentID = 103 in "History" to "B+". <br>
+4. Delete all records for students who have failed in "Science" (Grade: "F"). <br> <br> <br>
+    </p3>
+  </div>
+
+</div>
+
+<!-- JS -->
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".group-head").forEach(head=>{
+  head.addEventListener("click",()=>{
+    const body = head.nextElementSibling;
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+</body>
+</html>
