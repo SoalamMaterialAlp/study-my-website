@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alam Study Element</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+  font-family:Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  width:100%;
+  min-height:110px;
+  background:linear-gradient(to left,khaki,lawngreen);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+
+.header h1{
+  font-size:2.5rem;
+  color:red;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(to left,khaki,lawngreen);
+  padding:15px 20px;
+  position:relative;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:blue;
+  font-size:18px;
+}
+
+.nav-links li a:hover{
+  background:red;
+  color:white;
+  padding:5px 10px;
+  border-radius:5px;
+}
+
+.hamburger{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.box1{
+  display:flex;
+  width:100%;
+}
+
+.box2{
+  width:25%;
+  padding:15px;
+  background:#f9f9f9;
+}
+
+.box3{
+  width:75%;
+  padding:20px;
+}
+
+span{
+  font-size:larger;
+}
+p3{
+  font-size:large;
+}
+/* ================= MENU GROUP ================= */
+
+.menu-group{
+  margin-bottom:15px;
+  background:white;
+  border-radius:8px;
+  padding:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.group-head{
+  cursor:pointer;
+  font-weight:bold;
+  padding:8px;
+}
+
+.group-body{
+  display:none;
+  padding-left:15px;
+}
+
+.group-body a{
+  display:block;
+  padding:6px 0;
+  text-decoration:none;
+  color:black;
+}
+
+.group-body a:hover{
+  color:green;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.header{
+  flex-direction:column;
+}
+
+.header h1{
+  font-size:20px;
+}
+
+.box1{
+  flex-direction:column;
+}
+
+.box2,
+.box3{
+  width:100%;
+}
+
+.nav-links{
+  position:fixed;
+  top:0;
+  right:-260px;
+  height:auto;
+  width:250px;
+  background:yellow;
+  flex-direction:column;
+  padding-top:80px;
+  border-radius:5%;
+  padding-left:10px;
+  transition:right 0.4s ease;
+  z-index:1000;
+}
+
+.nav-links.active{
+  right:0;
+}
+
+.hamburger{
+  color:red;
+  display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <img src="logo.png" alt="">
+  </div>
+  <h1>ALAM STUDY ELEMENT</h1>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+        <li><a href="OS.html">Operating System</a></li>
+        <li><a href="DBMS.html">DBMS</a></li>
+        <li><a href="CPUC.html">CPUC</a></li>
+        <li><a href="CN.html">Computer Network</a></li>
+        <li><a href="WT.HTML">Web Technology</a></li>
+        <li><a href="DSUC.html">DSUC</a></li>
+        <li><a href="Python.html">Python</a></li>
+        <li><a href="SE.html">Software Engineering</a></li>
+        <li><a href="Project_Management.html">Project Management</a></li>
+        <li><a href="CSO.html">CSO</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger">☰</div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="box1">
+
+  <!-- Sidebar -->
+  <div class="box2">
+
+    <div class="menu-group">
+      <div class="group-head">Notes</div>
+      <div class="group-body">
+        <a href="#">Unit 1</a>
+        <a href="#">Unit 2</a>
+        <a href="#">Unit 3</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Assignment</div>
+      <div class="group-body">
+        <a href="#">Assignment 1</a>
+        <a href="#">Assignment 2</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Practical</div>
+      <div class="group-body">
+        <a href="practical_1_cpuc.html">Practical No.-1</a>
+        <a href="practical_2_cpuc.html">Practical No.-2</a>
+        <a href="practical_3_cpuc.html">Practical No.-3</a>
+        <a href="practical_4_cpuc.html">Practical No.-4</a>
+        <a href="practical_5_cpuc.html">Practical No.-5</a>
+        <a href="practical_6_cpuc.html">Practical No.-6</a>
+        <a href="practical_7_cpuc.html">Practical No.-7</a>
+        <a href="practical_8_cpuc.html">Practical No.-8</a>
+        <a href="practical_9_cpuc.html">Practical No.-9</a>
+        <a href="practical_10_cpuc.html">Practical No.-10</a>
+        <a href="practical_11_cpuc.html">Practical No.-11</a>
+        <a href="practical_12_cpuc.html">Practical No.-12</a>
+        
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="box3">
+        <h1 style="color:blue">Computer Programming Using C</h1> <br>
+    <span style="color:yellow">COURSE CONTENT</span> <br> <br>
+<span style="color: lawngreen;">UNIT 1: Introduction to Problem Solving:     </span> <br>  <br>
+<p3> Computational way of thinking, Flowchart and Algorithm, Variable, constant and Representation, Data Types,
+Keywords, Identifier. <br></p3> <br>
+<span style="color:deepskyblue ;">Practical Exercise:  </span> <br> <br>
+<p3>1. Installation of C Compiler <br>
+2. Familiarization with programming environment and options/menu of the installed compiler. <br>
+3. Draw a Flowchart using MS Word (or any other editor or online tools like Draw.io etc.) <br></p3> <br>
+<span style="color: lawngreen;">UNIT 2:   Operators & Expression:    </span>
+ <br>   <br>
+ <p3> Arithmetic, Relational, Logical and Bitwise Operators, Input, Output, Expressions, Data Type Casting <br></p3> <br>
+<span style="color:deepskyblue ;">Practical Exercise:  </span> <br> <br>
+<p3>1.Programs using I/O statements and various operators <br>
+a.WAP to print your name <br>
+b.WAP to perform various arithmetic and logical operators. <br>
+c.WAP to swap two numbers with and without using third variable <br>
+2.Programs using expression evaluation and precedence <br>
+a.WAP using unary and tertiary operators <br>
+b.WAP using post and pre - increment operators <br></p3> <br>
+<span style="color:lawngreen ;">UNIT 3:    Conditional & Looping Statements: </span><br>    <br>
+<p3> if, if-else, if-else ladder, switch–case, break and continue, Loops: for, while and Do-while and Nested Loops. </p3><br> <br>
+<span style="color:deepskyblue ;">Practical Exercise: </span> <br> <br>
+<p3>1.Programs using decision making statements and branching statements <br>
+a. WAP to check whether the given number is odd or even <br>
+b. WAP to check whether a given number is Prime or not. <br>
+c. WAP to find the largest among the given three numbers <br>
+2.Programs using loop statements <br>
+a. WAP to find the factorial of a given number <br>
+b. WAP to print table of a given number <br>
+c. WAP to to print all prime numbers from 1 to 100 <br>
+d. WAP to print Fibonacci series till a given number n <br>
+e. WAP to print different star patterns <br></p3> <br>
+<span style="color: lawngreen;">UNIT 4:   Arrays & String:   </span> <br>     <br>
+<p3> Introduction to Arrays, Array Declaration, Length of array, Manipulating array elements, Single and
+Multidimensional Array, Arrays of characters, Introduction of Strings, String declaration and definition, String
+Related function i.e. strlen, strcpy, strcmp,. <br></p3> <br>
+<span style="color: deepskyblue;">Practical Exercise:  </span> <br> <br>
+<p3>1.Programs to demonstrate applications of n dimensional arrays <br>
+a. WAP to print 3 x 3 matrix. <br>
+b. WAP to print the transpose of a 3 x 3 matrix. <br>
+c. WAP to add two matrices. <br>
+2.Programs to demonstrate use of string manipulation functions <br>
+a. WAP to find the length of a given string <br>
+b. WAP to concatenate two strings <br>
+c. WAP to check whether the given string/number is palindrome or not <br></p3> <br>
+<span style="color:lawngreen ;">UNIT 5: Function & Pointer:     </span>
+<br>    <br>
+<p3> Introduction to functions, Global and Local Variables, Function Declaration, Function Call and Return,
+Types of Functions, Standard functions, Introduction to Pointer, Parameters and Parameter Passing,
+
+Call-by value/reference, recursive function,  I/O and Formatting <br></p3> <br>
+<span style="color:deepskyblue ;">Practical Exercise:  </span> <br> <br>
+<p3>1.Programs to demonstrate parameter passing mechanism <br>
+a. Create a user defined function to add two numbers.  <br>
+b. WAP to implement call by value  <br>
+c. WAP to implement call by reference <br>
+2.Programs to demonstrate recursion <br>
+a. WAP to print the factorial of a given number using recursion.  <br>
+3.Programs to demonstrate use of pointers <br>
+a. WAP to print the address of variable using pointer <br>
+b. WAP to swap the contents of two variable using pointer. <br><br> <br>
+</p3>
+  </div>
+
+</div>
+
+<!-- JS -->
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".group-head").forEach(head=>{
+  head.addEventListener("click",()=>{
+    const body = head.nextElementSibling;
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+</body>
+</html>
