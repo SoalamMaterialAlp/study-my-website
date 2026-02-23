@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+                overflow: auto;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        span{
+            font-size: x-large;
+        }
+        p{
+            font-size: larger;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+        
+        /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            .container{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-6</h1>
+        <p><span style="color:darkblue">Aim:-</span> Program using decision making statements and bracihing sstatements. <br>
+        (a)-Write a program to check wheather the given number is odd or even. <br>
+    (b)-Write a program to check wheather a given number is prime or not. <br>
+(c)-Write a program to find the largest among the given three number. <br> <br>
+            <span style="color:chartreuse">Requrid:-</span>Personal Computer or laptop ,Install visual Studio Code with c compiler and extension or Turbo C++ <br>
+<br>
+            <span style="color: blueviolet;">Procedure:-</span> <br>
+    
+              <br>(a)-Write a program to check wheather the given number is odd or even. <br> <br></p>
+  
+         <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>
+#include<stdio.h>
+int main(){
+    //to check even or odd
+    int n;
+    printf("Enter the number:");
+    scanf("%d",&n);
+
+    if(n%2 !=0){
+        printf("This number is odd number");
+    }else{printf("This is a even number");
+    }
+    return 0;
+}
+</pre>   
+</div>
+
+    <br><p>(b)-Write a program to check wheather a given number is prime or not. </p><br> <br>
+<div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+#include<stdio.h>
+int main(){
+    //To check number is prime or not prime
+    int n,count=0;
+    printf("Enter the number  to check prime or not prime:");
+    scanf("%d",&n);
+    for(int i =1;i<=n;i++){
+        if(n%i ==0){
+            count++;
+        }
+    }      
+          if(count==2){
+            printf("This number is Prime Number");
+            }else{printf("This number is not a Prime Number");
+                }
+    return 0;
+}
+</pre>   
+</div>
+
+ <br>(c)-Write a program to find the largest among the given three number. <br> <br>
+<div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+#include<stdio.h>
+int main(){
+    //find the largest number to given three number
+    int a,b,c;
+    printf("Enter the first number:");
+    scanf("%d",&a);
+    printf("Enter the second number:");
+    scanf("%d",&b);
+    printf("Enter the third number:");
+    scanf("%d",&c);
+    if(a>b && a>c){
+        printf("The largest number:%d",a);
+    }else if(b>a && b>c){
+        printf("The largest number:%d",b);
+    }
+    else {
+        printf("The largest number:%d",c);
+    }
+    return 0;
+}
+
+</pre>   
+</div>
+
+
+
+</p>
+</div>
+
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+
+</script>
+</body>
+</html>
