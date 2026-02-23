@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+                overflow: auto;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        span{
+            font-size: x-large;
+        }
+        
+        p{
+            font-size: larger;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+        
+        /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            .container{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-4</h1>
+       <p> <span style="color: deeppink;">Aim:-</span> Programs using I/O statements and various operators. <br>
+       (a)-Write a program to print your name. <br>
+        (b)-Write a program to perfom various arithmetic and logical operations. <br>
+        (c)-Write a program to swap two numbers with and without using third variables. <br> </p> <br>
+<span style="color:blue">Required:</span> <p>Personal computer or laptop ,Installed visual studio code with compiler and extension or turbo C++. <br><br> </p>
+        <p>
+            (a)-Write a program to print your name. <br>
+         <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>
+    #include <stdio.h>
+int main() {
+    printf("My name is  Kadir Alam\n");
+    return 0;
+}
+
+</pre>   
+</div>
+         <p><br>(b)-Write a program to perfom various arithmetic and logical operations. <br> </p>
+                 <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>
+# include<stdio.h>
+int main(){
+
+    int a;
+    int b;
+    printf("enter the value of a:");
+    scanf("%d",&a);
+    printf("enter the value of b :");
+    scanf("%d",&b);
+    //arithmetic operations
+    printf("Addition (a+b): %d \n",a+b);
+    printf("Subtraction (a-b): %d \n",a-b);
+    printf("Multiply (a*b): %d \n",a*b);
+    printf("Division (a/b): %d\n",a/b);
+    printf("Modulus (a%b): %d\n",a%b);
+    //logical operations
+    printf("(Logical AND (a>b && b<a)):%d\n",(a>b && b<a));
+     printf("(Logical OR(a>b || b<a)):%d\n",(a>b ||b<a));
+      printf("(Logical NOT ( ! b<a)):%d\n",!(b<a));
+    return 0;
+}
+
+
+            </code>
+        </pre>
+                 </div>
+
+         <p><br>(c)-Write a program to swap two numbers with using third variables. <br> <br> </p>
+
+             <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>
+    # include <stdio.h>
+int main(){
+    // using third variables
+    int a;
+    int b;
+    int c;
+    printf("Enter the value of a :");
+    scanf("%d",&a);
+    printf("Enter ther value of  b:");
+    scanf("%d",&b);
+    printf("Before swaping :a = %d ,b = %d\n",a,b);
+    c= a;
+    a =b;
+    b= c;
+    printf("After swaping :a = %d , b=%d " ,a,b);
+    return 0;
+}
+
+
+
+            </code>
+        </pre>
+             </div>
+
+        <p></p> <br>(c)-Write a program to swap two numbers without  using third variables. <br> <br></p>
+             <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>
+    # include <stdio.h>
+int main(){
+    //without third variables
+    int a;
+    int b;
+    printf("Enter the value of a :");
+    scanf("%d",&a);
+    printf("Enter ther value of  b:");
+    scanf("%d",&b);
+    printf("Before swaping :a = %d ,b = %d\n",a,b);
+    a = a+b;
+    b = a-b;
+    a = a -b;
+
+    printf("After swaping :a = %d , b=%d " ,a,b);
+    return 0;
+}
+            </code>
+        </pre>
+             </div>
+
+</p>
+</div>
+
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+
+</script>
+</body>
+</html>
