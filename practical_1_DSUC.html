@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        span{
+            font-size: xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: larger;
+            padding-left: 25px ;
+        }
+        ol{
+            font-size: x-large;
+            color: blue;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        pre{
+            width: 100%;
+            height: auto;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+            border-radius: 25%;
+        }
+        /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-1</h1>
+        <p>
+    <span style="color:deeppink;">Aim:-</span>To write a program perform various operation on stack using Linked List in C language.
+<br> <br>
+    <span style="color:brown;">Requriment:-</span> Personal computer or laptop ,Install Code editior  with C Compiler and extensiton.
+ <br><br>
+     <span style="color:lawngreen ;">Theory:-</span> <br><br>
+<span>Stack:</span><br><br>
+<ul>
+    <li>Stack is a type of linear data structure.</li>
+    <li>It follow LIFO (Last In,First Out) principle.</li>
+</ul>
+
+<ol>Stack Operation:
+    <li>Push ()</li>
+    <li>Pop()</li>
+    <li>Peek ()</li>
+    <li>IsFull()</li>
+    <li>IsEmpty()</li>
+</ol><br>
+
+<span>Algorithm:-</span> <br><br>
+
+<ol>1.Push()</ol>
+<ul>
+    <li>If top == MAX-1 --->Stack Full.</li>
+    <li>Else top = +1</li>
+    <li>stack [top] = value</li>
+</ul><br>
+
+<ol>2.Pop()</ol>
+<ul>
+    <li>If top ==-1 --> Stack Empty.</li>
+    <li>Else remove stack[top]</li>
+    <li>top = top-1</li>
+</ul><br>
+
+<ol>3.Peek()</ol>
+<ul>
+    <li>If top ==-1 -->stack empty</li>
+    <li>Else displaystack[top]</li>
+</ul><br>
+
+<ol>4.IsFull()</ol>
+<ul>
+    <li>If top == MAX-1 -->Full</li>
+    <li>Else Not Full</li>
+</ul><br>
+
+<ol>5.IsEmpty()</ol>
+<ul>
+    <li>If top==-1 -->Empty</li>
+</ul> <br>    
+
+     <div class="code"><button id="copyBtn" ><i class="fa-solid fa-copy"> copy code</i></button>
+        <span >c</span>
+        <pre id="program">
+
+#include &lt;stdio.h&gt;
+int stack[100];
+int top = -1;
+int MAX;
+
+//PUSH OPERATION
+void push(int x){
+ if (top == MAX - 1){
+        printf("Stack is overflow condition!Cannot Push \n");
+    }
+else{
+        top++;
+        stack[top] = x;
+        printf("%d pushed into stack\n",x);
+    }
+}
+//POP OPERATION
+void pop(){
+    if(top==-1){
+        printf("Stack is underflow condition!Stack is empty.\n");
+    }else{
+        printf("%d popped from stack\n",stack[top]);
+        top--;
+    }
+}
+//PEEK OPERATION
+void peek(){
+    if(top==-1){
+        printf("Stack is empty.\n");
+    }else{
+        printf("Top Element is %d\n",stack[top]);
+    }
+}
+//isFull OPERATION
+void isFull(){
+    if(top == MAX - 1){
+        printf("Stack is full.");
+    }else{
+        printf("Stack is not full");
+    }
+}
+//ISEMPTY OPERATION
+void IsEmpty(){
+    if(top == - 1){
+        printf("Stack is empty.");
+    }else{
+        printf("Stack is not empty.");
+    }
+}
+//DISPLAY OPERATION
+void display(){
+    if(top==-1){
+        printf("Stack is Empty\n");
+    }else{
+        printf("Stack elements are \n");
+        for(int i=top;i>=0;i--){
+           printf("%d\n",stack[i]);
+        }
+    }
+}
+//Main Function
+int main(){
+    while(1){
+    printf("Enter the Size(0-100) of Stack:");
+            if(scanf("%d",&MAX)!=1){
+                printf("Invalid Number!Only positve number allowed\n");
+                while(getchar()!='\n');
+                continue;
+            }
+            if(MAX <=0){
+                printf("Invalid size!Enter only Positive Number");
+                continue;
+            }
+            break;
+        };
+    int choice,value;
+    do{
+        printf("\n--Stack Operation--\n");
+        printf("1. Push()\n");
+        printf("2. Pop()\n");
+        printf("3. Peek()\n");
+        printf("4. IsFull()\n");
+        printf("5. IsEmpty()\n");
+        printf("6. Display \n");
+        printf("7. Exit\n");  
+        printf("Enter your choice:");
+        scanf("%d",&choice);
+ 
+    
+    
+        switch (choice){
+            case 1: printf("Enter value of push:");
+            scanf("%d",&value);                   
+            push(value);
+            break;
+            case 2:pop();
+                break;
+            case 3:peek ();
+                break;
+            case 4: isFull();
+                break;
+            case 5: IsEmpty();
+                break;
+            case 6: display();
+                break;
+            case 7: printf("Exiting Program....\n");
+                break;
+            default: printf("Invalid Choice Try Again.\n");
+        }
+
+    }while (choice!=7);
+    // while(getchar()!='\n');
+        
+    
+    return 0;    
+}
+
+</pre>
+</div>
+<span style="color: brown;">Result:</span><p>
+Thus, all stack operation are successfully implemented.</p>
+
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+</body>
+</html>
