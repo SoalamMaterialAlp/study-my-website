@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alam Study Element</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,body{
+  width:100%;
+  overflow-x:hidden;
+  font-family:Arial, sans-serif;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  width:100%;
+  min-height:110px;
+  background:linear-gradient(to left,khaki,lawngreen);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.logo{
+  width:80px;
+  height:80px;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+}
+
+.header h1{
+  font-size:2.5rem;
+  color:red;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(to left,khaki,lawngreen);
+  padding:15px 20px;
+  position:relative;
+}
+
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links li a{
+  text-decoration:none;
+  color:blue;
+  font-size:18px;
+}
+
+.nav-links li a:hover{
+  background:red;
+  color:white;
+  padding:5px 10px;
+  border-radius:5px;
+}
+
+.hamburger{
+  display:none;
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.box1{
+  display:flex;
+  width:100%;
+}
+
+.box2{
+  width:25%;
+  padding:15px;
+  background:#f9f9f9;
+}
+
+.box3{
+  width:75%;
+  padding:20px;
+}
+span{
+  font-size: x-large;
+}
+p{
+  font-size: larger;
+}
+
+/* ================= MENU GROUP ================= */
+
+.menu-group{
+  margin-bottom:15px;
+  background:white;
+  border-radius:8px;
+  padding:10px;
+  box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.group-head{
+  cursor:pointer;
+  font-weight:bold;
+  padding:8px;
+}
+
+.group-body{
+  display:none;
+  padding-left:15px;
+}
+
+.group-body a{
+  display:block;
+  padding:6px 0;
+  text-decoration:none;
+  color:black;
+}
+
+.group-body a:hover{
+  color:green;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.header{
+  flex-direction:column;
+}
+
+.header h1{
+  font-size:20px;
+}
+
+.box1{
+  flex-direction:column;
+}
+
+.box2,
+.box3{
+  width:100%;
+}
+span{
+  font-size:larger;
+}
+p{
+  font-size: large;
+}
+
+.nav-links{
+  position:fixed;
+  top:0;
+  right:-260px;
+  height:auto;
+  width:250px;
+  background:GOLD;
+  flex-direction:column;
+  padding-top:80px;
+  padding-LEFT:10px;
+  border-radius:5%;
+  transition:right 0.4s ease;
+  z-index:1000;
+}
+
+.nav-links.active{
+  right:0;
+}
+
+.hamburger{
+  display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">
+    <img src="logo.png" alt="">
+  </div>
+  <h1>ALAM STUDY ELEMENT</h1>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+        <li><a href="OS.html">Operating System</a></li>
+        <li><a href="DBMS.html">DBMS</a></li>
+        <li><a href="CPUC.html">CPUC</a></li>
+        <li><a href="CN.html">Computer Network</a></li>
+        <li><a href="WT.HTML">Web Technology</a></li>
+        <li><a href="DSUC.html">DSUC</a></li>
+        <li><a href="Python.html">Python</a></li>
+        <li><a href="SE.html">Software Engineering</a></li>
+        <li><a href="Project_Management.html">Project Management</a></li>
+        <li><a href="CSO.html">CSO</a></li>
+   </ul>
+
+  <div class="hamburger" id="hamburger">☰</div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="box1">
+
+  <!-- Sidebar -->
+  <div class="box2">
+
+    <div class="menu-group">
+      <div class="group-head">Notes</div>
+      <div class="group-body">
+        <a href="#">Unit 1</a>
+        <a href="#">Unit 2</a>
+        <a href="#">Unit 3</a>
+      </div>
+    </div>
+
+    <div class="menu-group">
+      <div class="group-head">Assignment</div>
+      <div class="group-body">
+        <a href="#">Assignment 1</a>
+        <a href="#">Assignment 2</a>
+      </div>
+    </div>
+<!-- 
+    <div class="menu-group">
+      <div class="group-head">Practical</div>
+      <div class="group-body">
+        <a href="#">Practical 1</a>
+        <a href="#">Practical 2</a>
+      </div>
+    </div> -->
+
+  </div>
+
+  <!-- Content -->
+  <div class="box3">
+    <h2 style="color: blue;">Computer System Organization</h2><br><br>
+    <p>
+      <span style="color:navy">COMPUTER SYSTEM ORGANIZATION SYLLABUS</span> <br><br>
+<span style="color:peru">COURSE CONTENT</span> <br><br>
+<span style="color:lawngreen">UNIT-1: Structure of Computers:</span> <br><br>
+ Computer Functional units, Von-Neumann architecture, Bus structures, Basic Operational Concepts Number System: Binary, octal and hexadecimal number system: conversion from decimal and hexadecimal to binary and vice-versa, Binary addition and subtraction including binary points. 1’s and 2’s complement method of  addition/subtraction, Error detecting codes. <br><br>
+ <span style="color:purple">UNIT-2: Logic Gates and Simplification:</span> <br><br>
+ Concept of negative and positive logic, Definition, symbols and truth tables of NOT, AND, OR, NAND, NOR, EXOR Gates, NAND and NOR as universal gates, SSI, MSI, LSI, VLSI (Definition), Propagation delay, Noise Margin, Fan in, Fan out, Power dissipation, Postulates of Boolean algebra, De Morgan’s Theorems. Implementation of Boolean (logic) equation with gates, Karnaugh map (upto 4 variables). <br><br>
+ <span style="color:aquamarine">UNIT-3: Introduction to combinational circuit: </span> <br><br>
+ Multiplexer, De-multiplexer, Encoder, Decoder block diagram and Circuit, 7 segment decoder, BCD Encoder Circuit, Half adder and Full adder circuit, design and implementation, Half subtractor and Full subtractor or Circuit, design and implementation. <br><br>
+ <span style="color:indigo">UNIT-4: Introduction to Microprocessor Architecture:
+ Instruction Set Architecture design principles from programmer’s perspective. One example microprocessor (Intel, ARM, etc). Assembly Language Programming: Simple programs, Assembly language programs involving logical, branch and call instructions, sorting, evaluation of arithmetic expressions, string manipulation. <br><br>
+ <span style="color:olivedrab">UNIT-5: Memory and Digital Interfacing: </span><br><br>
+ Addressing and address decoding, interfacing RAM, ROM, EPROM, programmable peripheral interface, various modes of operation and interfacing to processor, inter- facing keyboard, displays, etc. <br><br>
+
+    </p>
+    
+  </div>
+
+</div>
+
+<!-- JS -->
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".group-head").forEach(head=>{
+  head.addEventListener("click",()=>{
+    const body = head.nextElementSibling;
+    body.style.display = body.style.display === "block" ? "none" : "block";
+  });
+});
+</script>
+
+<!-- ============= footer to show the developer Name ========== -->
+<footer style="text-align: center; color: red;">
+  <p>&copy; 2026- <span style="font-size: large; " id="year"></span> Developed by Kadir Alam</p>
+</footer>
+
+<script>
+  document.getElementById("year").innerHTML = new Date().getFullYear();
+</script>
+<script>
+  document.addEventListener("contextmenu",function(e){
+    e.preventDefault();
+  });
+</script>
+</body>
+</html>
