@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted mediumblue;
+        }
+        span{
+            font-size: xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+           .box{
+                width: 100%;
+                height: auto;
+                overflow:auto;
+            }
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border:3px solid blue;
+            text-align: center;
+            padding: 10px;
+            font-size: large;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        @media (max-width:768px){
+            .container{
+                width: 100%;
+                height: auto;
+            }
+            span{
+                font-size: larger;
+            }
+            p,ul{
+                font-size: large;
+            }
+            h1{
+                font-size: x-large;
+            }
+            .box{
+                width: 100%;
+                height: auto;
+                overflow:auto;
+            }
+        table{
+            border-collapse: collapse;
+        }
+        th,td{
+            border:3px solid darkviolet;
+            text-align: center;
+            padding: 2px;
+        }
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-1</h1>
+        <p>
+    <span style="color:purple;">Aim:-</span> <br>
+To understand and practically observe data travels through different OSI layer using Cisco Packet Tracer. <br>
+<span style="color:maroon;">Requirement:-</span> <br>
+<ul>
+<li>Computer System or laptop with network.</li>
+<li>Wi-Fi / ethernet</li>
+<li>Cisco Packet Tracer Software.</li></ul>
+<span style="color:magenta;">Theory:-</span> <br>
+<p>The OSI (Open System Interconnection) model divides the communication process into seven layers to standardize network communication.
+Each layer performs a specific-functions and interacts only with its adjacent layers. <br></p>
+<div class="box">
+<table>
+<tr>
+<th>Layer No.</th>
+<th>Layer Name</th>
+<th>Function</th>
+</tr>
+<tr>
+<td>7</td>
+<td>Application Layer</td>
+<td>Provides network services to end-users (e.g HTTP,FTP)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Presentation Layer</td>
+<td>Data translation compresssion encryption</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Session Layer</td>
+<td>Controls dialog between systems</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>Transport Layer</td>
+<td>Ensures reliable delivery UDP, TCP</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Network Layer</td>
+<td>Logical addressing and routing IP</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Data Link Layer</td>
+<td>Physical addressing MAC framing</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Physical Layer</td>
+<td>Transimission of bits through the medium</td>
+</tr>
+</table>
+</div>
+<span style="color:green;">Procedure:-</span> <br>
+  <span style="color:darkgoldenrod;">Using Cisco Packet Tracer </span><br>
+<span style="color:darkorange;">1.Open Cisco Packet Tracer </span><br>
+<ul><li>Launch the cisco packet tracer software on your computer.</li></ul> <br>
+  <span style="color:darkorange;">2.Create a simple network topology.</span> <br>
+<ul><li>Drag and drop two PCs.</li> <br>
+<li>Drag and drop 1 hub from network devices.</li> <br>
+<li>Connect both PCs to the hub using copper straight-Through cables.</li></ul> <br>
+<span style="color:darkorange;">3.Assign IP address</span> <br>
+<ul><li>Click on PCO desktop IP configuration</li></ul> <br> 
+<p>IP Address: 192.168.1. <br>
+Subnet Mask: 255.255.255.0 <br></p>
+<span style="color:darkorange;">4.Switch to simulate mode </span> <br>
+<ul><li>At the bottom-right of packet tracer select. Simulate instead of real-time.</li> <br>
+<li>Again-run the Ping command.</li></ul> <br>
+<span style="color:darkorange;">5.Analyze packet flow: - </span><br>
+<ul><li>In hub topology packets are broadcast to all parts.</li></ul> <br>
+<p>Even if only PC1 is the destination the Hub forward the packet to all connected devices. <br></p>
+<span style="color:gold;">Result:-</span> <br> 
+<p>The experiment successfully demonslated how data travel through a Hub in the OSI model unlike a switch the hub sends packet to all connected devices showing the broadcast nature of Hub based. <br></p>
+</p>
+</div>
+</body>
+</html>
