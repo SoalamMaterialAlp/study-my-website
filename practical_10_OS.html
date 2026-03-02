@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+         <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        span{
+            font-size:xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            font-style: normal;
+            overflow:auto;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+                /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-10</h1>
+        <p>
+    <span style="color:deeppink;">Aim:-</span>Simulate all file organization techniques. <br> (a)- Single Level Directory (b)- Two level Directory<br>
+    <span style="color:brown;">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
+     <span style="color:brown;">Procedure:-</span> <br>
+     File organization techniques
+        
+     <!-- Single Level Directory -->
+     <p>(a). Single Level Directory</p> <br>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+        <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+        #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+// --- SINGLE LEVEL DIRECTORY STRUCTURE ---
+struct
+{
+    char dname[10];
+    char fname[10][10];
+    int fcnt;
+} dir;
+
+void singleLevel()
+{
+    int ch;
+    char f[10];
+    dir.fcnt = 0;
+    printf("Single Level Directory performed by Kadir Alam\n");
+    printf("\nEnter directory name: ");
+    scanf("%s", dir.dname);
+
+    do
+    {
+        printf("\n1. Create File\n2. Delete File\n3. Search File\n4. Display Files\n5. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            printf("Enter the file name: ");
+            scanf("%s", dir.fname[dir.fcnt]);
+            dir.fcnt++;
+            break;
+
+        case 2:
+            printf("Enter the file name to delete: ");
+            scanf("%s", f);
+            for (int i = 0; i < dir.fcnt; i++)
+            {
+                if (strcmp(f, dir.fname[i]) == 0)
+                {
+                    printf("File %s is deleted.\n", f);
+                    strcpy(dir.fname[i], dir.fname[dir.fcnt - 1]);
+                    dir.fcnt--;
+                    break;
+                }
+            }
+            break;
+
+        case 3:
+            printf("Enter the file name to search: ");
+            scanf("%s", f);
+            for (int i = 0; i < dir.fcnt; i++)
+            {
+                if (strcmp(f, dir.fname[i]) == 0)
+                {
+                    printf("File %s is found.\n", f);
+                    goto found;
+                }
+            }
+            printf("File %s not found.\n", f);
+        found:
+            break;
+
+        case 4:
+            printf("\nDirectory name: %s", dir.dname);
+            printf("\nFiles: ");
+            for (int i = 0; i < dir.fcnt; i++)
+                printf("%s  ", dir.fname[i]);
+            printf("\n");
+            break;
+        }
+
+    } while (ch != 5);
+   printf("Single Level Directory performed by Kadir Alam\n");
+
+}
+
+int main()
+{
+    printf("=== Single Level Directory Simulation ===\n");
+    singleLevel();
+    return 0;
+}
+</code>
+        </pre>
+</div>
+        <!-- Two Level Directory -->
+     <p>(b). Two Level Directory</p> <br>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+        <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+        #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+// --- TWO LEVEL DIRECTORY STRUCTURE ---
+struct
+{
+    char dname[10];
+    char fname[10][10];
+    int fcnt;
+} dir2[10];
+
+int dcnt = 0; // directory count
+
+void twoLevel()
+{
+    int ch;
+    char d[10], f[10];
+    do
+    {
+        printf("\n1. Create Directory\n2. Create File\n3. Search File\n4. Display\n5. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            printf("Enter directory name: ");
+            scanf("%s", dir2[dcnt].dname);
+            dir2[dcnt].fcnt = 0;
+            dcnt++;
+            break;
+
+        case 2:
+            printf("Enter directory name to create file: ");
+            scanf("%s", d);
+            for (int i = 0; i < dcnt; i++)
+            {
+                if (strcmp(d, dir2[i].dname) == 0)
+                {
+                    printf("Enter file name: ");
+                    scanf("%s", dir2[i].fname[dir2[i].fcnt]);
+                    dir2[i].fcnt++;
+                    break;
+                }
+            }
+            break;
+
+        case 3:
+            printf("Enter directory name to search file: ");
+            scanf("%s", d);
+            printf("Enter file name: ");
+            scanf("%s", f);
+            for (int i = 0; i < dcnt; i++)
+            {
+                if (strcmp(d, dir2[i].dname) == 0)
+                {
+                    for (int j = 0; j < dir2[i].fcnt; j++)
+                    {
+                        if (strcmp(f, dir2[i].fname[j]) == 0)
+                        {
+                            printf("File %s is found in directory %s.\n", f, d);
+                            goto found;
+                        }
+                    }
+                }
+            }
+            printf("File %s not found.\n", f);
+        found:
+            break;
+
+        case 4:
+            printf("\nDirectory\tFiles");
+            for (int i = 0; i < dcnt; i++)
+            {
+                printf("\n%s\t\t", dir2[i].dname);
+                for (int j = 0; j < dir2[i].fcnt; j++)
+                    printf("%s ", dir2[i].fname[j]);
+            }
+            printf("\n");
+            break;
+        }
+    } while (ch != 5);
+    printf("Two Level Directory Performed By Kadir Alam\n");
+}
+
+int main()
+{
+  printf("=== Two Level Directory Simulation ===\n");
+printf("Two Level Directory Performed By Kadir Alam\n");
+    twoLevel();
+    return 0;
+}
+</code>
+        </pre>
+        </div>
+
+
+        
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+
+</body>
+</html>
