@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+     <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        span{
+            font-size:xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+                /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-8</h1>
+        <p>
+    <span style="color:deeppink;">Aim:-</span>Simulate all page replacement algorithms. <br> (a)- FIFO (b)- LRU (c)- OPTIMAL<br>
+    <span style="color:brown;">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
+     <span style="color:brown;">Procedure:-</span> <br>
+        
+     <!-- FIFO page replacement Algorithm -->
+     (a). FIFO <br>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+        <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    #include <stdio.h>
+
+   int main()
+  {
+    int frames, pages, page[50], frame[10], i, j, pointer = 0, found, faults = 0;
+printf("FIFO Page Replacement Algorithm Performed By Kadir Alam\n");
+    printf("Enter number of frames: ");
+    scanf("%d", &frames);
+
+    printf("Enter number of pages: ");
+    scanf("%d", &pages);
+
+    printf("Enter page reference string: ");
+    for(i = 0; i < pages; i++)
+        scanf("%d", &page[i]);
+
+    // Initialize all frames as empty
+    for(i = 0; i < frames; i++)
+        frame[i] = -1;
+
+    printf("\nStep-by-Step Allocation / Replacement:\n\n");
+
+    for(i = 0; i < pages; i++)
+    {
+        found = 0;
+
+        // Check if page already exists
+        for(j = 0; j < frames; j++)
+        {
+            if(frame[j] == page[i])
+            {
+                found = 1;
+                printf("Page %d already in memory ->No Replacement\n", page[i]);
+                break;
+            }
+        }
+
+        if(found == 0)
+        {
+            if(frame[pointer] == -1)
+            {
+                printf("Page %d allocated to frame %d\n", page[i], pointer);
+            }
+            else
+            {
+                printf("Page %d comes -> Replace Page %d with %d\n", page[i], frame[pointer], page[i]);
+            }
+
+            frame[pointer] = page[i];
+            pointer = (pointer + 1) % frames;
+            faults++;
+        }
+
+        // Print current frame status
+        printf("Frames: ");
+        for(j = 0; j < frames; j++)
+        {
+            if(frame[j] != -1)
+                printf("%d ", frame[j]);
+            else
+                printf("- ");
+        }
+        printf("\n\n");
+    }
+
+    printf("Total Page Faults = %d\n", faults);
+    return 0;
+}
+</code>
+</pre>
+</div>
+
+<!--LRU page replacement Algorithm-->    
+    <p>(b)- LRU </p><br>
+ <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+    
+           <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    #include <stdio.h>
+
+    int findLRU(int used[], int frames) {
+    int i, min = used[0], pos = 0;
+    for(i = 1; i < frames; i++) {
+        if(used[i] < min) {
+            min = used[i];
+            pos = i;
+        }
+    }
+    return pos;
+}
+
+int main() {
+    int frames, pages, page[50], frame[10], used[10];
+    int i, j, k, flag, pos, faults = 0, time = 0;
+
+    printf("=== LRU Page Replacement Algorithm ===\n");
+    printf("LRU Page Replacement Algorithm Performed By Kadir Alam\n");
+    printf("Enter number of frames: ");
+    scanf("%d", &frames);
+
+    printf("Enter number of pages: ");
+    scanf("%d", &pages);
+
+    printf("Enter page reference string: ");
+    for(i = 0; i < pages; i++)
+        scanf("%d", &page[i]);
+
+    for(i = 0; i < frames; i++)
+        frame[i] = -1;
+
+    printf("\nStep-by-Step Allocation & Replacement:\n\n");
+
+    for(i = 0; i < pages; i++) {
+        flag = 0;
+
+        for(j = 0; j < frames; j++) {
+            if(frame[j] == page[i]) {  // Page Hit
+                used[j] = ++time;
+                flag = 1;
+                break;
+            }
+        }
+
+        if(flag == 0) { // Page Fault
+            for(j = 0; j < frames; j++) {
+                if(frame[j] == -1) {
+                    frame[j] = page[i];
+                    used[j] = ++time;
+                    faults++;
+
+                    printf("Page %d loaded\n", page[i]);
+                    goto print_frame;
+                }
+            }
+
+            pos = findLRU(used, frames);
+            printf("Page %d comes -> Replace %d (Least Recently Used)\t\n", page[i], frame[pos]);
+
+            frame[pos] = page[i];
+            used[pos] = ++time;
+            faults++;
+        }
+
+        print_frame:
+        printf("Frames: ");
+        for(k = 0; k < frames; k++) {
+            if(frame[k] == -1)
+                printf("- ");
+            else
+                printf("%d ", frame[k]);
+        }
+
+        printf("\nRecent Use Order (MRU -> LRU): ");
+
+        // Print based on usage time
+        for(k = time; k > 0; k--) {
+            for(j = 0; j < frames; j++) {
+                if(used[j] == k)
+                    printf(" %d ", frame[j]);
+            }
+        }
+
+        printf("\n\n");
+    }
+
+    printf("Total Page Faults = %d\n", faults);
+    return 0;
+}
+</code>
+</pre>
+</div>
+
+<!--OPTIMAL page replacement algorithm-->
+    <p>(c)- OPTIMAL</p> <br>
+ <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+    
+        <pre id="program">
+         <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+     #include <stdio.h>
+
+    int findOptimal(int frame[], int page[], int index, int frames, int pages) {
+    int i, j, pos = -1, farthest = index;
+    for(i = 0; i < frames; i++) {
+        int found = 0;
+        for(j = index + 1; j < pages; j++) {
+            if(frame[i] == page[j]) {
+                if(j > farthest) {
+                    farthest = j;
+                    pos = i;
+                }
+                found = 1;
+                break;
+            }
+        }
+        if(found == 0)  // Page not used in future
+            return i;   // Replace this one
+    }
+    if(pos == -1)
+        return 0; // default
+    else
+        return pos;
+}
+
+int main() {
+    int frames, pages, page[50], frame[10];
+    int i, j, pos, faults = 0, flag;
+
+      printf("=== OPTIMAL Page Replacement Algorithm ===\n");
+    printf("OPTIMAL Page Replacement Algorithm Performed By Kadir Alam\n");
+    printf("Enter number of frames: ");
+    scanf("%d", &frames);
+
+    printf("Enter number of pages: ");
+    scanf("%d", &pages);
+
+    printf("Enter page reference string: ");
+    for(i = 0; i < pages; i++)
+        scanf("%d", &page[i]);
+
+    for(i = 0; i < frames; i++)
+        frame[i] = -1;
+
+    printf("\nStep-by-Step Allocation & Replacement:\n\n");
+
+    for(i = 0; i < pages; i++) {
+        flag = 0;
+
+        for(j = 0; j < frames; j++) {
+            if(frame[j] == page[i]) {
+                flag = 1;
+                break;
+            }
+        }
+
+        if(flag == 0) { // Page Fault
+            for(j = 0; j < frames; j++) {
+                if(frame[j] == -1) {
+                    frame[j] = page[i];
+                    faults++;
+                    printf("Page %d loaded\n", page[i]);
+                    goto print_frame;
+                }
+            }
+
+            pos = findOptimal(frame, page, i, frames, pages);
+            printf("Page %d comes -> Replace %d (Not needed soon)\n", page[i], frame[pos]);
+            frame[pos] = page[i];
+            faults++;
+        }
+
+        print_frame:
+        printf("Frames: ");
+        for(j = 0; j < frames; j++) {
+            if(frame[j] == -1)
+                printf("- ");
+            else
+                printf("%d ", frame[j]);
+        }
+        printf("\n\n");
+    }
+
+    printf("Total Page Faults = %d\n", faults);
+    return 0;
+}
+</code>
+</pre>
+</div>
+<span style="color:brown;">Result:- <br> </span>
+<p>FIFO, LRU and OPIMAL page replacement algorithm was successfully.</p>
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+
+</body>
+</html>

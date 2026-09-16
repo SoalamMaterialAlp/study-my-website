@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            text-align: center;
+            text-decoration: underline;
+        }
+        span{
+            padding-left: 25px;
+            font-size: x-large;
+        }
+        p{
+        padding-left: 20px;
+            font-size: larger;
+        }
+        ol{
+            font-size: x-large;
+            padding-left: 35px;
+            color: navy;
+        }
+        ul{
+            font-size: larger;
+            padding-left: 45px;
+        }
+
+        /*==================== image css ============= */
+       .image{
+            width: 100%;
+            height: auto;
+            border: 2px solid;
+        }
+        /*========== mobile responsive ===== */
+        @media (Max-width:768px){
+        html,body{
+            width: 100%;
+            height: auto;
+            border: 3px solid lawngreen;
+        }
+        h1{
+            font-size: 1.5rem;
+            color: red;
+        }
+        span{
+            font-size: larger;
+        }
+        p{
+            font-size: large;
+        }
+        ol{
+            font-size: larger;
+            padding-left:20px;
+            color: navy;
+        }
+        ul{
+            font-size: large;
+        }
+        /*==================== image css ============= */
+ .imagebox{
+            width: 100%;
+            position: relative;
+            border: 3px solid;
+            text-align: center;
+
+        }
+        .image{
+            width: 100%;
+            height: auto;
+        }
+        .text{
+            position: absolute;
+            font-size: x-large;
+            bottom:20px;
+            left: 40%;
+            font-weight: 600;
+            color: green;
+        }
+
+        .image{
+            width: 100%;
+            height: auto;
+            border: 2px solid;
+        }
+       
+        }
+    </style>
+</head>
+<body>
+    
+<!--================   Batch Operating System   ============== -->
+
+<span id="batch"style="color:chocolate;">1.Batch Operating System:-</span>
+<ul>
+    <li>Executes jobs in batches (grouped together).</li>
+    <li>No direct interaction with users.</li>
+    <li>Used in early computers (e.g., punch cards)</li>
+    <li>A Batch Operating System is one of the oldest types of OS.</li>
+    <li>In this system, similar jobs are grouped (batched) together and executed one after another without user interaction.
+    Users prepare their jobs (program + data) on punched cards or magnetic tapes and submit them to the computer operator.
+    The OS collects jobs in a batch and executes them sequentially.</li>
+</ul><br>
+<!--================   Features of Batch Operating System ================ -->
+
+<span style="color:chocolate;"> Features of Batch Operating System:-</span><br>
+<ul>
+    <li>Jobs are executed in batches.</li>
+    <li>No direct interaction between user and computer.</li>
+    <li>The OS decides the order of job execution.</li>
+    <li>Output is given only after the whole batch is processed.</li>
+</ul><br>
+<!--================   Advantage of Batch Operating System  =================== -->
+
+<span style="color:chocolate;">Advantages Of Batch Operating System:-</span><br>
+<ul>
+    <li>Easy to use in early computers.</li>
+    <li>Processes similar jobs together → saves time.</li>
+    <li>CPU utilization is improved compared to manual job execution.</li>
+</ul><br>
+<!--================   Disadvantage of Batch Operating System  ================= -->
+
+<span style="color:chocolate;">Disadvantages of Batch Operating System:- </span><br>
+<ul>
+    <li>No interaction between user and job during execution.</li>
+    <li>If one job fails, the whole batch may stop.</li>
+    <li>Debugging is difficult (errors are known only after completion).</li>
+</ul><br>
+<!--================  Example of Batch Operating System ============== -->
+
+ <span style="color:chocolate;" >Examples of Batch Operating System:-</span>
+<ul>
+    <li>Early IBM Mainframe OS.</li>
+    <li>Punch card–based systems.</li>
+</ul><br>
+<!--================   Batch Operating System  Image ============== -->
+
+<div class="imagebox">
+<img  class="image" src="batch os.png" alt="Batch">
+<div class="text">Batch Operating System</div>
+</div><br>
+
+<!--================   Multi-Programming Operating System  =============== -->
+
+<span id="multi_pro" style="color:blue">2.Multi-Programming Operating System: -</span>
+<p>A Multiprogramming Operating System is a type of operating system that allows multiple programs to be loaded into memory and executed by the CPU at the same time.
+👉 The main goal is to maximize CPU utilization by keeping it busy with some process at all times.</p> <br>
+
+<p> Explanation </p><br>
+<ul>
+    <li>In a single-program system, when one program waits (for example, for input/output operations like reading from disk), the CPU sits idle.</li>
+    <li>In multiprogramming, while one program is waiting, another program is executed by the CPU.</li>
+    <li>The operating system manages the jobs (programs) in memory and decides which one gets CPU time (scheduling).</li>
+    <li>A Multiprogramming OS keeps several programs in memory and executes them by switching the CPU between them. This ensures that the CPU is always busy, improving efficiency compared to single-program systems.</li>
+</ul>
+<!--================  Features of Multi-Programming Operating System  =============== -->
+
+<span style="color:blue">Features of Multi-Programming Operating System **</span>
+<ul>
+    <li>Multiple jobs in memory: More than one program is kept in main memory.</li>
+    <li>Efficient CPU utilization: CPU never remains idle while there is work to do.</li>
+    <li>Job scheduling: The OS uses scheduling algorithms to pick which process runs next.</li>
+    <li>Concurrency: Processes appear to run simultaneously, though the CPU executes one instruction at a time.</li>
+    <li>Better throughput: More jobs are completed in the same time compared to a single-program OS.</li>
+    <li>Need Single CPU for implementation.</li>
+    <li>Context switch between process.</li>
+    <li>Switching happens when current process undergoes waiting state.</li>
+    <li>CPU idle time is reduced.</li>
+    <li>High resource utilization.</li>
+    <li>High Performance.</li>
+</ul>
+<!--================  Advantages of Multi-Programming Operating System  =============== -->
+
+ <span style="color:blue">**Advantages Of Multi-Programming Operating System **</span>
+ <ul>
+    <li>High CPU utilization.</li>
+    <li>Increased system throughput.</li>
+    <li>Reduced idle time of CPU.</li>
+    <li>Efficient use of resources.</li>
+ </ul>
+<!--================  Disadvantages of  Multi-Programming Operating System  =============== -->
+
+ <span style="color:blue">**Disadvantages of Multi-Programming Operating System **</span>
+<ul>
+    <li>Requires more memory (RAM).</li>
+    <li>Complex operating system design (process scheduling, memory management).</li>
+    <li>If one program needs a lot of CPU time, other jobs may wait longer (starvation possible).</li>
+    <li>Security and data protection are more difficult.</li>
+</ul>
+
+**Examples of Multi-Programming Operating System **
+<!--================   Multi-Programming Operating System  Image ============== -->
+<div class="imagebox">
+<img  class="image" src="multiprogramming os.webp" alt="images">
+<div class="text">Multi-Programming Operating System</div>
+</div><br>
+<!--================   Time-Sharing Operating System  =============== -->
+
+<span id="time-share" style="color: brown;">Time-Sharing Operating System/Multi-Tasking Operating System: -</span><br>
+<ul>
+    <li>Allows multiple users to share computer resources simultaneously.</li>
+    <li>CPU time is divided into small time slots.</li>
+    <li>A Time-Sharing OS allows multiple users to use the computer at the same time by sharing CPU time in small units (time slices).</li>
+    <li>The CPU switches rapidly between users/programs, giving the impression that all are running simultaneously.</li>
+    <li>This improves response time and allows interactive computing.</li>
+</ul>
+<!--================   Features of Time-Sharing Operating System  =============== -->
+
+<span style="color: brown;">**Features of Time-Sharing Operating System **</span><br>
+<ul>
+    <li>Multi-user environment → many users work on the same system at once.</li>
+    <li>CPU scheduling → each job gets a small time slice (called quantum).</li>
+    <li>Interactive → users can interact directly with the computer.</li>
+    <li>Fairness → every job gets equal CPU share.</li>
+</ul>
+
+<!--================   Advantages of Time-Sharing Operating System  =============== -->
+
+<span style="color: brown;">**Advantages Of Time-Sharing Operating System **</span><br>
+<ul>
+    <li>Efficient utilization of CPU and resources.</li>
+    <li>Faster response time to users.</li>
+    <li>No idle time — CPU switches jobs continuously.</li>
+    <li>Supports multiprogramming (many jobs in memory).</li>
+</ul>
+<!--================ Disadvantages of Time-Sharing Operating System  =============== -->
+
+<span style="color: brown;">**Disadvantages of Time-Sharing Operating System **</span><br>
+<ul>
+    <li>Requires powerful CPU and large memory.</li>
+    <li>Complex OS design (for scheduling & resource allocation).</li>
+    <li>If many users, system performance may reduce.</li>
+</ul>
+<!--================  Examples of Time-Sharing Operating System  =============== -->
+
+<span style="color: brown;">**Examples of Time-Sharing Operating System **</span><br>
+<ul>
+    <li>UNIX</li>
+    <li>Linux (multiuser shells)</li>
+    <li>Multics</li>
+    <li>Modern Mainframes</li>
+</ul>
+<!--================   Time-Sharing Operating System  Image ============== -->
+<div class="imagebox">
+<img  class="image" src="multitasking os.webp" alt="images">
+<div class="text">Time-Sharing Operating System</div>
+</div><br>
+
+<!--================   Multi-Processing  Operating System  =============== -->
+
+ <span id="multi_proc" style="color: darkorange;">Multi-Processing Operating System: -</span><br>
+<p>Multiprocessing Operating System is an operating system that supports multiple processors (CPUs) working together in a single computer system.
+👉 The main goal is to increase computing power, speed, and reliability by allowing processes to run in parallel on different processors.</p><br>
+** Explanation **
+<ul>
+    <li>In a uniprocessor system, only one CPU executes instructions at a time.</li>
+    <li>In a multiprocessing system, two or more CPUs share the same main memory and are controlled by the operating system.</li>
+    <li>Each CPU can work on different processes simultaneously, which makes the system much faster and more efficient.</li>
+    <li>A Multiprocessing OS allows a computer to use two or more processors to perform tasks simultaneously, increasing speed, reliability, and efficiency compared to single-CPU systems.</li>
+</ul>
+<!--================   Types of Multi-Processing Operating System  =============== -->
+
+<span style="color: darkorange;">**Types Of Multi-Processing Operating System * *</span><br>
+<ol>**1. Symmetric Multi-Processing (SMP)**</ol>
+<ul>
+    <li>All processors are equal and share the same memory.</li>
+    <li>Any processor can execute any process.</li>
+    <li>Example: Modern multi-core systems (quad-core, octa-core).</li>
+</ul>
+<ol>**2. Asymmetric Multi-Processing (AMP)**</ol>
+<ul>
+    <li>One processor is the master and controls the system.</li>
+    <li>Other processors are slaves and work on assigned tasks.</li>
+    <li>Simpler but less efficient than SMP.</li>
+</ul>
+
+<!--================   Features of Multi-Processing Operating System  =============== -->
+
+<span style="color: darkorange;">**Features of Multi-Processing Operating System **</span><br>
+<ul>
+    <li>Parallel processing → multiple processes run at the same time.</li>
+    <li>Shared memory → processors communicate through common memory.</li>
+    <li>High reliability → if one CPU fails, others can still continue (fault tolerance).</li>
+    <li>Faster execution of tasks.</li>
+</ul>
+
+<!--================   Advantages of Multi-Processing Operating System  =============== -->
+<span style="color: darkorange;">**Advantages Of Multi-Processing Operating System **</span><br>
+<ul>
+    <li>High performance → many processes execute simultaneously.</li>
+    <li>Better throughput → more jobs completed in less time.</li>
+    <li>High reliability → system can continue even if one CPU crashes.</li>
+    <li>Efficient resource utilization.</li>
+</ul>
+
+<!--================  Disadvantages of Multi-Processing Operating System  =============== -->
+<span style="color: darkorange;">**Disadvantages of Multi-Processing Operating System **</span><br>
+<ul>
+    <li>Expensive hardware (multiple CPUs).</li>
+    <li>Complex OS design (synchronization, scheduling, memory management).</li>
+    <li>Communication overhead between CPUs.</li>
+    <li>Not all programs can be divided into parallel tasks.</li>
+</ul>
+
+<!--================   Examples of Multi-Processing Operating System  =============== -->
+<span style="color: darkorange;">**Examples of Multi-Processing Operating System **</span><br>
+<ul>
+    <li>Windows (modern version like window 10,11)</li>
+    <li>Linux (Ubuntu, Fedora, Red Hat)</li>
+    <li>UNIX</li>
+    <li>MacOS</li>
+    <li>Mainframe systems (IBM z/OS)</li>
+</ul>
+<!--================   Multi-Processing Operating System  Image ============== -->
+<div class="imagebox">
+<img  class="image" src="multiprocessing os.webp" alt="images">
+<div class="text">Multi-Processing Operating System</div>
+</div><br>
+
+<!--================   Distributed Operating System  =============== -->
+
+<span id="distributed" style="color: darkorchid;">5.Distributed Operating System: -</span><br>
+<p>Distributed Operating System is an OS that manages a group of independent computers and makes them appear to the users as a single system. <br>
+👉 In simple words: <br>
+•	Many computers (nodes) are connected via a network. <br>
+•	The OS coordinates them so that users feel they are working on one powerful computer, not multiple separate ones.</p><br>
+** Explanation **
+<ul>
+    <li>Manages a group of independent computers as a single system.</li>
+    <li>Tasks are distributed across different machines.</li>
+    <li>Each computer in the network has its own CPU, memory, and storage.</li>
+    <li>The Distributed OS links them together and controls the distribution of tasks, files, and resources.</li>
+    <li>Tasks are divided among multiple computers to improve speed, reliability, and efficiency.</li>
+</ul>
+
+<!--================   Featurees of Distributed Operating System  =============== -->
+<span style="color: darkorchid;">**Features of Distributed Operating System **</span><br>
+<ul>
+    <li>Resource sharing – Files, printers, data, and processors can be shared.</li>
+    <li>Transparency – Users don’t need to know where a file or program is stored; it looks like everything is on one system.</li>
+    <li>Concurrency – Many users can use the system at the same time.</li>
+    <li>Fault tolerance – If one machine fails, others continue working.</li>
+    <li>Scalability – Easy to add more computers to increase performance.</li>
+</ul>
+
+<!--================   Advantages of Distributed Operating System  =============== -->
+<span style="color: darkorchid;">**Advantages Of Distributed Operating System **</span><br>
+<ul>
+    <li>High performance (tasks are executed in parallel).</li>
+    <li>Reliable (failure of one node doesn’t stop the whole system).</li>
+    <li>Better resource utilization (load balancing across computers).</li>
+    <li>Cost-effective (multiple smaller machines instead of one huge supercomputer).</li>
+</ul>
+<!--================   Diasadvantges of Distributed Operating System  =============== -->
+<span style="color: darkorchid;">**Disadvantages of Distributed Operating System **</span><br>
+<ul>
+    <li>Requires complex design and management.</li>
+    <li>Security can be challenging (since data is spread across machines).</li>
+    <li>Network dependency (if the network fails, system performance drops).</li>
+    <li>Debugging and troubleshooting are harder.</li>
+</ul>
+<!--================   Example of Distributed Operating System  =============== -->
+<span style="color: darkorchid;">**Examples of Distributed Operating System **</span><br>
+<ul>
+    <li>Amoeba – Research-based distributed OS.</li>
+    <li>LOCUS – Early distributed UNIX system.</li>
+    <li>Google’s Android (partially distributed for apps and services).</li>
+    <li>Microsoft Azure, AWS, and Google Cloud (cloud-based distributed systems).</li>
+    <li>Modern cluster operating systems (used in supercomputers).</li>
+</ul>
+<!--================  Distributed Operating System  Image ============== -->
+<div class="imagebox">
+<img  class="image" src="distributed os.webp" alt="images">
+<div class="text">Distributed Operating System</div>
+</div><br>
+
+<!--================   Network Operating System  =============== -->
+<span>6.Network Operating System: -
+<p>A Network Operating System is a type of operating system that manages network resources and allows computers connected over a network to communicate, share files, printers, applications, and other resources. <br>
+👉 In simple words: <br>
+It is the OS that runs on a server and provides services to client computers over a network (like LAN or WAN). <br>
+** Explanation **</p><br>
+<ul>
+<li></li>In a standalone OS, a computer only manages its own resources.
+<li></li>In a Network OS, one or more computers act as servers, and others act as clients.
+<li></li>Runs on a server and manages networking functions.
+<li></li>Provides services like file sharing, printer access, communication.
+<li></li>The NOS provides file sharing, printer access, user management, and security across the network.
+<span></span>**Features of Network Operating System **
+<ul>
+<li></li>Centralized management – Users, files, and devices are controlled from a central server.
+<li></li>File and resource sharing – Printers, applications, and storage can be shared.
+<li></li>Security and access control – Only authorized users can access network resources.
+<li></li>Scalability – Easy to add new devices and users.
+<li></li>Reliability – Provides backup, fault tolerance, and recovery options.
+<li></li>Remote access – Users can log in and access the network from different locations.
+<span></span>**Advantages Of Network Operating System **
+<ul>
+<li></li>Centralized control of data and resources.
+<li></li>Better data security (with user authentication).
+<li></li>Easy file and resource sharing.
+<li></li>Supports remote access and collaboration.
+<span>**Disadvantages of Network Operating System **
+<ul>
+<li></li>Expensive (requires a dedicated server).
+<li></li>Server failure can stop the whole network.
+<li></li>Requires skilled administrators.
+<li></li>High maintenance cost.
+<span>**Examples of Network Operating System **
+<ul>
+<li></li>Microsoft Windows Server
+<li></li>UNIX/Linux (with network services enabled)
+<li></li>Novell NetWare (older NOS)
+<li></li>Mac OS X Server
+<img src="" alt="">
+<span>7. Real-Time Operating System: -
+<p>A Real-Time Operating System is a type of OS that is designed to process data and respond immediately (within a guaranteed time limit). <br>
+👉 In simple words: <br>
+It is used in systems where delays cannot be tolerated, and tasks must be executed on time. <br>
+** Explanation ** </p> <br>
+<ul>
+<li></li>Unlike general-purpose OS (like Windows or Linux) which focus on throughput,
+an RTOS focuses on fast and predictable response times.
+<li></li>Used in time-critical applications such as medical devices, flight control systems, robotics, and embedded systems.
+<span>**Types Of Real-Time Operating System**
+<ol>**1. Hard Real-Time Operating System**
+<ul>
+<li></li>Deadlines are strict.
+<li></li>If a task misses its deadline, the system fails.
+<li></li>Example: Flight control system, pacemakers.
+<ol>**2. Soft Real-Time Operating System**
+<ul>
+<li></li>Deadlines are important but not fatal if occasionally missed.
+<li></li>Example: Multimedia streaming, online gaming.
+<span>**Features of Real-Time Operating System **
+<ul>
+<li></li>Deterministic response – Guarantees task execution within a fixed time.
+<li></li>Priority scheduling – High-priority tasks always run first.
+<li></li>Small and efficient – Designed to run on limited hardware (embedded devices).
+<li></li>Multitasking with deadlines – Multiple tasks but each must meet its timing constraints.
+<li></li>Low latency – Quick switching between tasks.
+<span>**Advantages Of Real-Time Operating System **
+<ul>
+<li></li>Predictable and reliable performance.
+<li></li>Fast response time.
+<li></li>Ideal for mission-critical applications.
+<li></li>Efficient resource utilization.
+<span>**Disadvantages of Real-Time Operating System **
+<ul>
+<li></li>More expensive and complex than general OS.
+<li></li>Limited multitasking for non-critical tasks.
+<li></li>Requires specialized hardware sometimes.
+ <span>**Examples of Real-Time Operating System **
+<ul>
+<li></li>VxWorks
+<li></li>RT Linux (Real-Time Linux)
+<li></li>QNX
+<li></li>Free RTOS
+<li></li>RTEMS
+<li></li>Scientific experiments, Medical Imaging systems
+<li></li>Industrial control systems; Weapon systems
+<li></li>Robots; Air traffic control systems
+<img src="" alt="">
+<span>8.Mobile Operating System: -
+<p>A Mobile Operating System is a type of operating system that is specially designed to run on mobile devices such as smartphones, tablets, PDAs, and wearable devices. 
+👉 It manages mobile hardware and provides a platform for running mobile applications (apps). <br>
+** Explanation ** </p> <br>
+<ul>
+<li></li>Just like a computer needs Windows/Linux/MacOS, a smartphone needs a mobile OS.
+<li></li>It controls basic device functions like touchscreen, camera, battery, calling, internet, Bluetooth, GPS, and app management.
+<li></li>Provides a user interface (UI) suitable for small screens and touch inputs.
+<span>**Features of Mobile Operating System **</span> <br>
+<ul>
+<li></li>Touchscreen support – Optimized for touch gestures (tap, swipe, zoom).
+<li></li>Connectivity – Wi-Fi, Bluetooth, 4G/5G, GPS.
+<li></li>App ecosystem – Supports installing apps from stores (Google Play, App Store).
+<li></li>Power management – Efficient battery usage.
+<li></li>Multitasking – Run multiple apps in the background.
+<li></li>Security – App permissions, encryption, and updates.
+<li></li>Mobile-specific services – SMS, calling, camera, sensors (accelerometer, gyroscope).
+<span>**Advantages Of Mobile Operating System **</span> <br>
+<ul>
+<li></li>Portable and user-friendly.
+<li></li>Supports a large variety of applications.
+<li></li>Strong connectivity features.
+<li></li>Optimized for battery and small hardware.
+<span>**Disadvantages of Mobile Operating System **</span> <br>
+<ul>
+<li></li>Limited resources compared to desktop OS.
+<li></li>Dependent on battery life.
+<li></li>Frequent updates required.
+<li></li>Security risks if apps are not trusted.
+<span>**Examples of Mobile Operating System **</span> <br>
+<ul>
+<li></li>Android (Google) → Most widely used mobile OS.
+<li></li>iOS (Apple) → Used in iPhones and iPads.
+<li></li>HarmonyOS (Huawei) → Alternative to Android in China.
+<li></li>Kai OS → Lightweight OS for feature phones.
+<li></li>Windows Mobile / Windows Phone (discontinued).
+<li></li>BlackBerry OS (discontinued).
+
+</body>
+</html>

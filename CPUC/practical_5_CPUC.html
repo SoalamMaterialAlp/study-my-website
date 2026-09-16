@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+                overflow: auto;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        span{
+            font-size: x-large;
+        }
+        p{
+            font-size: larger;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+        
+        /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            .container{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-5</h1>
+        <p><span style="color:magenta">Aim:-</span>Program using expression evalution and precedence. <br>
+            (a)-Write a program using unary and ternary operators. <br>
+            (b)- Write a program using postfix and prefix increment operators. <br> <br>
+            <span style="color: brown;">Required:-</span><p>Personal computer or laptop, Install visual studio code with c compiler and extension OR Turbo C++</p>
+<br>
+            <p>(a)-Write a program using unary and ternary operators. <br> <br></p>
+         <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    #include <stdio.h>
+int main(){
+    //unary operators
+    int a;    
+    printf("Enter the number:");
+    scanf("%d",&a); //address of(&)a
+    printf("unary minus(-a):%d\n",-a);
+    printf("Postfix increment:%d\n",a++); //postfix incrment
+    printf("%d\n",a);
+    printf("Prefix increment:%d\n",++a); //prefix increment
+    printf("Postfix decrement:%d\n",a--); //postfix decrement
+    printf("%d\n",a);
+    printf("Prefix decrement:%d\n",--a); //prefix decrement
+    printf("Logical not:%d\n", !(a%2 ==0));
+    //tertiary operators
+    int age;
+    printf("Enter the age:");
+    scanf("%d",&age);
+    age>=18?printf("Adult"):printf("Not adult");
+    return 0;
+}
+
+</pre>   
+</div>
+        <br>  <p>  (b)- Write a program using postfix and prefix increment operators. <br><br></p>
+                    <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
+        <pre id="program">
+            <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    #include<stdio.h>
+    int main(){
+    //post-increment operators
+    int i;
+    printf("Enter the mumber:");
+    scanf("%d",&i);
+    printf("\n",i++);  //use, than increase
+    printf("post-increment:%d\n",i);
+    //pre-increment operators
+    printf("pre-increment:%d\n",++i); 
+    //increase,than use
+    return 0;
+}
+</pre>   
+</div>
+</p>
+</div>
+
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+
+</script>
+</body>
+</html>

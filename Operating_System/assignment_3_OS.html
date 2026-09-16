@@ -1,0 +1,79 @@
+Assignment 3
+Question Explain the RAID?
+Answer: RAID Redundant Array of Independent Disks
+RAID stands for Redundant Array of Independent Disks. It is a data storage virtualization technology that combines multiple physical hard drives into one logical unit to improve:
+Performance 
+Data reliablity
+Fult Tolerance
+Storage Capacity
+RAID is mainly used in servers, database and high-performance systems.
+RAID Compontents
+Technique	  Meaning 			Example
+Striping 	Data is divided into small    Part of the file stored on Disk 1 and Disk 2
+		blocks and written across 
+		diffrent disks.
+Mirroring      A duplicate copy of every	D1 = Data,D2 = Copy
+	       piece of data is storedd on 
+		another disks.
+		Duplicates data for redundancy
+Parity 		A mathematical fomula creates a    A+B=P,,(Exclusive OR operation)
+		parity block that is used for data 
+		recovery .
+		Stores calculatedd data to recover 
+		lost information if a disk fails.
+Purpose of RAID
+In computer system ,data storage is an important part .If a single hard diak fails it can lead to data loss. RAID is used to solve this problem. RAID is a technique that combines multiple hard disks into a single logical storage unit.
+This helps in:
+Increasing Speed(Performance)
+Keeping data safe (fault tolerance)
+Increasing storage capicity
+Types of RAID Levels
+RAID levels describe diffrent way of organizing data across multiple hard diaks. Each level has its own method of storing data parity and redundancy which affects performance realiablity and cost.
+RAID 0-Stripping(Performance Only)
+Data is divides into blocks and written evenly across all disks(striping).No data duplication or parity is used.
+Examples: If you have 2 disks
+Disks 1-->Stores block A1
+Disk 2 -->Stores block A2
+Together they from file"A"
+Features:
+High Speed:Both disk work together for read/write.
+No redundancy:If one disk fails__>all data is lost 
+Uses all storage capacity
+Use Cases:
+Gaming PCs , temporary storage,video rendering.
+RAID 1-Mirroring(Data Redundancy):
+Each disk has an exact copy mirror of the data 
+Examples: If you have 2 disks.
+Disk 1 --> stores Data A
+disk 2--> Stroes same Data A(mirror)
+Features:
+High reliablity:If one disk fails ,the other continues to work.
+Storage Capacity:50%(half used for mirroring)
+Faster read (data can be read from either disk).
+Use case:
+Server database system that need data safety.
+RAID 2_Bit level Striping with Error Correction:
+Data is striped at the Bit level.
+Uses hamming code for error detection and correction.
+Features:
+High accuracy and error correction.
+Very complex and rarely used today.
+Requires many disks.
+Use Cases:
+Old mainframe system(theoretical ,not used in modern server0
+RAID 3-Byte-Level Striping with Dedicated Parity:
+Data is striped at the byte level.
+One disk is reversed for parity(used for recovery).
+Examples:# disks-->D1,D2,D3
+D1 = Byte 1
+D2 = Byte 2
+D3= Parity of Byte 1 + Byte 2
+Features:
+Fast for sequential data(e.g video)
+Parity disk bottelneck (slower for multiple writes)
+Can recover data if one disk fails.
+Use Cases:
+Large sequential data application(e.g video streaming,old data servers)
+RAID 4- Block-level Striping with Dedicated
+
+

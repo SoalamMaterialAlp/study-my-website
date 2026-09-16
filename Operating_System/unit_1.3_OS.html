@@ -1,0 +1,208 @@
+
+
+**UNIX / LINUX Architecture **  
+The architecture of UNIX/Linux is layered. It mainly has 4 layers:
+**1. Hardware Layer **
+•	Bottom-most layer.
+•	Consists of physical components of the computer:
+o	CPU
+o	Memory
+o	Storage devices (HDD/SSD)
+o	I/O devices (keyboard, mouse, printer, etc.)
+•	The OS controls and manages these resources.
+** 2. Kernel in operating system**
+•	The kernel is the core part of an Operating System.
+•	It works as a bridge between hardware and software, managing all system resources.
+•	Runs in privileged mode (full access to CPU, memory, devices).
+ Without the kernel, the OS cannot communicate with hardware.
+
+
+Functions of Kernel
+1.	Process Management
+o	Creates, schedules, and terminates processes.
+o	Ensures CPU time is fairly shared among processes.
+2.	Memory Management
+o	Allocates and deallocates memory to programs.
+o	Manages virtual memory (swap between RAM & disk).
+3.	Device Management
+o	Uses device drivers to control I/O devices (keyboard, mouse, printer, etc.).
+4.	File System Management
+o	Organizes data into files and directories.
+o	Handles permissions, reading, and writing of files.
+5.	System Calls Interface
+o	Provides functions for programs to request OS services (e.g., read, write, open, close).
+
+Types of Kernel
+The Kernel is the core of the operating system, and depending on its design, there are several types:
+
+1. Monolithic Kernel
+•	Entire OS services (like process management, memory, device drivers, file system) run in kernel space.
+•	Fast execution because everything is in one address space.
+•	But: large in size, hard to maintain, a crash in one service can crash the whole system.
+✅ Example: UNIX, Linux
+
+2. Microkernel
+•	Only the essential services (like process scheduling, memory management, inter-process communication) are kept in the kernel.
+•	Other services (like device drivers, file systems) run in user space.
+•	More secure and stable (a crash in one service doesn’t crash the whole system).
+•	But: slightly slower due to frequent communication between kernel and user space.
+✅ Example: Minix, QNX
+
+3. Hybrid Kernel
+•	Combination of Monolithic and Microkernel.
+•	Keeps performance of monolithic but uses modularity of microkernel.
+•	Some services run in kernel space, some in user space.
+•	Balanced between speed and stability.
+✅ Example: Windows NT/XP/10, macOS
+
+4. Nanokernel
+•	Very minimal kernel, only provides basic hardware abstraction.
+•	Most services are handled at a higher level.
+•	Extremely small and lightweight.
+✅ Example: Some embedded systems, research OS kernels.
+
+5. Exokernel
+•	Very low-level kernel.
+•	Provides minimal hardware abstraction and lets applications directly manage resources (CPU, memory, devices).
+•	Very flexible and efficient, but complex for developers.
+✅ Example: MIT Exokernel (experimental OS)
+
+Summary Table:
+Type	Features	Pros	Cons	Examples
+Monolithic	All services in kernel space	Fast	Less secure, hard to maintain	Linux, UNIX
+Microkernel	Only core functions in kernel	Stable, secure	Slower (extra communication)	Minix, QNX
+Hybrid	Mix of monolithic + microkernel	Balanced	Still complex	Windows, macOS
+Nanokernel	Very small kernel	Lightweight	Limited functions	Embedded systems
+Exokernel	Minimal abstraction	High performance	Hard for developers	MIT Exokernel
+✅ In short:
+•	Monolithic → Fast but less safe
+•	Microkernel → Secure but slower
+•	Hybrid → Best of both worlds
+•	Nanokernel → Very tiny, for special systems
+•	Exokernel → Gives full control to apps
+
+
+
+
+** 3. Shell **
+•	A Shell is a command-line interpreter that acts as an interface between the user and the kernel.
+•	It takes commands from the user, interprets them, and sends them to the kernel for execution.
+•	After execution, it displays the output back to the user.
+	In simple words:
+User → Shell → Kernel → Hardware → Result
+
+*Functions of Shell *
+•	Command Execution – Accepts user commands and executes them.
+•	Program Execution – Can run programs and applications.
+•	Scripting – Supports writing shell scripts (set of commands in a file to automate tasks).
+•	Input/Output Redirection – Redirects input/output (e.g., > to write output to a file).
+•	Pipelines – Connects multiple commands (e.g., ls | grep txt).
+•	Environment Control – Manages environment variables like PATH, USER, HOME.
+•	User Interface – Provides CLI (Command Line Interface) for interacting with the system.
+
+* Types of Shells * 
+1.	Bourne Shell (sh) – Original UNIX shell.
+2.	Bash (Bourne Again Shell) – Most popular in Linux, powerful features.
+3.	C Shell (csh) – Uses C-like syntax, supports aliases and history.
+4.	Korn Shell (ksh) – Combines features of sh and csh.
+5.	Z Shell (zsh) – Advanced shell with better customization.
+
+* Example of Shell Commands *
+•	ls → lists files
+•	pwd → prints current directory
+•	cd /home → changes directory
+•	cat file.txt → displays file contents
+•	echo "Hello" → prints message
+
+Shell = User interface for OS
+Works as a middleman between user and kernel
+Supports commands, scripting, automation, pipelines, I/O redirection
+** 4. Application / User Layer **
+•	Topmost layer where users interact.
+•	Includes:
+o	User programs (text editors, compilers, browsers, games).
+o	System utilities (disk management, backup tools, etc.).
+•	Uses shell and system calls to access OS services.
+
+•	Hardware → Physical devices
+•	Kernel → Core manager
+•	Shell → Command interpreter
+•	Application → User programs
+Kernel in Operating System
+
+
+
+System Calls in Operating System
+
+•	A System Call is the way a program (or user process) requests a service from the Operating System’s Kernel.
+•	Since applications cannot directly access hardware, they use system calls to interact with the OS for resources like CPU, memory, files, and devices.
+👉 In short:
+Application → System Call → Kernel → Hardware → Result
+
+Functions of System Calls
+System calls provide an interface between user programs and the OS.
+They allow:
+1.	Process control (create, execute, terminate processes).
+2.	File manipulation (read, write, open, close files).
+3.	Device management (access I/O devices).
+4.	Information maintenance (get system info, time, process attributes).
+5.	Communication (send and receive messages between processes).
+How System Calls Work
+1.	The user program requests an OS service (e.g., read a file).
+2.	The request is passed to the system call interface.
+3.	The OS kernel performs the requested operation.
+4.	The result (or error) is returned to the user program.
+
+Types of System Calls
+System calls are classified into five main categories, based on the services they provide.
+1. Process Control
+•	Used to create, execute, and terminate processes.
+•	Also used for process synchronization and communication.
+👉 Examples:
+•	fork () → create a new process
+•	exec () → execute a new program
+•	exit () → terminate process
+•	wait () → wait for a child process to finish
+
+2. File Management
+•	Used to handle files and directories.
+•	Operations include creating, deleting, reading, writing, and modifying file attributes.
+👉 Examples:
+•	open () → open a file
+•	read () → read from a file
+•	write () → write to a file
+•	close () → close a file
+•	unlink () → delete a file
+
+3. Device Management
+•	Used to request, release, and control I/O devices.
+•	The OS provides a unified interface for device access.
+👉 Examples:
+•	ioctl () → device-specific operations
+•	read () → read from a device
+•	write () → write to a device
+•	request () / release () device
+4. Information Maintenance
+•	Used to get or set system information.
+•	Useful for debugging, process status, or system performance.
+👉 Examples:
+•	getpid () → get process ID
+•	alarm () → set a timer
+•	time () → get system time
+•	getuid () → get user ID
+5. Communication
+•	Used to allow processes to exchange information.
+•	Can be message passing or shared memory.
+👉 Examples:
+•	pipe () → create a communication pipe
+•	msgget () / msgsnd () → message queues
+•	shmget () → create shared memory segment
+•	mmap () → map files or devices into memory
+
+Summary Table
+Type of System Call	Purpose	Examples
+Process Control	Process creation, execution, termination	fork (), exec (), exit (), wait ()
+File Management	File and directory operations	open (), read (), write (), close ()
+Device Management	Device request and release	ioctl (), read (), write ()
+Information Maintenance	System info and attributes	getpid (), time (), getuid ()
+Communication	Process-to-process communication	pipe (), msgsnd (), shmget ()

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted greenyellow;
+        }
+        span{
+            font-size: xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: larger;
+            padding: 25px;
+        }
+        ol{
+            color: blue;
+            font-size:  x-large;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        pre{
+            width: 100%;
+            height: auto;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+            border-radius: 25%;
+        }
+        /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            ul{
+            padding: 10px;
+            font-size: large;
+        }
+        ol{
+            color: blue;
+            font-size: large;
+        }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-2</h1>
+        <p>
+            <span style="color:deeppink;">Aim:-</span>To write a program perform various operation on stack using Linked List in C language.
+<br><br>
+    <span style="color:brown;">Requriment:-</span> Personal computer or laptop ,Install Code editior  with C Compiler and extensiton.
+ <br><br>
+     <span style="color:lawngreen ;">Theory:-</span> <br>
+<span>Stack:</span><br></p><br>
+<ul>
+    <li>Stack is a type of linear data structure.</li>
+    <li>It follow LIFO (Last In,First Out) principle.</li>
+    <li>Linked List implementation the size of stack is not fixed.</li>
+
+    <li>A pointer named top is used which points to the first node of the stack.</li>
+
+    <li style="color: blue;">Push()----> Insert a new node at the top of the stack.</li>
+    <li style="color: blue;">Pop()--->Deletr the top node from the stack.</li>
+    <li style="color: blue;">Peek()--->View the top element without removing it.</li>
+    <li style="color: blue;">Display--->Show all the elements of the stack.</li>
+</ul><br>
+
+<span>Algorithm:-</span> <br><br>
+<ol>1.Push()</ol>
+<ul>
+    <li>Create a new node.</li>
+    <li>If memory is full,display overflow condition.</li>
+    <li>Set newNode ->next = top</li>
+    <li>set top = newNode</li>
+</ul>
+<ol>2.Pop()</ol>
+<ul>
+    <li>Check wheather the stack is empty or not.</li>
+    <li>set temp = top</li>
+    <li>set top = top->next</li>
+    <li>Delete(free) the temporary node.</li>
+</ul>
+
+<ol>3.Peek()</ol>
+<ul>
+    <li>Start</li>
+    <li>Check if top==NULL</li>
+	<ul><li>If true -->Display"Stack Underflow" or "Stack is Empty"</li>
+	<li>Go to Step 5</li></ul>
+    <li>Else-->Display the value of top->data</li>
+    <li>End if</li>
+    <li>Stop</li>
+</ul><br>
+
+     <div class="code"><button id="copyBtn" ><i class="fa-solid fa-copy"> copy code</i></button>
+        <span >c</span>
+        <pre id="program">
+    # include &lt;stdio.h&gt;
+    # include &lt;stdlib.h&gt;
+
+    struct Node{
+        int data;
+        struct Node* next;
+    };
+    struct Node* top =NULL;
+
+    // push() operation 
+    void push(int value){
+        struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+        if(newNode == NULL){
+        printf("Stack is Overflow condition\n");
+        return ;
+    }
+    newNode->data = value;
+    newNode->next = top;
+    top = newNode ;
+    printf("%d is pushed into stack",value);
+}
+// pop() operation 
+void pop(){
+    if(top == NULL){
+        printf("Stack is underflow condition\n");
+        return ;
+    }
+    struct Node* temp = top;
+    printf("%d is Popped from stack\n",top->data);
+    top = top->next;
+    free(temp);
+    
+}
+// peek() operation 
+void peek(){
+    if(top == NULL){
+        printf("Stack is an empty\n");
+    }else{
+        printf("Top elements is %d\n",top->data);
+    }
+}
+
+// dispaly
+void dispaly(){
+    struct Node* temp =top;
+    if(temp == NULL){
+        printf("Stack is Empty\n");
+        return ;
+    }
+    printf("Stack elements are:\n");
+    while(temp !=NULL){
+        printf("%d\n",temp->data);
+        temp = temp ->next;
+    }
+}
+
+int main(){
+    int choice,value;
+while(1){ printf("\n--Stack Operation--\n");
+    printf("\n1.Push ()");
+    printf("\n2. Pop ()");
+    printf("\n3. Peek ()");
+    printf("\n4. Display");
+    printf("\n5. Exit");
+    printf("\nEnter the choice:");
+    scanf("%d",&choice);
+
+    switch (choice)
+    {
+
+    case 1: printf("Enter value:");
+            scanf("%d",&value);
+            push(value);
+            break;
+    case 2: pop();
+            break;
+    case 3: peek();
+            break;
+    case 4: dispaly();
+            break;
+    case 5: exit(0);
+
+    default:
+        printf("!Invalid Choice\n");
+    }
+}
+}
+
+        
+</pre>
+</div>
+<span style="color: brown;">Result:</span><p>
+Thus, all stack operation are successfully implemented.</p>
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+</body>
+</html>

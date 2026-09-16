@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+        body,html{
+            width:100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            font-size: 3rem;
+            color: red;
+            font-style: italic;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .container{
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            border:4px dotted deeppink;
+        }
+        span{
+            font-size: xx-large;
+        }
+        p{
+            font-size: x-large;
+        }
+        ul{
+            font-size: x-large;
+            padding-left: 25px ;
+        }
+        .code{
+            width: 100%;
+            height: auto;
+            background-color: aliceblue;
+            position: relative;
+            overflow: auto;
+            font-style: normal;
+            font-size: large;
+            border-radius: 2.5%;
+        }
+        #copyBtn{
+            color:black;
+            position: absolute;
+            cursor: pointer;
+            padding: 5px 10px;
+            border:none;
+            top:10px;
+            right:10px;
+        }
+                /* media to responsive mobile  */
+        @media (max-width:768px){
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body,html{
+                width: 100%;
+                height: auto;
+            }
+            h1{
+            font-size: 1rem;
+            }
+            P{
+                font-size: large;
+            }
+            span{
+                font-size: larger;
+            }
+            pre,code{
+                width: 100%;
+                overflow: auto;
+            position: relative;
+            }
+
+        }
+</style>
+</head>
+<body>
+<div class="container">
+        <h1>Practical No.-7</h1>
+        <p>
+    <span style="color:deeppink;">Aim:-</span>Write a programs to simulate the following contiguous memory allocation techniques. <br> (a)- Worst Fit (b)- Best Fit (c)- First Fit<br>
+    <span style="color:brown;">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
+     <span style="color:brown;">Procedure:-</span> <br>
+
+     <!--First Fit, Best Fit and Worst Fit contiguous memory allocation techniques-->
+     First Fit, Best Fit and Worst Fit contiguous memory allocation techniques <br>
+
+     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy code</i></button>
+        <pre id="program">
+             <code class="language-c">
+    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    #include <stdio.h>
+
+    void firstFit(int blockSize[], int m, int processSize[], int n) {
+    int allocation[n];
+
+    for (int i = 0; i < n; i++)
+        allocation[i] = -1;
+
+    printf("\n================ FIRST FIT STEP TABLE ================\n");
+    printf("-------------------------------------------------------------\n");
+    printf("| Process |Process Size | Block Allocated | Remaining Block Size   |\n");
+    printf("-------------------------------------------------------------\n");
+
+    for (int i = 0; i < n; i++) {
+        int allocated = 0;
+        for (int j = 0; j < m; j++) {
+            if (blockSize[j] >= processSize[i]) {
+                allocation[i] = j;
+                printf("|   P%- 5d | %-4d       | Block %-2d     | %d - %d = %d        |\n",
+                       i + 1, processSize[i], j + 1, blockSize[j], processSize[i], blockSize[j] - processSize[i]);
+                blockSize[j] -= processSize[i];
+                allocated = 1;
+                break;
+            }
+        }
+        if (!allocated) {
+            printf("|   P%-5d | %-4d       | Not Allocated  | ---                 |\n", i + 1, processSize[i]);
+        }
+    }
+    printf("-------------------------------------------------------------\n");
+
+    printf("\nFinal First Fit Allocation:\n");
+    printf("Process No.\tProcess Size\tBlock No.\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\t\t%d\t\t", i + 1, processSize[i]);
+        if (allocation[i] != -1)
+            printf("%d\n", allocation[i] + 1);
+        else
+            printf("Not Allocated\n");
+    }
+}
+
+
+void bestFit(int blockSize[], int m, int processSize[], int n) {
+    int allocation[n];
+
+    for (int i = 0; i < n; i++)
+        allocation[i] = -1;
+
+    printf("\n================ BEST FIT STEP TABLE ================\n");
+    printf("---------------------------------------------------------------------\n");
+    printf("| Process |Process Size | Block Allocated (Best) | Remaining Block Size    |\n");
+    printf("---------------------------------------------------------------------\n");
+
+    for (int i = 0; i < n; i++) {
+        int bestIdx = -1;
+        for (int j = 0; j < m; j++) {
+            if (blockSize[j] >= processSize[i]) {
+                if (bestIdx == -1 || blockSize[j] < blockSize[bestIdx])
+                    bestIdx = j;
+            }
+        }
+
+        if (bestIdx != -1) {
+            printf("|   P%-5d | %-4d       | Block %-3d            | %d - %d = %d         |\n",
+                   i + 1, processSize[i], bestIdx + 1, blockSize[bestIdx], processSize[i], blockSize[bestIdx] - processSize[i]);
+            allocation[i] = bestIdx;
+            blockSize[bestIdx] -= processSize[i];
+        } else {
+            printf("|   P%-5d | %-4d       | Not Allocated        | ---                   |\n", i + 1, processSize[i]);
+        }
+    }
+    printf("---------------------------------------------------------------------\n");
+
+    printf("\nFinal Best Fit Allocation:\n");
+    printf("Process No.\tProcess Size\tBlock No.\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\t\t%d\t\t", i + 1, processSize[i]);
+        if (allocation[i] != -1)
+            printf("%d\n", allocation[i] + 1);
+        else
+            printf("Not Allocated\n");
+    }
+}
+
+
+void worstFit(int blockSize[], int m, int processSize[], int n) {
+    int allocation[n];
+
+    for (int i = 0; i < n; i++)
+        allocation[i] = -1;
+
+    printf("\n================ WORST FIT STEP TABLE ================\n");
+    printf("---------------------------------------------------------------------\n");
+    printf("| Process |Process Size | Block Allocated (Worst) | Remaining Block Size   |\n");
+    printf("---------------------------------------------------------------------\n");
+
+    for (int i = 0; i < n; i++) {
+        int worstIdx = -1;
+        for (int j = 0; j < m; j++) {
+            if (blockSize[j] >= processSize[i]) {
+                if (worstIdx == -1 || blockSize[j] > blockSize[worstIdx])
+                    worstIdx = j;
+            }
+        }
+
+        if (worstIdx != -1) {
+            printf("|   P%-5d | %-4d       | Block %-3d     | %d - %d = %d        |\n",
+                   i + 1, processSize[i], worstIdx + 1, blockSize[worstIdx], processSize[i], blockSize[worstIdx] - processSize[i]);
+            allocation[i] = worstIdx;
+            blockSize[worstIdx] -= processSize[i];
+        } else {
+            printf("|   P%-5d | %-4d      | Not Allocated  | ---                  |\n", i + 1, processSize[i]);
+        }
+    }
+    printf("---------------------------------------------------------------------\n");
+
+    printf("\nFinal Worst Fit Allocation:\n");
+    printf("Process No.\tProcess Size\tBlock No.\n");
+    for (int i = 0; i < n; i++) {
+        printf("%d\t\t%d\t\t", i + 1, processSize[i]);
+        if (allocation[i] != -1)
+            printf("%d\n", allocation[i] + 1);
+        else
+            printf("Not Allocated\n");
+    }
+    printf("First Fit, Best Fit & Worst Fit Contiguous Memory Allocation Program performed by Kadir Alam\n");
+
+}
+
+
+int main() {
+    int m, n;
+
+    printf("First Fit, Best Fit & Worst Fit Contiguous Memory Allocation Program performed by Kadir Alam\n");
+
+    printf("\nEnter number of memory blocks: ");
+    scanf("%d", &m);
+    int blockSize[m];
+
+    printf("Enter size of each memory block:\n");
+    for (int i = 0; i < m; i++)
+        scanf("%d", &blockSize[i]);
+
+    printf("\nEnter number of processes: ");
+    scanf("%d", &n);
+    int processSize[n];
+
+    printf("Enter size of each process:\n");
+    for (int i = 0; i < n; i++)
+        scanf("%d", &processSize[i]);
+
+    int blockCopy1[m], blockCopy2[m], blockCopy3[m];
+    for (int i = 0; i < m; i++) {
+        blockCopy1[i] = blockSize[i];
+        blockCopy2[i] = blockSize[i];
+        blockCopy3[i] = blockSize[i];
+    }
+
+    firstFit(blockCopy1, m, processSize, n);
+    bestFit(blockCopy2, m, processSize, n);
+    worstFit(blockCopy3, m, processSize, n);
+    return 0;
+}
+</code>
+</pre>
+</div>
+<span style="color: chocolate;">Result:- <br></span>
+<p>First Fit, Best Fit and Worst Fit was successfully program.</p>
+</div>
+<script type="module">
+ import { copycode } from './function.js';
+
+ document.getElementById("copyBtn").addEventListener("click",copycode);
+ </script>
+
+</body>
+</html>
