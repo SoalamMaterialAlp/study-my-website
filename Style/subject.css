@@ -64,20 +64,6 @@ button{
 }
 
 /* =========================================================
-   READING PROGRESS
-========================================================= */
-
-#progressBar{
-    position:fixed;
-    top:0;
-    left:0;
-    height:4px;
-    width:0%;
-    background: linear-gradient( 90deg, var(--primary),var(--secondary),var(--accent));
-    z-index:99999;
-}
-
-/* =========================================================
    TOP HEADER
 ========================================================= */
 

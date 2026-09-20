@@ -13,16 +13,61 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <link rel="stylesheet" href="Style/subject.css">
+<style>
+ body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            padding: 30px;
+ }
+ .table-container {
+            width: 100%;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        th,
+        td {
+            padding: 14px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: #2563eb;
+            color: white;
+            font-size: 15px;
+        }
+
+        td {
+            color: #374151;
+            font-size: 14px;
+        }
+
+        tr:hover {
+            background: #f1f5ff;
+        }
+
+        .status {
+            background: #dcfce7;
+            color: #166534;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        </style>
 
 </head>
 
 <body>
-
-<!-- READING PROGRESS -->
-
-<div id="progressBar"></div>
-
 
 <!-- =====================================================
      HEADER
@@ -60,36 +105,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 <!-- =====================================================
      NAVIGATION
 ===================================================== -->
-
-<nav class="navbar">
+<nav class="navbar"  id="subjectNav" >
 
     <a class="nav-link" href="index.html">
         <i class="fa-solid fa-house"></i>
         Home
     </a>
-<a class="nav-link active" href="Java.html">
-        <i class="fa-solid fa-mug-hot"></i>
-        OOPS Using Java
-        
-    </a>
-<a class="nav-link " href="MM_Technologies.html">
-        <i class="fa-solid fa-photo-film"></i>
-        Multimedia Technologies
-        
-    </a>
-<a class="nav-link" href="Info_Security.html">
-        <i class="fa-solid fa-shield-halved"></i>
-        Information Security
-    </a>
 
-<a class="nav-link" href="FOIOT.html">
-        <i class="fa-solid fa-microchip"></i>
-    FOIOT    
-    </a>
-   <a class="nav-link" href="Engg_Economic_Account.html">
-        <i class="fa-solid fa-microchip"></i>
-    Engg. Economics & Accountancy    
-    </a>
+<div class="navbar"  id="subjectNav" >
     
     <a class="nav-link" href="Physics_1.html">
         <i class="fa-solid fa-atom"></i>
@@ -101,7 +124,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         Mathematics 1
     </a>
 
-    <a class="nav-link" href="Chemistry.html">
+    <a class="nav-link " href="Chemistry.html">
         <i class="fa-solid fa-flask"></i>
         Applied Chemistry
     </a>
@@ -113,7 +136,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     <a class="nav-link" href="E_Graphics.html">
         <i class="fa-solid fa-compass-drafting"></i>
-        Engg. Graphics
+        Engineering Graphics
     </a>
 
     <a class="nav-link" href="Physics_2.html">
@@ -133,12 +156,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
     <a class="nav-link" href="IT_system.html">
         <i class="fa-solid fa-computer"></i>
-        Imntroduction to IT System
+        Introduction to IT System
      </a>
 
     <a class="nav-link" href="E_Mechanics.html">
         <i class="fa-solid fa-gears"></i>
-        Engg. Mechanics
+        Engineering Mechanics
      </a>
 
     <a class="nav-link " href="OS.html">
@@ -191,8 +214,35 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
        CSO
     </a>
 
-     
+    <a class="nav-link" href="Java.html">
+        <i class="fa-solid fa-mug-hot"></i>
+        OOPS Using Java
+        
+    </a>
+    <a class="nav-link " href="MM_Technologies.html">
+        <i class="fa-solid fa-photo-film"></i>
+        Multimedia Technologies
+        
+    </a>
 
+    <a class="nav-link" href="Info_Security.html">
+        <i class="fa-solid fa-shield-halved"></i>
+        Information Security
+    </a>
+
+    <a class="nav-link" href="FOIOT.html">
+        <i class="fa-solid fa-microchip"></i>
+        FOIOT    
+    </a>
+
+    
+    <a class="nav-link" href="Engg_Economic_Accoun.html">
+        <i class="fa-solid fa-microchip"></i>
+        Engineering Economics & Accountancy    
+    </a>
+
+    </div>
+    
 </nav>
 
 
@@ -249,7 +299,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
                 <span class="tag">
                     <i class="fa-solid fa-flask"></i>
-                    00 Practicals
+                    12 Practicals
                 </span>
 
                 <span class="tag">
@@ -343,8 +393,24 @@ id="sidebarToggle">
         
         <div class="group-body">
 
-            <a href="assignment_1_OS.html">
-                Assignment 1
+            <a href="Java/Unit_1_Java.html">
+                Unit 1
+            </a>
+
+            <a href="Java/Unit_2_Java.html">
+                Unit 2
+            </a>
+
+            <a href="Java/Unit_3_Java.html">
+                Unit 3
+            </a>
+
+            <a href="Java/Unit_4_Java.html">
+                Unit 4
+            </a>
+
+            <a href="Java/Unit_5_Java.html">
+                Unit 5
             </a>
 
  </div>
@@ -373,17 +439,17 @@ id="sidebarToggle">
 
         <div class="group-body">
 
-            <a href="Multimedia_Technologies/assignment_1_MM.html">
+            <a href="Java/assignment_1_Java.html">
                 Assignment 1
             </a>
 
-            <a href="assignment_2_MM.html">
+            <a href="Java/assignment_2_Java.html">
                 Assignment 2
             </a>
 
-            <a href="assignment_3_MM.html">
+        <a href="Java/assignment_3_Java.html">
                 Assignment 3
-            </a>
+               </a>
 
         </div>
 
@@ -412,11 +478,53 @@ id="sidebarToggle">
 
         <div class="group-body">
 
-            <a href="practical_1_OS.html">
+            <a href="Java/practical_1_Java.html">
                 Practical 1
             </a>
-
-       
+            
+            <a href="Java/practical_2_Java.html">
+           Practical 2
+            </a>
+          
+          <a href="Java/practical_3_Java.html">
+                Practical 3
+            </a>
+           
+           <a href="Java/practical_4_Java.html">
+                Practical 4
+            </a>
+          
+            <a href="Java/practical_5_Java.html">
+                            Practical 5
+                        </a>
+          
+            <a href="Java/practical_6_Java.html">
+                            Practical 6
+                        </a>
+          
+            <a href="Java/practical_7_Java.html">
+                            Practical 7
+                        </a>
+          
+            <a href="Java/practical_8_Java.html">
+                            Practical 8
+                        </a>
+          
+            <a href="Java/practical_9_Java.html">
+                            Practical 9
+                        </a>
+          
+            <a href="Java/practical_10_Java.html">
+                            Practical 10
+                        </a>
+          
+            <a href="Java/practical_11_Java.html">
+                            Practical 11
+                        </a>
+          
+            <a href="Java/practical_12_Java.html">
+                            Practical 12
+                        </a>       
         </div>
 
     </div>
@@ -519,7 +627,7 @@ id="sidebarToggle">
             <i class="fa-solid fa-flask"></i>
 
             <h3>
-                11
+                12
             </h3>
 
             <p>
@@ -803,39 +911,8 @@ orities.
             </div>
 
             <p>
-     LIST OF PRACTICALS 
-1. WAP to create a simple class to find out the area and perimeter of rectangle and box using super and this 
+WAP to create a simple class to find out the area and perimeter of rectangle and box using super and this 
 keyword. 
-2. WAP to design a class account using the inheritance and static that show all function of bank (withdrawal, 
-deposit). 
-3. WAP to design a class using abstract methods and classes. 
-4. WAP to design a string class that perform string method (equal, reverse the string, change case). 
-5. Consider we have a Class of Cars under which Santro Xing, Alto and Wagon R represents individual 
-Objects. In this context each Car Object will have its own, Model, Year of Manufacture, Colour, Top 
-Speed, etc. which form Properties of the Car class and the associated actions i.e., object functions like 
-Create(), Sold(), display() form the Methods of Car Class. 
-6. In a software company Software Engineers, Sr. Software Engineers, Module Lead, Technical Lead, 
-Project Lead, Project Manager, Program Manager, Directors all are the employees of the company but 
-their work, perks, roles, responsibilities differs. Create the Employee base class would provide the 
-common behaviors of all types of employee and also some behaviors properties that all employee must 
-have for that company. 
-7. Using the concept of multiple inheritance create classes: Shape, Circle, Square, Cube, Sphere, Cylinder. 
-Your classes may only have the class variable specified in the table below and the methods Area and/or 
-Volume to output their area and/or volume. 
- 
-Class Class Variable Constructor Base class 
-Shape String name Shape()  
-Circle double radius Circle( double r, String n ) Shape 
-Square double side Square( double s, String n ) Shape 
-Cylinder double height Cylinder(double h, double r, String n ) Circle 
-Sphere None Sphere( double r, String n ) Circle 
-Cube None Cube( double s, String n ) Square 
- 
-8. WAP to handle the exception using try and multiple catch block. 
-9. WAP that implement the Nested try statements. 
-10. WAP to create a package that access the member of external class as well as same package. 
-11. WAP that show the partial implementation of interface. 
-12. WAP to create a thread that implement the Runnable interface.
 
             </p>
 
@@ -847,34 +924,46 @@ Cube None Cube( double s, String n ) Square
             </div>
 
             <p>
+            WAP to design a class account using the inheritance and static that show all function of bank (withdrawal, 
+deposit). 
+
             </p>
 
         </div>
         <div class="experiment">
 
             <div class="experiment-number">
-                02
+                03
             </div>
 
             <p>
+ WAP to design a class using abstract methods and classes. 
+
             </p>
 
         </div><div class="experiment">
 
             <div class="experiment-number">
-                02
+                04
             </div>
 
             <p>
+WAP to design a string class that perform string method (equal, reverse the string, change case). 
+
             </p>
 
         </div><div class="experiment">
 
             <div class="experiment-number">
-                02
+                05
             </div>
 
             <p>
+            Consider we have a Class of Cars under which Santro Xing, Alto and Wagon R represents individual 
+Objects. In this context each Car Object will have its own, Model, Year of Manufacture, Colour, Top 
+Speed, etc. which form Properties of the Car class and the associated actions i.e., object functions like 
+Create(), Sold(), display() form the Methods of Car Class. 
+
             </p>
 
         </div><div class="experiment">
@@ -884,24 +973,102 @@ Cube None Cube( double s, String n ) Square
             </div>
 
             <p>
+            In a software company Software Engineers, Sr. Software Engineers, Module Lead, Technical Lead, 
+Project Lead, Project Manager, Program Manager, Directors all are the employees of the company but 
+their work, perks, roles, responsibilities differs. Create the Employee base class would provide the 
+common behaviors of all types of employee and also some behaviors properties that all employee must 
+have for that company. 
+
             </p>
 
-        </div><div class="experiment">
+        </div>
+        
+        <div style="display:flex;flex-direction:column;" class="experiment">
 
             <div class="experiment-number">
                 07
             </div>
 
             <p>
-            </p>
+                Using the concept of multiple inheritance create classes: Shape, Circle, Square, Cube, Sphere, Cylinder. 
+Your classes may only have the class variable specified in the table below and the methods Area and/or 
+Volume to output their area and/or volume. 
+</p>
+    <div class="table-container">
 
-        </div><div class="experiment">
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Class </th>
+                    <th>Class Variable</th>
+                    <th> Constructor</th>
+                    <th> Base class </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                <td>Shape</td>
+                <td>String Name</td>
+                <td>Shape()</td>
+                <td></td>
+                </tr>
+
+                <tr>
+                <td>Circle </td>
+                <td>double radius</td>
+                <td>Circle(double r,String n)</td>
+                <td>Shape</td>                  
+                </tr>
+
+                <tr>
+                <td>Square </td>
+                <td>double side</td>
+                <td>Square(double s,String n)</td>
+                <td>Shape</td>
+                </tr>
+
+                <tr>
+                <td>Cylinder</td>
+                <td>double height</td>
+                <td>Cylinder(double h,double r,String n)</td>
+                <td>Circle</td>
+                </tr>
+                
+                <tr>
+                <td>Sphere</td>
+                <td>None</td>
+                <td>Sphere(double r,String n)</td>
+                <td>Circle</td>
+                </tr>
+                
+                <tr>
+                <td>Cube</td>
+                <td>None</td>
+                <td>Cube(double s,String n)</td>
+                <td>Square</td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+        </div>
+        
+        <div class="experiment">
 
             <div class="experiment-number">
                 08
             </div>
 
             <p>
+ WAP to handle the exception using try and multiple catch block. 
+
             </p>
 
         </div><div class="experiment">
@@ -911,6 +1078,8 @@ Cube None Cube( double s, String n ) Square
             </div>
 
             <p>
+WAP that implement the Nested try statements. 
+
             </p>
 
         </div><div class="experiment">
@@ -920,6 +1089,8 @@ Cube None Cube( double s, String n ) Square
             </div>
 
             <p>
+ WAP to create a package that access the member of external class as well as same package. 
+
             </p>
 
         </div><div class="experiment">
@@ -929,6 +1100,7 @@ Cube None Cube( double s, String n ) Square
             </div>
 
             <p>
+ WAP that show the partial implementation of interface. 
             </p>
 
         </div><div class="experiment">
@@ -938,6 +1110,8 @@ Cube None Cube( double s, String n ) Square
             </div>
 
             <p>
+ WAP to create a thread that implement the Runnable interface.
+
             </p>
 
         </div>
@@ -972,7 +1146,7 @@ Cube None Cube( double s, String n ) Square
 
 
             <a
-            href="unit_1_OS.html"
+            href="Java/Unit_1_Java.html"
             class="quick">
 
                 <i class="fa-solid fa-book-open"></i>
@@ -989,7 +1163,7 @@ Cube None Cube( double s, String n ) Square
 
 
             <a
-            href="assignment_1_MM.html"
+            href="assignment_1_Java.html"
             class="quick">
 
                 <i class="fa-solid fa-file-lines"></i>
@@ -1006,7 +1180,7 @@ Cube None Cube( double s, String n ) Square
 
 
             <a
-            href="practical_1_.html"
+            href="Java/Java/practical_1_.html"
             class="quick">
 
                 <i class="fa-solid fa-flask"></i>
@@ -1074,20 +1248,26 @@ Cube None Cube( double s, String n ) Square
                 </li>
 
                 <li>
-                    <a href="OS.html">
-                        Operating System
+                    <a href="MM_Technologies.html">
+                        Multimedia Technologies
                     </a>
                 </li>
 
                 <li>
-                    <a href="DBMS.html">
-                        DBMS
+                    <a href="Info_Security.html">
+                        Information Security
                     </a>
                 </li>
 
                 <li>
-                    <a href="CN.html">
-                        Computer Network
+                    <a href="FOIOT.html">
+                        FOIOT
+                    </a>
+                </li>
+
+                <li>
+                    <a href="Engg_Economic_Accoun.html">
+                       Engineering Economics & Accountancy
                     </a>
                 </li>
 
@@ -1142,8 +1322,7 @@ Cube None Cube( double s, String n ) Square
 
 </button>
 
-
-<script src="script.js"></script>
+<script src="Logic/Subject.js"></script>
 
 </body>
 

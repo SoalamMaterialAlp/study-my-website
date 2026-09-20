@@ -2,7 +2,24 @@
 /* =====================================================
      JAVASCRIPT
 ===================================================== */
+//=========== Nav Bar Center of Current Page =========
 
+document.addEventListener("DOMContentLoaded",function(){
+const subjects = document.querySelectorAll("#subjectNav a");
+    const currentPage = window.location.pathname.split("/").pop();
+    subjects.forEach(function (subject){
+        const subjectPage = subject.getAttribute("href");
+    if(subjectPage === currentPage){
+        subject.classList.add("active");
+        subject.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest"
+            });
+        }
+    });
+
+});
 
 
 /* =====================================================
@@ -134,178 +151,6 @@ document.getElementById("printBtn")
 });
 
 
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-const searchInput =
-document.getElementById("searchInput");
-
-const searchResults =
-document.getElementById("searchResults");
-
-const results =
-document.getElementById("results");
-
-
-const searchableElements = [
-
-    "Operating System",
-    "Introduction",
-    "Types Of Operating System",
-    "Functions Of Operating System",
-    "Services Of Operating System",
-    "UNIX Architecture",
-    "Linux Architecture",
-    "System Calls",
-    "Process Management",
-    "Process Concepts",
-    "CPU Scheduling",
-    "Scheduling Algorithms",
-    "IPC",
-    "Process Synchronization",
-    "Critical Section",
-    "Deadlock",
-    "Memory Management",
-    "Memory Allocation",
-    "First Fit",
-    "Best Fit",
-    "Worst Fit",
-    "Paging",
-    "Segmentation",
-    "Page Replacement",
-    "Virtual Memory",
-    "I/O System",
-    "Mass Storage",
-    "Disk Structure",
-    "Disk Scheduling",
-    "Swap Space",
-    "RAID",
-    "File Management",
-    "File Concepts",
-    "Directory Structure",
-    "File Sharing",
-    "File Protection",
-    "File Systems",
-    "FCFS",
-    "SJF",
-    "Round Robin",
-    "Priority",
-    "Banker's Algorithm",
-    "FIFO",
-    "LRU",
-    "OPTIMAL",
-    "SCAN",
-    "C-SCAN"
-
-];
-
-
-searchInput.addEventListener(
-"input",
-()=>{
-
-    const query =
-    searchInput.value
-    .toLowerCase()
-    .trim();
-
-
-    if(query === ""){
-
-        searchResults.classList.remove(
-            "show"
-        );
-
-        return;
-
-    }
-
-
-    const matches =
-    searchableElements.filter(
-        item =>
-        item.toLowerCase()
-        .includes(query)
-    );
-
-
-    results.innerHTML = "";
-
-
-    if(matches.length === 0){
-
-        results.innerHTML = `
-        <div class="search-result">
-            <strong>No topic found.</strong>
-            <p style="color:var(--muted);font-size:.8rem;">
-                Try another keyword.
-            </p>
-        </div>
-        `;
-
-    }else{
-
-        matches.forEach(item=>{
-
-            const div =
-            document.createElement("div");
-
-            div.className =
-            "search-result";
-
-            div.innerHTML = `
-                <strong>${item}</strong>
-                <p style="
-                color:var(--muted);
-                font-size:.75rem;
-                margin-top:4px;
-                ">
-                    Operating System course topic
-                </p>
-            `;
-
-            results.appendChild(div);
-
-        });
-
-    }
-
-
-    searchResults.classList.add("show");
-
-});
-
-
-
-/* =====================================================
-   READING PROGRESS
-===================================================== */
-
-window.addEventListener(
-"scroll",
-()=>{
-
-    const scrollTop =
-    window.scrollY;
-
-    const docHeight =
-    document.documentElement
-    .scrollHeight
-    -
-    document.documentElement
-    .clientHeight;
-
-    const percentage =
-    (scrollTop / docHeight) * 100;
-
-    document.getElementById(
-        "progressBar"
-    ).style.width =
-    percentage + "%";
-
-});
 
 
 /* =====================================================
