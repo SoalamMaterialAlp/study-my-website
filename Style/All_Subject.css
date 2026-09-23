@@ -1069,64 +1069,64 @@ footer{
     ================================================= */
 
     #subjects.reveal{
-        opacity:1 !important;
-        visibility:visible !important;
-        transform:none !important;
-        display:block !important;
+        opacity:1  ;
+        visibility:visible  ;
+        transform:none  ;
+        display:block  ;
     }
 
 
     #subjects .heading{
-        display:block !important;
-        visibility:visible !important;
-        opacity:1 !important;
+        display:block  ;
+        visibility:visible  ;
+        opacity:1  ;
     }
 
 
     #subjects .controls{
-        display:flex !important;
-        width:100% !important;
-        visibility:visible !important;
-        opacity:1 !important;
+        display:flex  ;
+        width:100%  ;
+        visibility:visible  ;
+        opacity:1  ;
     }
 
 
     #subjects .search{
-        width:100% !important;
-        min-width:0 !important;
-        flex:1 1 100% !important;
+        width:100%  ;
+        min-width:0  ;
+        flex:1 1 100%  ;
     }
 
 
     #subjects .filters{
-        width:100% !important;
-        display:flex !important;
-        flex-wrap:wrap !important;
+        width:100%  ;
+        display:flex  ;
+        flex-wrap:wrap  ;
     }
 
 
     #subjects .filter{
-        display:block !important;
-        visibility:visible !important;
+        display:block  ;
+        visibility:visible  ;
     }
 
 
     /* SUBJECT GRID */
 
     #subjectGrid{
-        display:grid !important;
-        grid-template-columns:1fr !important;
-        width:100% !important;
-        visibility:visible !important;
-        opacity:1 !important;
+        display:grid ;
+        grid-template-columns:1fr  ;
+        width:100% ;
+        visibility:visible  ;
+        opacity:1 ;
     }
 
 
     #subjectGrid .subject-card{
-        display:block !important;
-        width:100% !important;
-        opacity:1 !important;
-        visibility:visible !important;
+        display:block ;
+        width:100% ;
+        opacity:1 ;
+        visibility:visible  ;
     }
 
 
