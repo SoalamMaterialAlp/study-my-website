@@ -1,243 +1,767 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <style>
-        body,html{
-            width:100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1{
-            font-size: 3rem;
-            color: red;
-            font-style: italic;
-            text-align: center;
-            text-decoration: underline;
-        }
-        .container{
-            width: 100%;
-            height: 1200px;
-            padding: 10px;
-            border:4px dotted greenyellow;
-        }
-        span{
-            font-size: xx-large;
-        }
-        p{
-            font-size: x-large;
-        }
-        ul{
-            font-size: x-large;
-            padding-left: 25px ;
-        }
-        .code{
-            width: 100%;
-            height: auto;
-            background-color: aliceblue;
-            position: relative;
-            font-style: normal;
-            font-size: large;
-            border-radius: 2.5%;
-        }
-        #copyBtn{
-            position: absolute;
-            cursor: pointer;
-            padding: 5px 10px;
-            border:none;
-            top:10px;
-            right:20px;
-            border-radius:25%;
-        }
-        @media (max-width:768px){
-            *{
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body,html{
-                width: 100%;
-                height: auto;
-            }
-            h1{
-            font-size: 1rem;
-            }
-            P{
-                font-size: large;
-            }
-            span{
-                font-size: larger;
-            }
-            pre,code{
-                width: 100%;
-                overflow: auto;
-            position: relative;
-            }
 
-        }
-</style>
+    <title>Practical No. 6 | Operating System</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="../Style/practical.CSS">
+
 </head>
+
 <body>
+
 <div class="container">
-        <h1>Practical No.-6</h1>
-        <p>
-    <span  style="color:deeppink;">Aim:-</span>Simulate Banker Algorithm for Deadlock Avoidance and prevention.<br>
-    <span style="color:brown;">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
-     <span style="color:brown;">Procedure:-</span> <br>
-    Banker Algorithm for Deadlock Avoidance and Prevention.
-    <!--Banker Algorithm-->
-     Banker Algorithm <br>
 
-     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-clipboard">  copy code</i></button>
-        <pre id="program"><code class="language-c">
-    <span style="font-weight: 700;font-size: xx-large;">C</span>  
-    #include <stdio.h>
-    int main() {
-    int n,i;
-    printf("Banker Algorithm by Kadir Alam\n ");
+    <!-- ================= HEADER ================= -->
+
+    <header class="headers">
+
+        <a href="../OS.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Subject
+        </a>
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <img class="brand-icon"
+                     src="../images/logo.png"
+                     alt="Alam Study Element Logo">
+            </div>
+
+            <div>
+                <h1>Alam Study Element</h1>
+                <span>Computer Science and Engineering</span>
+            </div>
+
+        </div>
+
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i>
+            Print
+        </button>
+
+    </header>
+
+
+    <!-- ================= PRACTICAL HEADER ================= -->
+
+    <header class="header">
+
+        <div class="practical-label">
+            Operating System
+        </div>
+
+        <h1>Practical No. 6</h1>
+
+        <div class="practical-label">
+
+            <button class="pre-btn">
+                <a style="text-decoration:none;"
+                   href="practical_5_OS.html">
+                    Previous Practical
+                </a>
+            </button>
+
+            <button class="next-btn">
+                <a style="text-decoration:none;"
+                   href="practical_7_OS.html">
+                    Next Practical
+                </a>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="content">
+
+
+        <!-- ================= AIM ================= -->
+
+        <div class="aim">
+
+            <p>
+                <strong>Aim:</strong>
+                Simulate Banker Algorithm for Deadlock Avoidance and Prevention.
+            </p>
+
+        </div>
+
+
+        <!-- ================= REQUIREMENT + PURPOSE ================= -->
+
+        <div class="info-grid">
+
+            <div class="info-box">
+
+                <h2>🖥️ Requirements</h2>
+
+                <p>
+                    Personal Computer or Laptop, C Compiler
+                    (Turbo C++ or Visual Studio Code with C extension).
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <h2>📌 Purpose</h2>
+
+                <p>
+                    To simulate the Banker Algorithm and understand how
+                    resources are allocated safely to processes to avoid
+                    deadlock.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= INTRODUCTION ================= -->
+
+        <div class="intro">
+
+            <h2 class="section-title">
+                Introduction
+            </h2>
+
+            <p>
+                The Banker Algorithm is a deadlock avoidance algorithm
+                used in Operating Systems. It checks whether allocating
+                resources to a process will keep the system in a safe state.
+            </p>
+
+            <br>
+
+            <p>
+                Before allocating resources, the algorithm checks the
+                available resources, allocated resources, demand of each
+                process and remaining need. If the system remains in a
+                safe state, resources are allocated; otherwise, the process
+                waits.
+            </p>
+
+        </div>
+
+
+        <!-- ================= PROCEDURE ================= -->
+
+        <section class="procedure">
+
+            <h2 class="section-title">
+                Procedure
+            </h2>
+
+
+            <!-- STEP 1 -->
+
+            <div class="step">
+
+                <div class="step-number">01</div>
+
+                <div class="step-content">
+
+                    <h3>Start the Program</h3>
+
+                    <p>
+                        Start the computer and open a C compiler such as
+                        Turbo C++ or Visual Studio Code with the C extension.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="step">
+
+                <div class="step-number">02</div>
+
+                <div class="step-content">
+
+                    <h3>Enter Number of Processes</h3>
+
+                    <p>
+                        The program asks the user to enter the number of
+                        processes that will participate in resource allocation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="step">
+
+                <div class="step-number">03</div>
+
+                <div class="step-content">
+
+                    <h3>Enter Total Resources</h3>
+
+                    <p>
+                        Enter the total available resources RA, RB and RC.
+                        These represent three different types of resources.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="step">
+
+                <div class="step-number">04</div>
+
+                <div class="step-content">
+
+                    <h3>Enter Allocated Resources</h3>
+
+                    <p>
+                        Enter the number of resources currently allocated
+                        or held by every process.
+                    </p>
+
+                    <p>
+                        The program stores the allocated resources as
+                        HRA, HRB and HRC.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="step">
+
+                <div class="step-number">05</div>
+
+                <div class="step-content">
+
+                    <h3>Enter Available Resources</h3>
+
+                    <p>
+                        Enter the currently available resources
+                        ARA, ARB and ARC.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 6 -->
+
+            <div class="step">
+
+                <div class="step-number">06</div>
+
+                <div class="step-content">
+
+                    <h3>Enter Resource Demand</h3>
+
+                    <p>
+                        Enter the resources demanded or required by each
+                        process. The values are stored in DRA, DRB and DRC.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 7 -->
+
+            <div class="step">
+
+                <div class="step-number">07</div>
+
+                <div class="step-content">
+
+                    <h3>Calculate Need</h3>
+
+                    <p>
+                        The remaining need of every process is calculated
+                        using the formula:
+                    </p>
+
+                    <p>
+                        <strong>
+                            Need = Demand − Allocation
+                        </strong>
+                    </p>
+
+                    <p>
+                        The calculated values are stored in needA,
+                        needB and needC.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 8 -->
+
+            <div class="step">
+
+                <div class="step-number">08</div>
+
+                <div class="step-content">
+
+                    <h3>Check Safe Sequence</h3>
+
+                    <p>
+                        The algorithm checks whether the remaining need of
+                        a process is less than or equal to the available
+                        resources.
+                    </p>
+
+                    <p>
+                        If the condition is satisfied, the process executes
+                        and its allocated resources are released back to
+                        the available resources.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 9 -->
+
+            <div class="step">
+
+                <div class="step-number">09</div>
+
+                <div class="step-content">
+
+                    <h3>Display Safe State</h3>
+
+                    <p>
+                        If all processes can finish successfully, the system
+                        is declared to be in a SAFE state and the safe
+                        sequence is displayed.
+                    </p>
+
+                    <p>
+                        If one or more processes cannot finish, the system
+                        is declared to be NOT in a safe state.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= PROGRAM ================= -->
+
+            <div class="step">
+
+                <div class="step-number">10</div>
+
+                <div class="step-content">
+
+                    <h3>Banker's Algorithm C Program</h3>
+
+                    <p>
+                        The following C program simulates the Banker Algorithm
+                        and checks whether the system is in a safe state.
+                    </p>
+
+
+                    <div class="code">
+
+                        <button id="copyBtn">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy Code
+                        </button>
+
+                        <span>c</span>
+
+                        <pre id="program">#include &lt;stdio.h&gt;
+
+int main() {
+
+    int n, i;
+
+    printf("Banker Algorithm by Kadir Alam\n");
+
     printf("Enter number of processes: ");
-    scanf("%d", &n);
-    //RA,RB,RC=resource a,b,c;ARA,ARB,ARC=available resourcea,b,c;DRA,DRB,DRC=demand resources 
-     int RA,RB,RC,//total resources
-     ARA,ARB,ARC;//AVAILABLE resources
-    
-     int pid[n],
-    HRA[n],HRB[n],HRC[n],
-        DRA[n],DRB[n],DRC[n],
-    needA[n],needB[n],needC[n];
-     int f[n], ans[n], ind = 0;
+    scanf("%d", &amp;n);
 
-    printf("Resourse instace provided by Kadir Alam\n");
-    printf("Total Resources RA available are:");
-    scanf("%d",&RA);
-    printf("Total Resources RB available are:");
-    scanf("%d",&RB);
-    printf("Total Resources RC available are:");
-    scanf("%d",&RC);
-    printf("How many Resources allocate/hold by process:- ");
-    for(i = 0; i < n; i++) {
-        pid[i] = i;
-          printf("\nEnter resources RA of P%d: ", i );
-        scanf("%d", &HRA[i]);
-        printf("Enter resources RB P%d: ", i) ;
-        scanf("%d", &HRB[i]);
-        printf("Enter resource RC P%d: ", i );
-        scanf("%d", &HRC[i]);
-    }
-    printf("\nPID\tRA\tRB\tRC\n");
-    for(i = 0; i < n; i++) {
-        printf("P%d\t%d\t%d\t%d\n", pid[i], HRA[i], HRB[i], HRC[i]);
-        }
-        printf("Now, available resources  RA,RB,RC are:-");
-        scanf("%d %d %d",&ARA,&ARB,&ARC);
-            printf("How many Resources demand/wait by process:- ");
-    for(i = 0; i < n; i++) {
-        pid[i] = i;
-          printf("\nEnter resources RA of P%d: ", i);
-        scanf("%d", &DRA[i]);
-        printf("Enter resources RB P%d: ", i );
-        scanf("%d", &DRB[i]);
-        printf("Enter resource RC P%d: ", i );
-        scanf("%d", & DRC[i]);
-    }
-    printf("\nPID\tRA\tRB\tRC\n");
-    for(i = 0; i < n; i++) {
-        printf("P%d\t%d\t%d\t%d\n", pid[i], DRA[i], DRB[i], DRC[i]);
+    /*
+       RA, RB, RC = Total resources
+       ARA, ARB, ARC = Available resources
+       HRA, HRB, HRC = Resources allocated/held
+       DRA, DRB, DRC = Demand resources
+    */
 
+    int RA, RB, RC;
+    int ARA, ARB, ARC;
+
+    int pid[n];
+
+    int HRA[n], HRB[n], HRC[n];
+    int DRA[n], DRB[n], DRC[n];
+
+    int needA[n], needB[n], needC[n];
+
+    int f[n], ans[n], ind = 0;
+
+
+    /* Total Resources */
+
+    printf("Resource instance provided by Kadir Alam\n");
+
+    printf("Total Resources RA available are: ");
+    scanf("%d", &amp;RA);
+
+    printf("Total Resources RB available are: ");
+    scanf("%d", &amp;RB);
+
+    printf("Total Resources RC available are: ");
+    scanf("%d", &amp;RC);
+
+
+    /* Allocated / Held Resources */
+
+    printf("How many Resources allocated/hold by process:- ");
+
+    for(i = 0; i &lt; n; i++) {
+
+        pid[i] = i;
+
+        printf("\nEnter resources RA of P%d: ", i);
+        scanf("%d", &amp;HRA[i]);
+
+        printf("Enter resources RB of P%d: ", i);
+        scanf("%d", &amp;HRB[i]);
+
+        printf("Enter resources RC of P%d: ", i);
+        scanf("%d", &amp;HRC[i]);
     }
-    
-    // Need calculation
-    for (i = 0; i < n; i++) {
+
+
+    /* Display Allocation Table */
+
+    printf("\nPID\tRA\tRB\tRC\n");
+
+    for(i = 0; i &lt; n; i++) {
+
+        printf("P%d\t%d\t%d\t%d\n",
+               pid[i],
+               HRA[i],
+               HRB[i],
+               HRC[i]);
+    }
+
+
+    /* Available Resources */
+
+    printf("\nNow, available resources RA, RB, RC are:- ");
+
+    scanf("%d %d %d", &amp;ARA, &amp;ARB, &amp;ARC);
+
+
+    /* Resource Demand */
+
+    printf("How many Resources demand/wait by process:- ");
+
+    for(i = 0; i &lt; n; i++) {
+
+        pid[i] = i;
+
+        printf("\nEnter resources RA of P%d: ", i);
+        scanf("%d", &amp;DRA[i]);
+
+        printf("Enter resources RB of P%d: ", i);
+        scanf("%d", &amp;DRB[i]);
+
+        printf("Enter resources RC of P%d: ", i);
+        scanf("%d", &amp;DRC[i]);
+    }
+
+
+    /* Display Demand Table */
+
+    printf("\nPID\tRA\tRB\tRC\n");
+
+    for(i = 0; i &lt; n; i++) {
+
+        printf("P%d\t%d\t%d\t%d\n",
+               pid[i],
+               DRA[i],
+               DRB[i],
+               DRC[i]);
+    }
+
+
+    /* Need Calculation */
+
+    for(i = 0; i &lt; n; i++) {
+
         needA[i] = DRA[i] - HRA[i];
         needB[i] = DRB[i] - HRB[i];
         needC[i] = DRC[i] - HRC[i];
     }
 
-    // Print Need Table
+
+    /* Print Need Table */
+
     printf("\nProcess\tAlloc(RA RB RC)\tDemand(RA RB RC)\tNeed(RA RB RC)\n");
-    for (i = 0; i < n; i++) {
+
+    for(i = 0; i &lt; n; i++) {
+
         printf("P%d\t%d %d %d\t\t%d %d %d\t\t%d %d %d\n",
-               i, HRA[i], HRB[i], HRC[i],
+               i,
+               HRA[i], HRB[i], HRC[i],
                DRA[i], DRB[i], DRC[i],
                needA[i], needB[i], needC[i]);
     }
-    
-    // Initialize finish array
-    for (i = 0; i < n; i++) f[i] = 0;
+
+
+    /* Initialize Finish Array */
+
+    for(i = 0; i &lt; n; i++) {
+        f[i] = 0;
+    }
+
+
+    /* Safe Sequence Calculation */
 
     int k;
-    for (k = 0; k < n; k++) { // n rounds
-        for (i = 0; i < n; i++) {
-            if (f[i] == 0) { // not finished yet
-                if (needA[i] <= ARA && needB[i] <= ARB && needC[i] <= ARC) {
-                    // Process executes
+
+    for(k = 0; k &lt; n; k++) {
+
+        for(i = 0; i &lt; n; i++) {
+
+            if(f[i] == 0) {
+
+                if(needA[i] &lt;= ARA &amp;&amp;
+                   needB[i] &lt;= ARB &amp;&amp;
+                   needC[i] &lt;= ARC) {
+
+                    /* Process executes */
+
                     ARA += HRA[i];
                     ARB += HRB[i];
                     ARC += HRC[i];
 
                     ans[ind++] = i;
+
                     f[i] = 1;
                 }
             }
         }
     }
 
-    // Final Safe State Check
+
+    /* Final Safe State Check */
+
     int safe = 1;
-    for (i = 0; i < n; i++) {
-        if (f[i] == 0) {
+
+    for(i = 0; i &lt; n; i++) {
+
+        if(f[i] == 0) {
+
             safe = 0;
+
             printf("\nSystem is NOT in safe state!\n");
+
             break;
         }
     }
 
-    if (safe == 1) {
-        printf("\nSystem is in SAFE state.\nSafe Sequence: ");
-        for (i = 0; i < n - 1; i++) {
-            printf("P%d -> ", ans[i]);
+
+    /* Display Result */
+
+    if(safe == 1) {
+
+        printf("\nSystem is in SAFE state.\n");
+
+        printf("Safe Sequence: ");
+
+        for(i = 0; i &lt; n - 1; i++) {
+
+            printf("P%d -&gt; ", ans[i]);
         }
+
         printf("P%d\n", ans[n - 1]);
     }
-      return 0;
-}
 
-</code>
-</pre>
+
+    return 0;
+}</pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DEADLOCK AVOIDANCE ================= -->
+
+            <div class="step">
+
+                <div class="step-number">11</div>
+
+                <div class="step-content">
+
+                    <h3>Deadlock Avoidance</h3>
+
+                    <p>
+                        Banker's Algorithm keeps the system in a safe state.
+                        Before allocating resources, it checks whether the
+                        system will remain safe after allocation.
+                    </p>
+
+                    <p>
+                        If the system is in a safe state, resources are given.
+                        Otherwise, the process waits, thus avoiding deadlock.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DEADLOCK PREVENTION ================= -->
+
+            <div class="step">
+
+                <div class="step-number">12</div>
+
+                <div class="step-content">
+
+                    <h3>Deadlock Prevention</h3>
+
+                    <p>
+                        If a resource is not available, the process is
+                        stopped or made to wait until the resource becomes
+                        free.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= PRECAUTIONS ================= -->
+
+        <section class="precautions">
+
+            <h2>⚠️ Precautions</h2>
+
+            <ul>
+
+                <li>
+                    Enter the number of processes correctly.
+                </li>
+
+                <li>
+                    Enter valid values for total, allocated, available
+                    and demanded resources.
+                </li>
+
+                <li>
+                    Make sure that the C compiler is properly installed.
+                </li>
+
+                <li>
+                    Check the program for syntax errors before execution.
+                </li>
+
+                <li>
+                    Carefully calculate the Need matrix as
+                    Demand − Allocation.
+                </li>
+
+                <li>
+                    Do not use negative resource values.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section class="result">
+
+            <h2>✅ Result</h2>
+
+            <p>
+                Thus, the Banker Algorithm was successfully simulated.
+                The program calculates the remaining need of each process
+                and checks whether the system is in a safe state. If all
+                processes can complete, the safe sequence is displayed;
+                otherwise, the system is reported as being in an unsafe state.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        Operating System • Practical No. 6
+
+    </footer>
+
 </div>
-<span style="color:maroon">Deadlock Avoidance:-<br> </span>
-<p>Banker's Algorithm keeps the system in safe state before allocating resources,it check wheather the system will remain safe after allocation. In safe, resources are given , otherwise the process waits thus avoiding deadlock. <br>
-<span style="color:magenta">Deadlock Prevention:- <br> </span>
-<p> If a resource is not available or ,the process is stoped or made to wait until the resource become free.</p>
-</div>
-<script>
-//  function to copy the code 
-function copycode(){
-    const text = document.getElementById("program").innerText;
-    navigator.clipboard.writeText(text).then(() =>{
-    alert("Code Copied!");
-    }).catch(err => {
-    alert("Code failed!");
-    });
-    }
+
+
+<!-- ================= COPY CODE SCRIPT ================= -->
+
+<script type="module">
+
+    import { copycode } from './function.js';
+
+    document
+        .getElementById("copyBtn")
+        .addEventListener("click", copycode);
+
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 
-
-<script>
-hljs.highlightAll();
-</script>
 </body>
-
 </html>

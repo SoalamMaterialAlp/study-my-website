@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Practical| </title>
-        <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>Practical No. 2 | DBMS</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
 
-<!-- CSS Link -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
 <link rel="stylesheet" href="../Style/practical.CSS">
 </head>
@@ -25,307 +22,256 @@
 
 <div class="container">
 
-<!-- ================= HEADER ================= -->
-
 <header class="headers">
 
-    <a href="../OS.html" class="back-btn">
-        <i class="fa-solid fa-arrow-left"></i>
-        Back to Subject
-    </a>
+<a href="../DBMS.html" class="back-btn">
+<i class="fa-solid fa-arrow-left"></i>
+Back to Subject
+</a>
 
-    <div class="brand">
+<div class="brand">
 
-        <div class="brand-icon">
-            <img class="brand-icon"
-                 src="../images/logo.png"
-                 alt="Alam Study Element Logo">
-        </div>
+<div class="brand-icon">
+<img class="brand-icon"
+src="../images/logo.png"
+alt="Alam Study Element Logo">
+</div>
 
-        <div>
-            <h1>Alam Study Element</h1>
-            <span>Computer Science and Engineering</span>
-        </div>
+<div>
+<h1>Alam Study Element</h1>
+<span>Computer Science and Engineering</span>
+</div>
 
-    </div>
+</div>
 
-    <button class="print-btn" onclick="window.print()">
-        <i class="fa-solid fa-print"></i>
-        Print
-    </button>
+<button class="print-btn" onclick="window.print()">
+<i class="fa-solid fa-print"></i>
+Print
+</button>
 
 </header>
 
+<header class="header">
 
-    <!-- HEADER -->
-    <header class="header">
+<div class="practical-label">
+Database Management System
+</div>
 
-        <div class="practical-label">
-            Operating System
-        </div>
+<h1>Practical No. 2</h1>
 
-        <h1>Practical No. </h1>
+<div class="practical-label">
 
-      
-    </header>
+<button class="pre-btn">
+<a style="text-decoration:none;" href="practical_1_DBMS.html">
+Previous Practical
+</a>
+</button>
 
+<button class="next-btn">
+<a style="text-decoration:none;" href="practical_3_DBMS.html">
+Next Practical
+</a>
+</button>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
+</div>
 
-        <!-- AIM -->
-        <div class="aim">
-            <p>
-                <strong>Aim:</strong>
-            </p>
-        </div>
+</header>
 
+<main class="content">
 
-        <!-- REQUIREMENT -->
-        <div class="info-grid">
+<div class="aim">
+<p>
+<strong>Aim:</strong>
+To design an Entity Relationship (ER) Model for a Library Management System.
+</p>
+</div>
 
-            <div class="info-box">
+<div class="info-grid">
 
-                <h2>🖥️ Requirements</h2>
+<div class="info-box">
 
-                <p>
-                </p>
+<h2>🖥️ Requirements</h2>
 
-            </div>
+<p>
+Personal Computer or Laptop<br>
+ER Diagram software or paper and pencil<br>
+DBMS software
+</p>
 
-            <div class="info-box">
+</div>
 
-                <h2>📌 Purpose</h2>
+<div class="info-box">
 
-                <p>
-                </p>
+<h2>📌 Purpose</h2>
 
-            </div>
+<p>
+To represent the structure of a Library Management System
+using entities, attributes and relationships.
+</p>
 
-        </div>
+</div>
 
+</div>
 
-        <!-- INTRODUCTION -->
-        <div class="intro">
+<div class="intro">
 
-            <h2 class="section-title">
-                Introduction
-            </h2>
+<h2 class="section-title">Theory</h2>
 
-            <p>
-            </p>
+<p>
+An Entity Relationship Model represents the structure of a database
+using entities, attributes and relationships.
+</p>
 
-            <br>
+<h3>Major Entities</h3>
 
-            <p>
-            </p>
+<ul>
+<li>Book</li>
+<li>Member</li>
+<li>Author</li>
+<li>Publisher</li>
+<li>Issue/Return</li>
+</ul>
 
-        </div>
+<h3>Book</h3>
+
+<ul>
+<li>BookID</li>
+<li>Title</li>
+<li>Subject</li>
+<li>Year_of_publication</li>
+</ul>
+
+<h3>Member</h3>
+
+<ul>
+<li>MemberID</li>
+<li>MemberName</li>
+<li>Address</li>
+<li>Contact</li>
+</ul>
 
+<h3>Author</h3>
 
-        <!-- PROCEDURE -->
-        <section class="procedure">
-
-            <h2 class="section-title">
-                Procedure
-            </h2>
-
-
-            <!-- STEP 1 -->
-            <div class="step">
-
-                <div class="step-number">01</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 2 -->
-            <div class="step">
-
-                <div class="step-number">02</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 3 -->
-            <div class="step">
-
-                <div class="step-number">03</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 4 -->
-            <div class="step">
-
-                <div class="step-number">04</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 5 -->
-            <div class="step">
-
-                <div class="step-number">05</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 6 -->
-            <div class="step">
-
-                <div class="step-number">06</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 7 -->
-            <div class="step">
-
-                <div class="step-number">07</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 8 -->
-            <div class="step">
-
-                <div class="step-number">08</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 9 -->
-            <div class="step">
-
-                <div class="step-number">09</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PRECAUTIONS -->
-        <section class="precautions">
-
-            <h2>⚠️ Precautions</h2>
-
-            <ul>
-
-                <li>
-                </li>
-
-                <li>
-                </li>
-
-                <li>
-                </li>
-
-            </ul>
-
-        </section>
-
-
-        <!-- RESULT -->
-        <section class="result">
-
-            <h2>✅ Result</h2>
-
-            <p>
-            </p>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer">
-
-        Subject Name • Practical No. 
-
-    </footer>
+<ul>
+<li>AuthorID</li>
+<li>AuthorName</li>
+</ul>
+
+<h3>Publisher</h3>
+
+<ul>
+<li>PublisherID</li>
+<li>PublisherName</li>
+</ul>
+
+<h3>Issue</h3>
+
+<ul>
+<li>IssueID</li>
+<li>IssueDate</li>
+<li>ReturnDate</li>
+</ul>
+
+<h3>Relationships</h3>
+
+<ul>
+<li>Author writes Book.</li>
+<li>Publisher publishes Book.</li>
+<li>Member borrows Book.</li>
+<li>Issue entity records the issue and return details.</li>
+</ul>
+
+</div>
+
+<section class="procedure">
+
+<h2 class="section-title">Procedure</h2>
+
+<div class="step">
+<div class="step-number">01</div>
+<div class="step-content">
+<h3>Identify Entities</h3>
+<p>Identify the entities required for the Library Management System.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<div class="step-content">
+<h3>Identify Attributes</h3>
+<p>Identify attributes for each entity.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-number">03</div>
+<div class="step-content">
+<h3>Select Primary Keys</h3>
+<p>Select suitable primary keys for the entities.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-number">04</div>
+<div class="step-content">
+<h3>Identify Relationships</h3>
+<p>Identify relationships between entities.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-number">05</div>
+<div class="step-content">
+<h3>Define Cardinality</h3>
+<p>Define the cardinality of the relationships.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-number">06</div>
+<div class="step-content">
+<h3>Draw ER Diagram</h3>
+<p>Draw the complete ER diagram.</p>
+</div>
+</div>
+
+<div class="step">
+<div class="step-number">07</div>
+<div class="step-content">
+<h3>Verify Model</h3>
+<p>Verify all relationships and attributes.</p>
+</div>
+</div>
+
+</section>
+
+<section class="precautions">
+
+<h2>⚠️ Precautions</h2>
+
+<ul>
+<li>Use suitable attributes for each entity.</li>
+<li>Choose unique primary keys.</li>
+<li>Verify relationships before finalizing the ER Model.</li>
+</ul>
+
+</section>
+
+<section class="result">
+
+<h2>✅ Result</h2>
+
+<p>
+Thus, an ER Model for the Library Management System was successfully designed.
+</p>
+
+</section>
+
+</main>
+
+<footer class="footer">
+Database Management System • Practical No. 2
+</footer>
 
 </div>
 

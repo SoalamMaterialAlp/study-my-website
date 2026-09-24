@@ -1,331 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Practical| </title>
-        <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+<title>Practical No. 5 | DBMS</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin">
 
-<!-- CSS Link -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
 <link rel="stylesheet" href="../Style/practical.CSS">
+
 </head>
 
 <body>
 
 <div class="container">
 
-<!-- ================= HEADER ================= -->
 
 <header class="headers">
 
-    <a href="../OS.html" class="back-btn">
-        <i class="fa-solid fa-arrow-left"></i>
-        Back to Subject
-    </a>
+<a href="../DBMS.html" class="back-btn">
 
-    <div class="brand">
+<i class="fa-solid fa-arrow-left"></i>
 
-        <div class="brand-icon">
-            <img class="brand-icon"
-                 src="../images/logo.png"
-                 alt="Alam Study Element Logo">
-        </div>
+Back to Subject
 
-        <div>
-            <h1>Alam Study Element</h1>
-            <span>Computer Science and Engineering</span>
-        </div>
+</a>
 
-    </div>
 
-    <button class="print-btn" onclick="window.print()">
-        <i class="fa-solid fa-print"></i>
-        Print
-    </button>
+<div class="brand">
+
+<div class="brand-icon">
+
+<img class="brand-icon"
+src="../images/logo.png"
+alt="Alam Study Element Logo">
+
+</div>
+
+
+<div>
+
+<h1>Alam Study Element</h1>
+
+<span>Computer Science and Engineering</span>
+
+</div>
+
+</div>
+
+
+<button class="print-btn" onclick="window.print()">
+
+<i class="fa-solid fa-print"></i>
+
+Print
+
+</button>
 
 </header>
 
 
-    <!-- HEADER -->
-    <header class="header">
 
-        <div class="practical-label">
-            Operating System
-        </div>
+<header class="header">
 
-        <h1>Practical No. </h1>
+<div class="practical-label">
+Database Management System
+</div>
 
-      
-    </header>
 
+<h1>Practical No. 5</h1>
 
-    <!-- MAIN CONTENT -->
-    <main class="content">
 
-        <!-- AIM -->
-        <div class="aim">
-            <p>
-                <strong>Aim:</strong>
-            </p>
-        </div>
+<div class="practical-label">
 
+<button class="pre-btn">
 
-        <!-- REQUIREMENT -->
-        <div class="info-grid">
+<a style="text-decoration:none;"
+href="practical_4_DBMS.html">
 
-            <div class="info-box">
+Previous Practical
 
-                <h2>🖥️ Requirements</h2>
+</a>
 
-                <p>
-                </p>
+</button>
 
-            </div>
 
-            <div class="info-box">
+<button class="next-btn">
 
-                <h2>📌 Purpose</h2>
+<a style="text-decoration:none;"
+href="practical_6_DBMS.html">
 
-                <p>
-                </p>
+Next Practical
 
-            </div>
+</a>
 
-        </div>
+</button>
 
+</div>
 
-        <!-- INTRODUCTION -->
-        <div class="intro">
+</header>
 
-            <h2 class="section-title">
-                Introduction
-            </h2>
 
-            <p>
-            </p>
 
-            <br>
+<main class="content">
 
-            <p>
-            </p>
 
-        </div>
+<div class="aim">
 
+<p>
 
-        <!-- PROCEDURE -->
-        <section class="procedure">
+<strong>Aim:</strong>
 
-            <h2 class="section-title">
-                Procedure
-            </h2>
+To study table and record handling using INSERT, SELECT, DELETE,
+UPDATE, TRUNCATE, DROP and ALTER statements.
 
+</p>
 
-            <!-- STEP 1 -->
-            <div class="step">
+</div>
 
-                <div class="step-number">01</div>
 
-                <div class="step-content">
 
-                    <h3></h3>
+<div class="info-grid">
 
-                    <p>
-                    </p>
 
-                </div>
+<div class="info-box">
 
-            </div>
+<h2>🖥️ Requirements</h2>
 
+<p>
 
-            <!-- STEP 2 -->
-            <div class="step">
+Personal Computer or Laptop<br>
+MySQL/XAMPP<br>
+phpMyAdmin
 
-                <div class="step-number">02</div>
+</p>
 
-                <div class="step-content">
+</div>
 
-                    <h3></h3>
 
-                    <p>
-                    </p>
 
-                </div>
+<div class="info-box">
 
-            </div>
+<h2>📌 Purpose</h2>
 
+<p>
 
-            <!-- STEP 3 -->
-            <div class="step">
+To study different SQL statements used for managing tables
+and records.
 
-                <div class="step-number">03</div>
+</p>
 
-                <div class="step-content">
+</div>
 
-                    <h3></h3>
+</div>
 
-                    <p>
-                    </p>
 
-                </div>
 
-            </div>
+<div class="intro">
 
+<h2 class="section-title">
+Theory
+</h2>
 
-            <!-- STEP 4 -->
-            <div class="step">
 
-                <div class="step-number">04</div>
+<p>
 
-                <div class="step-content">
+SQL provides different commands for creating, modifying and
+managing database records and tables.
 
-                    <h3></h3>
+</p>
 
-                    <p>
-                    </p>
 
-                </div>
 
-            </div>
+<h3>INSERT Statement</h3>
 
+<p>
+The INSERT statement is used to add new records to a table.
+</p>
 
-            <!-- STEP 5 -->
-            <div class="step">
 
-                <div class="step-number">05</div>
 
-                <div class="step-content">
+<h3>SELECT Statement</h3>
 
-                    <h3></h3>
+<p>
+The SELECT statement is used to retrieve records from a table.
+</p>
 
-                    <p>
-                    </p>
 
-                </div>
 
-            </div>
+<h3>INSERT with SELECT</h3>
 
+<p>
+SELECT can be used together with INSERT to insert selected data
+from one table into another table.
+</p>
 
-            <!-- STEP 6 -->
-            <div class="step">
 
-                <div class="step-number">06</div>
 
-                <div class="step-content">
+<h3>DELETE Statement</h3>
 
-                    <h3></h3>
+<p>
+DELETE is used to remove selected records from a table.
+</p>
 
-                    <p>
-                    </p>
 
-                </div>
 
-            </div>
+<h3>UPDATE Statement</h3>
 
+<p>
+UPDATE is used to modify existing records.
+</p>
 
-            <!-- STEP 7 -->
-            <div class="step">
 
-                <div class="step-number">07</div>
 
-                <div class="step-content">
+<h3>TRUNCATE Statement</h3>
 
-                    <h3></h3>
+<p>
+TRUNCATE removes all records from a table while keeping the
+table structure.
+</p>
 
-                    <p>
-                    </p>
 
-                </div>
 
-            </div>
+<h3>DROP Statement</h3>
 
+<p>
+DROP removes the database object, such as a table, completely.
+</p>
 
-            <!-- STEP 8 -->
-            <div class="step">
 
-                <div class="step-number">08</div>
 
-                <div class="step-content">
+<h3>ALTER Statement</h3>
 
-                    <h3></h3>
+<p>
+ALTER is used to modify the structure of an existing table.
+</p>
 
-                    <p>
-                    </p>
+<ul>
 
-                </div>
+<li>Add a column</li>
 
-            </div>
+<li>Modify a column</li>
 
+<li>Rename a column</li>
 
-            <!-- STEP 9 -->
-            <div class="step">
+<li>Remove a column</li>
 
-                <div class="step-number">09</div>
+</ul>
 
-                <div class="step-content">
 
-                    <h3></h3>
+</div>
 
-                    <p>
-                    </p>
 
-                </div>
 
-            </div>
+<section class="procedure">
 
-        </section>
+<h2 class="section-title">
+Procedure
+</h2>
 
 
-        <!-- PRECAUTIONS -->
-        <section class="precautions">
 
-            <h2>⚠️ Precautions</h2>
+<div class="step">
 
-            <ul>
+<div class="step-number">01</div>
 
-                <li>
-                </li>
+<div class="step-content">
 
-                <li>
-                </li>
+<h3>Study INSERT</h3>
 
-                <li>
-                </li>
+<p>
+Study the INSERT statement for adding new records.
+</p>
 
-            </ul>
+</div>
 
-        </section>
+</div>
 
 
-        <!-- RESULT -->
-        <section class="result">
 
-            <h2>✅ Result</h2>
+<div class="step">
 
-            <p>
-            </p>
+<div class="step-number">02</div>
 
-        </section>
+<div class="step-content">
 
-    </main>
+<h3>Study SELECT</h3>
 
+<p>
+Study the SELECT statement for retrieving records.
+</p>
 
-    <!-- FOOTER -->
-    <footer class="footer">
+</div>
 
-        Subject Name • Practical No. 
+</div>
 
-    </footer>
+
+
+<div class="step">
+
+<div class="step-number">03</div>
+
+<div class="step-content">
+
+<h3>INSERT with SELECT</h3>
+
+<p>
+Study how selected records can be inserted into another table.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">04</div>
+
+<div class="step-content">
+
+<h3>DELETE</h3>
+
+<p>
+Study removal of selected records using DELETE.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">05</div>
+
+<div class="step-content">
+
+<h3>UPDATE</h3>
+
+<p>
+Study modification of existing records using UPDATE.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">06</div>
+
+<div class="step-content">
+
+<h3>TRUNCATE</h3>
+
+<p>
+Study removal of all records while keeping the table structure.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">07</div>
+
+<div class="step-content">
+
+<h3>DROP</h3>
+
+<p>
+Study how a database object such as a table can be completely removed.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">08</div>
+
+<div class="step-content">
+
+<h3>ALTER</h3>
+
+<p>
+Study how the structure of an existing table can be modified.
+</p>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<section class="precautions">
+
+<h2>⚠️ Precautions</h2>
+
+<ul>
+
+<li>Use SQL statements carefully while modifying records.</li>
+
+<li>Verify records before using DELETE or TRUNCATE.</li>
+
+<li>Use ALTER and DROP statements carefully because they affect database structure.</li>
+
+</ul>
+
+</section>
+
+
+
+<section class="result">
+
+<h2>✅ Result</h2>
+
+<p>
+
+Thus, different SQL statements for table and record handling
+were successfully studied.
+
+</p>
+
+</section>
+
+
+</main>
+
+
+
+<footer class="footer">
+
+Database Management System • Practical No. 5
+
+</footer>
+
 
 </div>
 

@@ -1,203 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        <style>
-        body,html{
-            width:100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1{
-            font-size: 3rem;
-            color: red;
-            font-style: italic;
-            text-align: center;
-            text-decoration: underline;
-        }
-        .container{
-            width: 100%;
-            height: auto;
-            padding: 10px;
-            border:4px dotted greenyellow;
-        }
-        p{
-            font-size: x-large;
-        }
-        ul{
-            font-size: x-large;
-            padding-left: 25px ;
-        }
-        .code{
-            width: 100%;
-            height: auto;
-            background-color: aliceblue;
-            position: relative;
-                overflow: auto;
-            font-style: normal;
-            font-size: large;
-            border-radius: 2.5%;
-        }
-        #copyBtn{
-            color:black;
-            position: absolute;
-            cursor: pointer;
-            padding: 5px 10px;
-            border:none;
-            top:10px;
-            right:10px;
-        }
-        
-        /* media to responsive mobile  */
-        @media (max-width:768px){
-            *{
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body,html{
-                width: 100%;
-                height: auto;
-            }
-            .container{
-                width: 100%;
-                height: auto;
-            }
-            h1{
-            font-size: 1rem;
-            }
-            P{
-                font-size: large;
-            }
-            span{
-                font-size: larger;
-            }
-            pre,code{
-                width: 100%;
-                overflow: auto;
-            position: relative;
-            }
+    <title>Practical No. 4 | Operating System</title>
 
-        }
-</style>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../Style/practical.CSS">
 </head>
+
 <body>
+
 <div class="container">
-        <h1>Practical No.-4</h1>
-        <p>
-    <span style="color:blue">Aim:-</span>Simulate the followinf CPU scheduling algorithms. <br> (a)- FCFS (b)- SJF (c)- Round Robin (d)- Priority<br>
-    <span style="color:darkorchid">Requriment:-</span> Personal Computer or Laptop,C compiler (Turbo c++ or Visual Studio code with extension). <br>
-     <span style="color:brown">Procedure:-</span> <br>
-        
-     <!-- FCFS Scheduling Algorithm -->
-     (a). FCFS Algorithm <br>
 
-     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
-        <pre id="program">
-            <code class="language-c">
-    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+    <!-- ================= HEADER ================= -->
 
-     #include<stdio.h>
-    int main() {int n, i, j;
-    printf("FCFS Alghorithm scheduling By Kadir Alam\n");
-    printf("Enter the number of processes: ");
-    scanf("%d", &n);
-    int process[n], arrival_time[n], burst_time[n], completion_time[n];
-    int waiting_time[n], turnaround_time[n]; int temp;
-    // Taking input
-    for(i = 0; i < n; i++) {  process[i] = i + 1;
-        printf("\nEnter Arrival Time of P%d: ", i + 1);
-        scanf("%d", &arrival_time[i]);
-        printf("Enter Burst Time of P%d: ", i + 1);
-        scanf("%d", &burst_time[i]);}
-    // Sorting by Arrival Time (FCFS works on order of arrival)
-    for(i = 0; i < n; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(arrival_time[i] > arrival_time[j]) {
-                // swap arrival
-                temp = arrival_time[i];arrival_time[i] = arrival_time[j];arrival_time[j] = temp;
-                // swap burst
-                temp = burst_time[i];burst_time[i] = burst_time[j];burst_time[j] = temp;
-                // swap process number
-                temp = process[i];process[i] = process[j];process[j] = temp; }}    }
-    // Calculate Completion Time
-    completion_time[0] = arrival_time[0] + burst_time[0];
-    for(i = 1; i < n; i++) {
-        if(completion_time[i-1] < arrival_time[i]) {
-            completion_time[i] = arrival_time[i] + burst_time[i]; // CPU idle
-        } else {completion_time[i] = completion_time[i-1] + burst_time[i]; }    }
-    // Calculate TAT and WT
-    for(i = 0; i < n; i++) {
-        turnaround_time[i] = completion_time[i] - arrival_time[i];
-        waiting_time[i] = turnaround_time[i] - burst_time[i];    }
-    // Display table
-    printf("\nProcess\tAT\tBT\tCT\tTAT\tWT\n");
-    for(i = 0; i < n; i++) {
-        printf("P%d\t%d\t%d\t%d\t%d\t%d\n", process[i], arrival_time[i], burst_time[i], completion_time[i], turnaround_time[i], waiting_time[i]);    }
-    // Average calculation
-    float avg_wt = 0, avg_tat = 0;
-    for(i = 0; i < n; i++) {
-        avg_wt += waiting_time[i];
-        avg_tat += turnaround_time[i];    }
-    avg_wt /= n; avg_tat /= n;
-    printf("\nAverage Waiting Time: %.2f", avg_wt);
-    printf("\nAverage Turnaround Time: %.2f\n", avg_tat);
-    return 0;
-}
+    <header class="headers">
 
-    </code>
-        </pre>
-    </div>
-              <!-- SJF Scheduling Algorithm -->
-    <P> (b). SJF Algorithm </P><br>
-     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
-        <pre id="program">
-            <code class="language-c">
-    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+        <a href="../OS.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Subject
+        </a>
 
-    #include <stdio.h>
-    int main() {
+        <div class="brand">
+
+            <div class="brand-icon">
+                <img class="brand-icon"
+                     src="../images/logo.png"
+                     alt="Alam Study Element Logo">
+            </div>
+
+            <div>
+                <h1>Alam Study Element</h1>
+                <span>Computer Science and Engineering</span>
+            </div>
+
+        </div>
+
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i>
+            Print
+        </button>
+
+    </header>
+
+
+    <!-- ================= PRACTICAL HEADER ================= -->
+
+    <header class="header">
+
+        <div class="practical-label">
+            Operating System
+        </div>
+
+        <h1>Practical No. 4</h1>
+
+        <div class="practical-label">
+
+            <button class="pre-btn">
+                <a style="text-decoration:none;"
+                   href="practical_3_OS.html">
+                    Previous Practical
+                </a>
+            </button>
+
+            <button class="next-btn">
+                <a style="text-decoration:none;"
+                   href="practical_5_OS.html">
+                    Next Practical
+                </a>
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="content">
+
+
+        <!-- ================= AIM ================= -->
+
+        <div class="aim">
+
+            <p>
+                <strong>Aim:</strong>
+                Simulate the following CPU scheduling algorithms:
+                <strong>FCFS, SJF, Round Robin and Priority Scheduling.</strong>
+            </p>
+
+        </div>
+
+
+        <!-- ================= REQUIREMENT + PURPOSE ================= -->
+
+        <div class="info-grid">
+
+            <div class="info-box">
+
+                <h2>🖥️ Requirements</h2>
+
+                <p>
+                    Personal Computer or Laptop and C Compiler
+                    (Turbo C++ or Visual Studio Code with C extension).
+                </p>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <h2>📌 Purpose</h2>
+
+                <p>
+                    To implement and simulate different CPU scheduling
+                    algorithms and calculate Completion Time, Turnaround
+                    Time, Waiting Time and their average values.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= INTRODUCTION ================= -->
+
+        <div class="intro">
+
+            <h2 class="section-title">
+                Introduction
+            </h2>
+
+            <p>
+                CPU scheduling is the process of selecting a process
+                from the ready queue and allocating the CPU to it.
+                Different scheduling algorithms use different methods
+                to decide which process should execute next.
+            </p>
+
+            <br>
+
+            <p>
+                In this practical, four CPU scheduling algorithms are
+                simulated: First Come First Serve (FCFS), Shortest Job
+                First (SJF), Round Robin and Priority Scheduling.
+                The programs calculate Completion Time (CT), Turnaround
+                Time (TAT), Waiting Time (WT), and average TAT and WT.
+            </p>
+
+        </div>
+
+
+        <!-- ================= PROCEDURE ================= -->
+
+        <section class="procedure">
+
+            <h2 class="section-title">
+                Procedure
+            </h2>
+
+
+            <!-- ================= FCFS ================= -->
+
+            <div class="step">
+
+                <div class="step-number">01</div>
+
+                <div class="step-content">
+
+                    <h3>FCFS Algorithm</h3>
+
+                    <p>
+                        First Come First Serve (FCFS) scheduling executes
+                        processes in the order of their arrival time.
+                        Enter the number of processes, arrival time and
+                        burst time, then calculate CT, TAT and WT.
+                    </p>
+
+
+                    <div class="code">
+
+                        <button id="copyFCFS">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy Code
+                        </button>
+
+                        <span>c</span>
+
+                        <pre id="fcfsProgram">#include &lt;stdio.h&gt;
+
+int main() {
+
     int n, i, j;
-    float avg_tat = 0, avg_wt = 0;
-    printf("Shortest Job First Algorithm Scheduling by Kadir Alam\n ");
+    printf("FCFS Alghorithm scheduling By Kadir Alam\n");
 
-    printf("Enter number of processes: ");
-    scanf("%d", &n);
-    
+    printf("Enter the number of processes: ");
+    scanf("%d", &amp;n);
 
-    int pid[n], at[n], bt[n], ct[n], tat[n], wt[n], completed[n];
-    
-    for(i = 0; i < n; i++) {
-        pid[i] = i+1;
-          printf("\nEnter Arrival Time of P%d: ", i + 1);
-        scanf("%d", &at[i]);
+    int process[n], arrival_time[n], burst_time[n];
+    int completion_time[n], waiting_time[n];
+    int turnaround_time[n];
+    int temp;
+
+    // Taking input
+    for(i = 0; i &lt; n; i++) {
+
+        process[i] = i + 1;
+
+        printf("\nEnter Arrival Time of P%d: ", i + 1);
+        scanf("%d", &amp;arrival_time[i]);
+
         printf("Enter Burst Time of P%d: ", i + 1);
-        scanf("%d", &bt[i]);
-         completed[i] = 0;
+        scanf("%d", &amp;burst_time[i]);
     }
 
-    int current_time = 0, completed_count = 0;
+    // Sorting by Arrival Time
+    for(i = 0; i &lt; n; i++) {
 
-    while(completed_count < n) {
+        for(j = i + 1; j &lt; n; j++) {
+
+            if(arrival_time[i] &gt; arrival_time[j]) {
+
+                temp = arrival_time[i];
+                arrival_time[i] = arrival_time[j];
+                arrival_time[j] = temp;
+
+                temp = burst_time[i];
+                burst_time[i] = burst_time[j];
+                burst_time[j] = temp;
+
+                temp = process[i];
+                process[i] = process[j];
+                process[j] = temp;
+            }
+        }
+    }
+
+    // Calculate Completion Time
+    completion_time[0] =
+        arrival_time[0] + burst_time[0];
+
+    for(i = 1; i &lt; n; i++) {
+
+        if(completion_time[i-1] &lt; arrival_time[i]) {
+
+            completion_time[i] =
+                arrival_time[i] + burst_time[i];
+
+        } else {
+
+            completion_time[i] =
+                completion_time[i-1] + burst_time[i];
+        }
+    }
+
+    // Calculate TAT and WT
+    for(i = 0; i &lt; n; i++) {
+
+        turnaround_time[i] =
+            completion_time[i] - arrival_time[i];
+
+        waiting_time[i] =
+            turnaround_time[i] - burst_time[i];
+    }
+
+    // Display table
+    printf("\nProcess\tAT\tBT\tCT\tTAT\tWT\n");
+
+    for(i = 0; i &lt; n; i++) {
+
+        printf("P%d\t%d\t%d\t%d\t%d\t%d\n",
+               process[i],
+               arrival_time[i],
+               burst_time[i],
+               completion_time[i],
+               turnaround_time[i],
+               waiting_time[i]);
+    }
+
+    // Average calculation
+    float avg_wt = 0, avg_tat = 0;
+
+    for(i = 0; i &lt; n; i++) {
+
+        avg_wt += waiting_time[i];
+        avg_tat += turnaround_time[i];
+    }
+
+    avg_wt /= n;
+    avg_tat /= n;
+
+    printf("\nAverage Waiting Time: %.2f", avg_wt);
+    printf("\nAverage Turnaround Time: %.2f\n", avg_tat);
+
+    return 0;
+}</pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SJF ================= -->
+
+            <div class="step">
+
+                <div class="step-number">02</div>
+
+                <div class="step-content">
+
+                    <h3>SJF Algorithm</h3>
+
+                    <p>
+                        Shortest Job First (SJF) scheduling selects the
+                        process having the shortest burst time among
+                        the processes that have already arrived.
+                    </p>
+
+
+                    <div class="code">
+
+                        <button id="copySJF">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy Code
+                        </button>
+
+                        <span>c</span>
+
+                        <pre id="sjfProgram">#include &lt;stdio.h&gt;
+
+int main() {
+
+    int n, i, j;
+
+    float avg_tat = 0, avg_wt = 0;
+
+    printf("Shortest Job First Algorithm Scheduling by Kadir Alam\n");
+
+    printf("Enter number of processes: ");
+    scanf("%d", &amp;n);
+
+    int pid[n], at[n], bt[n], ct[n];
+    int tat[n], wt[n], completed[n];
+
+    for(i = 0; i &lt; n; i++) {
+
+        pid[i] = i + 1;
+
+        printf("\nEnter Arrival Time of P%d: ", i + 1);
+        scanf("%d", &amp;at[i]);
+
+        printf("Enter Burst Time of P%d: ", i + 1);
+        scanf("%d", &amp;bt[i]);
+
+        completed[i] = 0;
+    }
+
+    int current_time = 0;
+    int completed_count = 0;
+
+    while(completed_count &lt; n) {
+
         int idx = -1;
-        int min_bt = 1e9;
+        int min_bt = 1000000000;
 
-        // Find process with min BT among arrived processes
-        for(i = 0; i < n; i++) {
-            if(at[i] <= current_time && completed[i] == 0) {
-                if(bt[i] < min_bt) {
+        // Find process with minimum BT
+        for(i = 0; i &lt; n; i++) {
+
+            if(at[i] &lt;= current_time &&
+               completed[i] == 0) {
+
+                if(bt[i] &lt; min_bt) {
+
                     min_bt = bt[i];
                     idx = i;
                 }
@@ -205,257 +396,586 @@
         }
 
         if(idx != -1) {
+
             current_time += bt[idx];
+
             ct[idx] = current_time;
-            tat[idx] = ct[idx] - at[idx];
-            wt[idx] = tat[idx] - bt[idx];
+
+            tat[idx] =
+                ct[idx] - at[idx];
+
+            wt[idx] =
+                tat[idx] - bt[idx];
+
             completed[idx] = 1;
+
             completed_count++;
 
             avg_tat += tat[idx];
             avg_wt += wt[idx];
+
         } else {
-            current_time++; // if no process has arrived yet
+
+            current_time++;
         }
     }
 
     printf("\nPID\tAT\tBT\tCT\tTAT\tWT\n");
-    for(i = 0; i < n; i++) {
-        printf("P%d\t%d\t%d\t%d\t%d\t%d\n", pid[i], at[i], bt[i], ct[i], tat[i], wt[i]);
+
+    for(i = 0; i &lt; n; i++) {
+
+        printf("P%d\t%d\t%d\t%d\t%d\t%d\n",
+               pid[i],
+               at[i],
+               bt[i],
+               ct[i],
+               tat[i],
+               wt[i]);
     }
 
-    printf("\nAverage TAT = %.2f", avg_tat/n);
-    printf("\nAverage WT = %.2f\n", avg_wt/n);
+    printf("\nAverage TAT = %.2f",
+           avg_tat / n);
+
+    printf("\nAverage WT = %.2f\n",
+           avg_wt / n);
 
     return 0;
-}
-</code>
-        </pre>
-     </div>
-      <!-- Round Robin Scheduling Alghorithm  -->
-<p>(c)- Round Robin</p>
- <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
-        <pre id="program">
-            <code class="language-c">
-    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+}</pre>
 
-    #include <stdio.h>
+                    </div>
 
-    int main() {
+                </div>
+
+            </div>
+
+
+            <!-- ================= ROUND ROBIN ================= -->
+
+            <div class="step">
+
+                <div class="step-number">03</div>
+
+                <div class="step-content">
+
+                    <h3>Round Robin Algorithm</h3>
+
+                    <p>
+                        Round Robin scheduling gives each process a fixed
+                        amount of CPU time called the Time Quantum.
+                        If a process is not completed within the time
+                        quantum, it gets another turn later.
+                    </p>
+
+
+                    <div class="code">
+
+                        <button id="copyRR">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy Code
+                        </button>
+
+                        <span>c</span>
+
+                        <pre id="rrProgram">#include &lt;stdio.h&gt;
+
+int main() {
+
     int n, tq;
-    printf("Rounnd Robin by Kadir Alam \n");
+
+    printf("Rounnd Robin by Kadir Alam\n");
+
     printf("Enter number of processes: ");
-    scanf("%d", &n);
+    scanf("%d", &amp;n);
 
     printf("Enter Time Quantum: ");
-    scanf("%d", &tq);
+    scanf("%d", &amp;tq);
 
-    int pid[n], at[n], bt[n], rt[n], ct[n], tat[n], wt[n];
+    int pid[n], at[n], bt[n], rt[n];
+    int ct[n], tat[n], wt[n];
+
     float avg_tat = 0, avg_wt = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i &lt; n; i++) {
+
         pid[i] = i + 1;
-          printf("\nEnter Arrival Time of P%d: ", i + 1);
-        scanf("%d", &at[i]);
+
+        printf("\nEnter Arrival Time of P%d: ", i + 1);
+        scanf("%d", &amp;at[i]);
+
         printf("Enter Burst Time of P%d: ", i + 1);
-        scanf("%d", &bt[i]);
-        rt[i] = bt[i];   // remaining time
+        scanf("%d", &amp;bt[i]);
+
+        rt[i] = bt[i];
+
         ct[i] = 0;
     }
 
-    int current_time = 0, completed = 0;
+    int current_time = 0;
+    int completed = 0;
     int done = 0;
 
-    while (completed < n) {
+    while(completed &lt; n) {
+
         done = 1;
-        for (int i = 0; i < n; i++) {
-            if (at[i] <= current_time && rt[i] > 0) {
+
+        for(int i = 0; i &lt; n; i++) {
+
+            if(at[i] &lt;= current_time &&
+               rt[i] &gt; 0) {
+
                 done = 0;
-                if (rt[i] > tq) {
+
+                if(rt[i] &gt; tq) {
+
                     current_time += tq;
                     rt[i] -= tq;
+
                 } else {
+
                     current_time += rt[i];
+
                     rt[i] = 0;
+
                     ct[i] = current_time;
-                    tat[i] = ct[i] - at[i];
-                    wt[i] = tat[i] - bt[i];
+
+                    tat[i] =
+                        ct[i] - at[i];
+
+                    wt[i] =
+                        tat[i] - bt[i];
+
                     avg_tat += tat[i];
                     avg_wt += wt[i];
+
                     completed++;
                 }
             }
         }
-        if (done == 1) {
-            current_time++; // à¤…à¤—à¤° à¤•à¥‹à¤ˆ process ready à¤¨à¤¹à¥€à¤‚ à¤¹à¥ˆ
+
+        if(done == 1) {
+
+            current_time++;
         }
     }
 
     printf("\nPID\tAT\tBT\tCT\tTAT\tWT\n");
-    for (int i = 0; i < n; i++) {
-        printf("P%d\t%d\t%d\t%d\t%d\t%d\n", pid[i], at[i], bt[i], ct[i], tat[i], wt[i]);
+
+    for(int i = 0; i &lt; n; i++) {
+
+        printf("P%d\t%d\t%d\t%d\t%d\t%d\n",
+               pid[i],
+               at[i],
+               bt[i],
+               ct[i],
+               tat[i],
+               wt[i]);
     }
 
-    printf("\nAverage TAT = %.2f", avg_tat / n);
-    printf("\nAverage WT = %.2f\n", avg_wt / n);
+    printf("\nAverage TAT = %.2f",
+           avg_tat / n);
+
+    printf("\nAverage WT = %.2f\n",
+           avg_wt / n);
 
     return 0;
-}
-</code>
+}</pre>
 
-        </pre>
-     </div>
-    <!-- Priority( Non-Preemptive Scheduling ) Scheduling Alghorithm  -->
-     <P>(d)-Priority( Non-Preemptive Scheduling ) Scheduling </P>
-     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
-        <pre id="program">
-<code class="language-c">
-    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+                    </div>
 
-    #include <stdio.h>
+                </div>
 
-    int main() {
+            </div>
+
+
+            <!-- ================= PRIORITY NON PREEMPTIVE ================= -->
+
+            <div class="step">
+
+                <div class="step-number">04</div>
+
+                <div class="step-content">
+
+                    <h3>Priority Scheduling (Non-Preemptive)</h3>
+
+                    <p>
+                        In non-preemptive Priority Scheduling, the process
+                        with the highest priority among the arrived
+                        processes is selected and executed until completion.
+                        In this program, a smaller priority number represents
+                        a higher priority.
+                    </p>
+
+
+                    <div class="code">
+
+                        <button id="copyPNP">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy Code
+                        </button>
+
+                        <span>c</span>
+
+                        <pre id="pnpProgram">#include &lt;stdio.h&gt;
+
+int main() {
+
     int n;
-    printf("Priority Scheduling (Non-Preemptive Scheduling) by Kadir Alam \n");
-    printf("Enter number of processes: ");
-    scanf("%d", &n);
 
-    int pid[n], at[n], bt[n], pr[n], ct[n], tat[n], wt[n], completed[n];
+    printf("Priority Scheduling (Non-Preemptive Scheduling) by Kadir Alam\n");
+
+    printf("Enter number of processes: ");
+    scanf("%d", &amp;n);
+
+    int pid[n], at[n], bt[n], pr[n];
+    int ct[n], tat[n], wt[n], completed[n];
+
     float avg_tat = 0, avg_wt = 0;
 
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i &lt; n; i++) {
+
         pid[i] = i + 1;
-          printf("\nEnter Arrival Time of P%d: ", i + 1);
-        scanf("%d", &at[i]);
+
+        printf("\nEnter Arrival Time of P%d: ", i + 1);
+        scanf("%d", &amp;at[i]);
+
         printf("Enter Burst Time of P%d: ", i + 1);
-        scanf("%d", &bt[i]);
+        scanf("%d", &amp;bt[i]);
 
         printf("Enter Priority of P%d: ", i + 1);
-        scanf("%d", &pr[i]);
+        scanf("%d", &amp;pr[i]);
+
         completed[i] = 0;
     }
 
-    int current_time = 0, completed_count = 0;
+    int current_time = 0;
+    int completed_count = 0;
 
-    while (completed_count < n) {
-        int idx = -1, best_pr = 1e9;
+    while(completed_count &lt; n) {
 
-        for (int i = 0; i < n; i++) {
-            if (at[i] <= current_time && completed[i] == 0) {
-                if (pr[i] < best_pr) {
+        int idx = -1;
+        int best_pr = 1000000000;
+
+        for(int i = 0; i &lt; n; i++) {
+
+            if(at[i] &lt;= current_time &&
+               completed[i] == 0) {
+
+                if(pr[i] &lt; best_pr) {
+
                     best_pr = pr[i];
                     idx = i;
                 }
             }
         }
 
-        if (idx != -1) {
+        if(idx != -1) {
+
             current_time += bt[idx];
+
             ct[idx] = current_time;
-            tat[idx] = ct[idx] - at[idx];
-            wt[idx] = tat[idx] - bt[idx];
+
+            tat[idx] =
+                ct[idx] - at[idx];
+
+            wt[idx] =
+                tat[idx] - bt[idx];
+
             completed[idx] = 1;
+
             completed_count++;
 
             avg_tat += tat[idx];
             avg_wt += wt[idx];
+
         } else {
+
             current_time++;
         }
     }
 
     printf("\nPID\tAT\tBT\tPR\tCT\tTAT\tWT\n");
-    for (int i = 0; i < n; i++) {
+
+    for(int i = 0; i &lt; n; i++) {
+
         printf("P%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
-               pid[i], at[i], bt[i], pr[i], ct[i], tat[i], wt[i]);
+               pid[i],
+               at[i],
+               bt[i],
+               pr[i],
+               ct[i],
+               tat[i],
+               wt[i]);
     }
 
-    printf("\nAverage TAT = %.2f", avg_tat / n);
-    printf("\nAverage WT = %.2f\n", avg_wt / n);
+    printf("\nAverage TAT = %.2f",
+           avg_tat / n);
+
+    printf("\nAverage WT = %.2f\n",
+           avg_wt / n);
 
     return 0;
-}
-</code>
-</pre>
-</div>
-    <!-- Priority( Preemptive Scheduling ) Scheduling Algorithms -->
- <P>(d)-Priority( Preemptive Scheduling ) Scheduling </P>
-     <div class="code"><button id="copyBtn" onclick="copycode()"><i class="fa-solid fa-copy"> copy-code</i></button>
-        <pre id="program">
-            <code class="language-c">
-    <span style="font-weight: 700;font-size: xx-large;">C</span>  
+}</pre>
 
-    #include <stdio.h>
+                    </div>
 
-    int main () {
+                </div>
+
+            </div>
+
+
+            <!-- ================= PRIORITY PREEMPTIVE ================= -->
+
+            <div class="step">
+
+                <div class="step-number">05</div>
+
+                <div class="step-content">
+
+                    <h3>Priority Scheduling (Preemptive)</h3>
+
+                    <p>
+                        In Preemptive Priority Scheduling, the CPU can be
+                        taken from the currently running process when a
+                        higher-priority process becomes available.
+                        In this program, a smaller priority number represents
+                        a higher priority.
+                    </p>
+
+
+                    <div class="code">
+
+                        <button id="copyPP">
+                            <i class="fa-solid fa-copy"></i>
+                            Copy Code
+                        </button>
+
+                        <span>c</span>
+
+                        <pre id="ppProgram">#include &lt;stdio.h&gt;
+
+int main() {
+
     int n;
-    printf ("Priority Scheduling (Preemptive Scheduling) by Kadir Alam\n");
-    printf ("Enter number of processes: ");
-    scanf ("%d", &n);
 
-    int pid[n], at[n], bt[n], rt[n], pr[n], ct[n], tat[n], wt[n], completed[n];
+    printf("Priority Scheduling (Preemptive Scheduling) by Kadir Alam\n");
+
+    printf("Enter number of processes: ");
+    scanf("%d", &amp;n);
+
+    int pid[n], at[n], bt[n], rt[n], pr[n];
+    int ct[n], tat[n], wt[n], completed[n];
+
     float avg_tat = 0, avg_wt = 0;
 
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i &lt; n; i++) {
+
         pid[i] = i + 1;
-           printf("\nEnter Arrival Time of P%d: ", i + 1);
-        scanf("%d", &at[i]);
+
+        printf("\nEnter Arrival Time of P%d: ", i + 1);
+        scanf("%d", &amp;at[i]);
+
         printf("Enter Burst Time of P%d: ", i + 1);
-        scanf("%d", &bt[i]);
+        scanf("%d", &amp;bt[i]);
 
         printf("Enter Priority of P%d: ", i + 1);
-        scanf("%d", &pr[i]);
-         rt[i] = bt[i];
+        scanf("%d", &amp;pr[i]);
+
+        rt[i] = bt[i];
+
         completed[i] = 0;
     }
-    int current_time = 0, completed_count = 0;
 
-    while (completed_count < n) {
-        int idx = -1, best_pr = 1e9;
+    int current_time = 0;
+    int completed_count = 0;
 
-        for (int i = 0; i < n; i++) {
-            if (at[i] <= current_time && completed[i] == 0) {
-                if (pr[i] < best_pr) {
+    while(completed_count &lt; n) {
+
+        int idx = -1;
+        int best_pr = 1000000000;
+
+        for(int i = 0; i &lt; n; i++) {
+
+            if(at[i] &lt;= current_time &&
+               completed[i] == 0) {
+
+                if(pr[i] &lt; best_pr) {
+
                     best_pr = pr[i];
                     idx = i;
                 }
             }
         }
-        if (idx != -1) {
+
+        if(idx != -1) {
+
             rt[idx]--;
+
             current_time++;
 
-            if (rt[idx] == 0) {
+            if(rt[idx] == 0) {
+
                 completed[idx] = 1;
+
                 completed_count++;
+
                 ct[idx] = current_time;
-               tat[idx] = ct[idx] - at[idx];
-                wt[idx] = tat[idx] - bt[idx];
+
+                tat[idx] =
+                    ct[idx] - at[idx];
+
+                wt[idx] =
+                    tat[idx] - bt[idx];
 
                 avg_tat += tat[idx];
                 avg_wt += wt[idx];
             }
+
         } else {
+
             current_time++;
         }
     }
+
     printf("\nPID\tAT\tBT\tPR\tCT\tTAT\tWT\n");
-    for (int i = 0; i < n; i++) {
+
+    for(int i = 0; i &lt; n; i++) {
+
         printf("P%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
-               pid[i], at[i], bt[i], pr[i], ct[i], tat[i], wt[i]);
+               pid[i],
+               at[i],
+               bt[i],
+               pr[i],
+               ct[i],
+               tat[i],
+               wt[i]);
     }
-    printf("\nAverage TAT = %.2f", avg_tat / n);
-    printf("\nAverage WT = %.2f\n", avg_wt / n);
+
+    printf("\nAverage TAT = %.2f",
+           avg_tat / n);
+
+    printf("\nAverage WT = %.2f\n",
+           avg_wt / n);
+
     return 0;
+}</pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRECAUTIONS ================= -->
+
+        <section class="precautions">
+
+            <h2>⚠️ Precautions</h2>
+
+            <ul>
+
+                <li>
+                    Enter the number of processes correctly.
+                </li>
+
+                <li>
+                    Enter valid Arrival Time, Burst Time and Priority
+                    values.
+                </li>
+
+                <li>
+                    In Round Robin scheduling, enter a valid positive
+                    Time Quantum.
+                </li>
+
+                <li>
+                    Make sure the C compiler is properly installed and
+                    configured before executing the programs.
+                </li>
+
+                <li>
+                    Check the program carefully for syntax errors before
+                    compilation.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section class="result">
+
+            <h2>✅ Result</h2>
+
+            <p>
+                The FCFS, SJF, Round Robin and Priority Scheduling
+                algorithms were successfully simulated in C. The
+                Completion Time (CT), Turnaround Time (TAT), Waiting
+                Time (WT), Average Turnaround Time and Average Waiting
+                Time were calculated successfully.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        Operating System • Practical No. 4
+
+    </footer>
+
+
+</div>
+
+
+<!-- ================= COPY CODE SCRIPT ================= -->
+
+<script>
+
+function copyCode(buttonId, codeId) {
+
+    const button = document.getElementById(buttonId);
+    const code = document.getElementById(codeId);
+
+    button.addEventListener("click", function () {
+
+        navigator.clipboard.writeText(code.innerText);
+
+        const originalText = button.innerHTML;
+
+        button.innerHTML =
+            '<i class="fa-solid fa-check"></i> Copied!';
+
+        setTimeout(function () {
+            button.innerHTML = originalText;
+        }, 1500);
+
+    });
+
 }
-</code>
-</pre>   
-</div>
 
 
+copyCode("copyFCFS", "fcfsProgram");
+copyCode("copySJF", "sjfProgram");
+copyCode("copyRR", "rrProgram");
+copyCode("copyPNP", "pnpProgram");
+copyCode("copyPP", "ppProgram");
 
-</p>
-</div>
+</script>
+
+
+</body>
+</html>
+
 
 <script type="module">
  import { copycode } from './function.js';
@@ -463,5 +983,3 @@
  document.getElementById("copyBtn").addEventListener("click",copycode);
 
 </script>
-</body>
-</html>

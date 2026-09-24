@@ -3,86 +3,467 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body,html{
-            width:100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1{
-            font-size: 3rem;
-            color: red;
-            font-style: italic;
-            text-align: center;
-            text-decoration: underline;
-        }
-        .container{
-            width: 100%;
-            height: 600px;
-            padding: 10px;
-            border:4px dotted greenyellow;
-        }
-        p{
-            font-size: x-large;
-        }
-        .box1,.box2{
-            width: 100%;
-            height: 700px;
-            margin-top:20px ;
-        }
-        .image1{
-            width: 100%;
-            height: 700px;
-        }
-        @media (max-width:768px) {
-            .box1{
-                width: 100%;
-                margin-top: 500px;
-                height: 300px;
 
-            }
-            .box2{
-                width: 100%;
-                height: 300px;
+    <title>Practical No. 3 | Operating System</title>
 
-            }
-            .image1{
-                width: 100%;
-                height: 300px;
-            }
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-            
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="../Style/practical.CSS">
 </head>
+
 <body>
+
 <div class="container">
-<h1>Practical No.:- 3</h1>
-<p>
-<span style="color:blue;font-size: xx-large;">Aim:-</span>: Use Task Manager to monitor and terminate process. Understand process priorities. <br>
-<span style="color:green;font-size: xx-large;">Requirement:-</span> Personal Computer or Laptop. <br>
-<span style="color:blueviolet;font-size: xx-large">Procedure:- </span><br>
-<span style="color:deeppink;font-size: xx-large"> Step 1:-</span> Start Personal computer or laptop. <br>
-<span style="color:deeppink;font-size: xx-large">Step 2:-</span> Go to task bar, click the right button given option and select the task manager click. <br>
-<span style="color:deeppink;font-size: xx-large">Step 3:-</span>Open Task manager. You will see running apps and background running processes. Columns C.P.U. memory Disk Network etc. <br>
-<span style="color:burlywood;font-size: xx-large">Terminate Processes</span> <br>
-<span style="color:deeppink;font-size: xx-large">Step 4:-</span>Any Apps and background process are terminate select the app process and right click the End task option click. <br>
-<span style="color:deeppink;font-size: xx-large">Step 5:-</span>Now Apps/process are stop. <br>
-<span style="color:blue;font-size: xx-large">Precautions:-</span> <br>
-Do not terminate unknown system process. <br>
-<span style="color:brown;font-size: xx-large">Example:-</span> csrss.exe killing critical system process can crash windows or log you out. If unsure, search online before ending task. <br>
-<span style="color:blue;font-size: xx-large">Results:-</span>
-You will see the task manager then you system use (C.P.U., memory) high 70%-90% than you terminate the unusable apps/process than C.P.U. is good.</p>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="headers">
+
+        <a href="../OS.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Subject
+        </a>
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                <img class="brand-icon"
+                     src="../images/logo.png"
+                     alt="Alam Study Element Logo">
+            </div>
+
+            <div>
+                <h1>Alam Study Element</h1>
+                <span>Computer Science and Engineering</span>
+            </div>
+
+        </div>
+
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i>
+            Print
+        </button>
+
+    </header>
+
+
+    <!-- ================= PRACTICAL HEADER ================= -->
+
+    <header class="header">
+
+        <div class="practical-label">
+            Operating System
+        </div>
+
+        <h1>Practical No. 3</h1>
+         <div class="practical-label" >
+        <button class="pre-btn"><a style="text-decoration:none;" href="practical_2_OS.html">Previous Practical</a></button>
+
+
+        <button class="next-btn"><a style="text-decoration:none;" href="practical_4_OS.html">Next Practical</a></button>
+        </div>
+
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="content">
+
+
+        <!-- ================= AIM ================= -->
+
+        <div class="aim">
+
+            <p>
+                <strong>Aim:</strong>
+                Use Task Manager to monitor and terminate process.
+                Understand process priorities.
+            </p>
+
+        </div>
+
+
+        <!-- ================= REQUIREMENT ================= -->
+
+        <div class="info-grid">
+
+            <div class="info-box">
+
+                <h2>🖥️ Requirements</h2>
+
+                <p>
+                    Personal Computer or Laptop.
+                </p>
+
+            </div>
+
+
+            <!-- ================= PURPOSE ================= -->
+
+            <div class="info-box">
+
+                <h2>📌 Purpose</h2>
+
+                <p>
+                    To use Task Manager to monitor running applications
+                    and processes, check CPU, Memory, Disk and Network
+                    usage, and terminate unnecessary applications or
+                    processes.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= INTRODUCTION ================= -->
+
+        <div class="intro">
+
+            <h2 class="section-title">
+                Introduction
+            </h2>
+
+            <p>
+                Task Manager is a Windows system utility used to monitor
+                the applications and processes running on a computer.
+                It provides information about system resources such as
+                CPU, Memory, Disk and Network usage.
+            </p>
+
+            <br>
+
+            <p>
+                Task Manager can also be used to terminate applications
+                and processes that are not responding or are unnecessarily
+                using system resources. It helps the user to understand
+                the current state of the system and manage running
+                processes.
+            </p>
+
+        </div>
+
+
+        <!-- ================= PROCEDURE ================= -->
+
+        <section class="procedure">
+
+            <h2 class="section-title">
+                Procedure
+            </h2>
+
+
+            <!-- STEP 1 -->
+
+            <div class="step">
+
+                <div class="step-number">01</div>
+
+                <div class="step-content">
+
+                    <h3>Start Personal Computer or Laptop</h3>
+
+                    <p>
+                        Start the personal computer or laptop and wait
+                        until the Windows operating system is completely
+                        loaded.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="step">
+
+                <div class="step-number">02</div>
+
+                <div class="step-content">
+
+                    <h3>Open Task Manager</h3>
+
+                    <p>
+                        Go to the taskbar and click the right mouse button.
+                        From the available options, select
+                        <strong>Task Manager</strong> and click on it.
+                    </p>
+
+
+                    <!-- IMAGE PLACE -->
+
+                    <div class="practical-image">
+
+                        <!-- Add Image Path Here -->
+                        <img src=""
+                             alt="Task Manager">
+
+                        <p class="image-caption">
+                            Figure 1: Task Manager
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="step">
+
+                <div class="step-number">03</div>
+
+                <div class="step-content">
+
+                    <h3>View Running Applications and Processes</h3>
+
+                    <p>
+                        Open Task Manager. You will see running apps
+                        and background running processes. Different
+                        columns such as <strong>CPU, Memory, Disk and
+                        Network</strong> display the system resource
+                        usage.
+                    </p>
+
+
+                    <!-- IMAGE PLACE -->
+
+                    <div class="practical-image">
+
+                        <!-- Add Image Path Here -->
+                        <img src=""
+                             alt="Running Processes in Task Manager">
+
+                        <p class="image-caption">
+                            Figure 2: Running Apps and Background Processes
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="step">
+
+                <div class="step-number">04</div>
+
+                <div class="step-content">
+
+                    <h3>Select the Application or Process</h3>
+
+                    <p>
+                        To terminate any application or background
+                        process, select the required application or
+                        process from the Task Manager list.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+
+            <div class="step">
+
+                <div class="step-number">05</div>
+
+                <div class="step-content">
+
+                    <h3>End the Task</h3>
+
+                    <p>
+                        Right-click on the selected application or
+                        process and select the <strong>End task</strong>
+                        option.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 6 -->
+
+            <div class="step">
+
+                <div class="step-number">06</div>
+
+                <div class="step-content">
+
+                    <h3>Stop the Application or Process</h3>
+
+                    <p>
+                        After clicking the <strong>End task</strong>
+                        option, the selected application or process
+                        will stop running.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 7 -->
+
+            <div class="step">
+
+                <div class="step-number">07</div>
+
+                <div class="step-content">
+
+                    <h3>Monitor CPU and Memory Usage</h3>
+
+                    <p>
+                        Observe the CPU and Memory usage in Task Manager.
+                        If the system is using high CPU or Memory,
+                        identify the applications or processes that
+                        are consuming more system resources.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 8 -->
+
+            <div class="step">
+
+                <div class="step-number">08</div>
+
+                <div class="step-content">
+
+                    <h3>Terminate Unnecessary Applications or Processes</h3>
+
+                    <p>
+                        Select the unnecessary application or process
+                        and use the <strong>End task</strong> option
+                        to stop it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 9 -->
+
+            <div class="step">
+
+                <div class="step-number">09</div>
+
+                <div class="step-content">
+
+                    <h3>Check System Usage Again</h3>
+
+                    <p>
+                        After terminating the unnecessary applications
+                        or processes, check the CPU and Memory usage
+                        again. Observe whether the system resource
+                        usage has reduced.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRECAUTIONS ================= -->
+
+        <section class="precautions">
+
+            <h2>⚠️ Precautions</h2>
+
+            <ul>
+
+                <li>
+                    Do not terminate unknown system processes.
+                </li>
+
+                <li>
+                    Do not terminate critical Windows system processes
+                    without knowing their purpose.
+                </li>
+
+                <li>
+                    Example: <strong>csrss.exe</strong> is a critical
+                    system process. Killing this process can crash
+                    Windows or log you out.
+                </li>
+
+                <li>
+                    If you are unsure about a process, search online
+                    for reliable information before ending the task.
+                </li>
+
+                <li>
+                    Save important work before terminating an application.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- ================= RESULT ================= -->
+
+        <section class="result">
+
+            <h2>✅ Result</h2>
+
+            <p>
+                The Task Manager was successfully opened and used to
+                monitor system usage such as CPU, Memory, Disk and
+                Network. Unnecessary applications or processes were
+                terminated using the <strong>End task</strong> option.
+                After terminating the unnecessary processes, the system
+                resource usage was checked again.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        Operating System • Practical No. 3
+
+    </footer>
+
+
 </div>
-<div class="box1"><img  class="image1"src="os images/p3i1os.png" alt=""></div>
-<div class="box2"><img class="image1" src="os images/p3i2os.png" alt=""></div>
 
 </body>
 </html>
+<img src="../OS_images/"
+     alt="Task Manager">
+
+<img src="YAHAN_SECOND_IMAGE_KA_PATH"
+     alt="Running Processes in Task Manager">
+
