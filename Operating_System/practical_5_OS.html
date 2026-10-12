@@ -438,33 +438,61 @@
             </div>
 
 
-            <!-- ================= PROGRAM ================= -->
 
-            <div class="step">
-
-                <div class="step-number">10</div>
-
-                <div class="step-content">
-
+<div class="step">
+<div class="step-content">
                     <h3>C Program</h3>
 
                     <p>
                         The following C program displays the philosophers,
                         forks, the four deadlock conditions and the
                         deadlock avoidance concept.
-                    </p>
+                    </p></div></div>
+<!-- ================= C PROGRAM ================= -->
+
+<section class="intro c-program-section">
+
+    <div class="program-heading">
+        <h2 class="section-title">
+            C Program
+        </h2>
+
+        <div class="program-actions">
+
+            <button id="runBtn" class="run-code-btn">
+                <i class="fa-solid fa-play"></i>
+                <span>Run Code</span>
+            </button>
+
+            <button id="copyBtn" class="code-copy-btn">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Code</span>
+            </button>
+
+        </div>
+    </div>
 
 
-                    <div class="code">
+    <!-- CODE EDITOR -->
 
-                        <button id="copyBtn">
-                            <i class="fa-solid fa-copy"></i>
-                            Copy Code
-                        </button>
+    <div class="code-container">
 
-                        <span>c</span>
+        <div class="code-topbar">
 
-                        <pre id="program">#include &lt;stdio.h&gt;
+            <div class="code-language">
+                <span class="language-dot"></span>
+                C
+            </div>
+
+            <div id="compileStatus" class="compile-status">
+                Ready
+            </div>
+
+        </div>
+
+
+        <textarea id="programCode" spellcheck="false">#include <stdio.h>
+
 
 int main(){
 
@@ -523,13 +551,9 @@ int main(){
     printf("(Mutual Condition is false.)\n");
 
     return 0;
-}</pre>
+}</textarea>
 
                     </div>
-
-                </div>
-
-            </div>
 
 
         </section>

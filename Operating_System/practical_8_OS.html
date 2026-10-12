@@ -418,15 +418,25 @@
 
 <!-- FIFO CODE -->
 
-<div class="code">
+    <!-- CODE EDITOR -->
 
-    <button id="copyBtnFIFO">
-        <i class="fa-solid fa-copy"></i> Copy Code
-    </button>
+    <div class="code-container">
 
-    <span>c</span>
+        <div class="code-topbar">
 
-    <pre id="programFIFO"><code>#include &lt;stdio.h&gt;
+            <div class="code-language">
+                <span class="language-dot"></span>
+                C
+            </div>
+
+            <div id="compileStatus" class="compile-status">
+                Ready
+            </div>
+
+        </div>
+
+
+        <textarea id="programCode" spellcheck="false">#include <stdio.h>
 
 int main()
 {
@@ -507,9 +517,11 @@ int main()
     printf("Total Page Faults = %d\n", faults);
 
     return 0;
-}</code></pre>
+}
+</textarea>
 
 </div>
+</section><br>
 
 
 <!-- ===================================================== -->
@@ -558,15 +570,25 @@ int main()
 
 <!-- LRU CODE -->
 
-<div class="code">
+    <!-- CODE EDITOR -->
 
-    <button id="copyBtnLRU">
-        <i class="fa-solid fa-copy"></i> Copy Code
-    </button>
+    <div class="code-container">
 
-    <span>c</span>
+        <div class="code-topbar">
 
-    <pre id="programLRU"><code>#include &lt;stdio.h&gt;
+            <div class="code-language">
+                <span class="language-dot"></span>
+                C
+            </div>
+
+            <div id="compileStatus" class="compile-status">
+                Ready
+            </div>
+
+        </div>
+
+
+        <textarea id="programCode" spellcheck="false">#include <stdio.h>
 
 int findLRU(int used[], int frames)
 {
@@ -680,9 +702,13 @@ int main()
     printf("Total Page Faults = %d\n", faults);
 
     return 0;
-}</code></pre>
+
+}
+</textarea>
 
 </div>
+</section><br>
+
 
 
 <!-- ===================================================== -->
@@ -732,16 +758,27 @@ int main()
 
 
 <!-- OPTIMAL CODE -->
+    <!-- CODE EDITOR -->
 
-<div class="code">
+    <div class="code-container">
 
-    <button id="copyBtnOPTIMAL">
-        <i class="fa-solid fa-copy"></i> Copy Code
-    </button>
+        <div class="code-topbar">
 
-    <span>c</span>
+            <div class="code-language">
+                <span class="language-dot"></span>
+                C
+            </div>
 
-    <pre id="programOPTIMAL"><code>#include &lt;stdio.h&gt;
+            <div id="compileStatus" class="compile-status">
+                Ready
+            </div>
+
+        </div>
+
+
+        <textarea id="programCode" spellcheck="false">#include <stdio.h>
+
+
 
 int findOptimal(int frame[], int page[], int index,
                 int frames, int pages)
@@ -859,9 +896,11 @@ int main()
     printf("Total Page Faults = %d\n", faults);
 
     return 0;
-}</code></pre>
+}
+</textarea>
 
 </div>
+</section><br>
 
 
 <!-- ================= PRECAUTIONS ================= -->

@@ -317,6 +317,7 @@
         .content {
             padding: 40px;
         }
+        
 
         /* =========================
            INFO BOXES
@@ -445,6 +446,231 @@
             color: #475569;
         }
 
+        /* =========================================================
+   C PROGRAM RUNNER
+========================================================= */
+
+.c-program-section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.program-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.program-heading .section-title {
+    margin-bottom: 0;
+}
+
+.program-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* Buttons */
+
+/* ================= RUN CODE BUTTON ================= */
+
+.program-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.run-code-btn,.code-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 11px 20px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #2563eb;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.run-code-btn:hover,.code-copy-btn:hover {
+    background: #0f172a;
+    transform: translateY(-5px);
+}
+
+.run-code-btn:active,.code-copy-btn:active {
+    transform: translateY(0);
+}
+/* Media query c code container */
+@media (max-width: 600px) {
+
+    .program-title-row {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .run-code-btn,.code-copy-btn {
+        width: 100%;
+    }
+}
+/* Code Container */
+
+.code-container {
+    width: 100%;
+
+    background: #0f172a;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    border: 1px solid #1e293b;
+
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12);
+}
+
+
+/* Code Top Bar */
+
+.code-topbar {
+    min-height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    background: #111827;
+
+    border-bottom: 1px solid #263244;
+}
+
+.code-language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #e2e8f0;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.language-dot {
+    width: 9px;
+    
+    height: 9px;
+    border-radius: 50%;
+
+    background: #38bdf8;
+}
+
+
+
+
+/* Code Editor */
+
+.programCode {
+    display: block;
+
+    width: 100%;
+    min-height: 600px;
+
+    padding: 22px;
+
+    box-sizing: border-box;
+
+    resize: vertical;
+
+    border: none;
+    outline: none;
+
+    background: #0f172a;
+
+    color: #e2e8f0;
+
+    font-family:
+        "Consolas",
+        "Courier New",
+        monospace;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    tab-size: 4;
+
+    white-space: pre;
+
+    overflow: auto;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .program-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .program-actions {
+        width: 100%;
+    }
+
+   
+    .programCode {
+        min-height: 500px;
+
+        padding: 15px;
+
+        font-size: 13px;
+    }
+    h1{
+            font-size:large;
+        }
+
+   
+}
+
+
+@media (max-width: 480px) {
+
+    .program-actions {
+        flex-direction: column;
+    }
+
+   
+
+    .programCode {
+        min-height: 430px;
+
+        font-size: 12px;
+
+        line-height: 1.6;
+    }
+
+}
         /* =========================
            PRECAUTIONS
         ========================== */
@@ -512,9 +738,14 @@
                 margin: 15px auto;
                 border-radius: 15px;
             }
+            .brand h1{
+                font-size:large;
+                color:navy;
+            }
 
             .header {
                 padding: 35px 18px;
+                display:block;
             }
 
             .content {
@@ -548,6 +779,10 @@
 
             .section-title {
                 font-size: 23px;
+            }
+            .pre-btn,.next-btn{
+                width:auto;
+                font-size:small;
             }
         }
 

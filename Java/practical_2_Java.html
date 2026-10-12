@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Assignment | Alam Study Element</title>
-
-    <!-- Google Font -->
+    <title>Practical | OOPS Using Java </title>
+        <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
           rel="stylesheet">
 
@@ -16,29 +16,37 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
-    <link rel="stylesheet" href="../Style/assignment_details.css">
+<!-- CSS Link -->
+
+<link rel="stylesheet" href="../Style/practical.CSS">
 </head>
 
 <body>
 
+<div class="container">
+
 <!-- ================= HEADER ================= -->
 
-<header class="header">
+<header class="headers">
 
-    <a href="assignment.html" class="back-btn">
+    <a href="../Java.html" class="back-btn">
         <i class="fa-solid fa-arrow-left"></i>
-        Back to Assignments
+        Back to Subject
     </a>
 
     <div class="brand">
+
         <div class="brand-icon">
-        <img class="brand-icon" src="../images/logo.png">
+            <img class="brand-icon"
+                 src="../images/logo.png"
+                 alt="Alam Study Element Logo">
         </div>
 
         <div>
             <h1>Alam Study Element</h1>
             <span>Computer Science and Engineering</span>
         </div>
+
     </div>
 
     <button class="print-btn" onclick="window.print()">
@@ -49,147 +57,411 @@
 </header>
 
 
-<!-- ================= MAIN ================= -->
+    <!-- HEADER -->
+    <header class="header">
 
-<main class="container">
+        <div class="practical-label">
+            OOPS Using Java
+        </div>
+
+        <h1>Practical No. 02 </h1>
+        <div class="practical-label">
+
+    <button class="pre-btn">
+        <a style="text-decoration:none;"
+           href="practical_1_Java.html">
+            Previous Practical
+        </a>
+    </button>
+
+    <button class="next-btn">
+        <a style="text-decoration:none;"
+           href="practical_3_Java.html">
+            Next Practical
+        </a>
+    </button>
+
+</div>
 
 
-    <!-- Assignment Hero -->
+      
+    </header>
 
-    <section class="assignment-hero">
 
-        <div class="hero-left">
+    <!-- MAIN CONTENT -->
+    <main class="content">
 
-            <span class="subject-badge">
-                <i class="fa-solid fa-microchip"></i>
-                OOPS Using Java
-            </span>
-
-            <h2>Assignment No.:- 01</h2>
-
+        <!-- AIM -->
+        <div class="aim">
+            <p>
+                <strong>Aim:</strong>
+                To design a Java program to create a bank account using inheritance and static and perform banking operations 
+                such as deposit , withdraw and display account details.
+           </p>
         </div>
 
 
-        <div class="hero-icon">
-            <i class="fa-solid fa-clipboard-list"></i>
+        <!-- REQUIREMENT -->
+        <div class="intro">
+
+            <div class="info-box">
+
+                <h2>🖥️ Requirements</h2>
+
+                <p>
+                <li>Computer or Laptop</li>
+                 <li>Java Development Kit (JDK)</li>
+                 <li>Java IDE (BlueJ, Eclipse, or NetBeans) or Notepad</li>
+                 <li>Java Compiler and JVM</li>
+
+
+                </p>
+
+            </div>
+</div>
+
+        <!-- INTRODUCTION -->
+        <div class="intro">
+
+            <h2 class="section-title">
+                Theory
+            </h2>
+
+            <p><li>
+            Inheritance is a feature of java in which one class acquires the properties and methods of another class.</li>            </p>
+
+            <p><li>
+            A static member belongs to the class rather than an individual object. It can be accessed using the class name.</li>
+            </p>
+
+            <p>
+            In this program,</p>
+            <p><li>Account is the parent class.</li></p>
+
+            <p><li>
+            savingAccount inherits the Account class.</li></p>
+
+            <p><li>
+            bankName is a static variable.
+            </li></p>
+
+            <p><li>
+            User can perform deposit , withdraw and Account Details operations are perform.
+            </li></p>
+
+
         </div>
 
-    </section>
+        
+<!-- ================= JAVA PROGRAM ================= -->
+
+<section class="intro c-program-section">
+
+    <div class="program-heading">
+        <h2 class="section-title">
+            Java Program
+        </h2>
+
+        <div class="program-actions">
 
 
-    <!-- ================= INFORMATION ================= -->
+            <button id="copyBtn" class="code-copy-btn">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Code</span>
+            </button>
 
-    <section class="info-grid">
-
-        <div class="info-card">
-            <div class="info-icon">
-                <i class="fa-solid fa-book"></i>
-            </div>
-
-            <div>
-                <span>Subject</span>
-                <strong>OOPS Using Java</strong>
-            </div>
         </div>
-
-
-        <div class="info-card">
-            <div class="info-icon">
-                <i class="fa-solid fa-layer-group"></i>
-            </div>
-
-            <div>
-                <span>Semester</span>
-                <strong>5<sup>th</sup> Semester</strong>
-            </div>
-        </div>
-
-
-        <div class="info-card">
-            <div class="info-icon">
-                <i class="fa-regular fa-calendar"></i>
-            </div>
-
-            <div>
-                <span>Assignment No. </span>
-                <strong>01</strong>
-            </div>
-        </div>
-
-
-        <div class="info-card">
-            <div class="info-icon">
-                <i class="fa-solid fa-star"></i>
-            </div>
-
-            <div>
-                <span>Total Questions</span>
-                <strong>06</strong>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- ================= CONTENT LAYOUT ================= -->
-
-    <div class="content-layout">
-
-
-
-            <!-- Questions -->
-
-            <section class="content-card">
-
-                <div class="section-title">
-
-                    <div class="title-icon">
-                        <i class="fa-solid fa-list-check"></i>
-                    </div>
-
-                    <div>
-                        <h3>Assignment Questions</h3>
-                        <span>Answer all questions</span>
-                    </div>
-
-                </div>
-
-
-                <!-- Question 1 -->
-<!--===================== Question No. 1 ======================= -->
-                <div class="question">
-
-                    <div class="question-number">
-                        Q1
-                    </div>
-
-                    <div class="question-body">
-
-                        <h4>
-                        
-                        
-                        </h4>
-
-                        <p>
-                        
-                       </p>
-
-                        
-                    </div>
-
-                </div>
-
-
-                
-            </section>
-
-
-
-
     </div>
 
 
+    <!-- CODE EDITOR -->
 
+    <div class="code-container">
+
+        <div class="code-topbar">
+
+            <div class="code-language">
+                <span class="language-dot"></span>
+                Java
+            </div>
+
+        </div>
+
+
+        <textarea class="programCode" id="programCode" spellcheck="false">
+            import java.util.Scanner;
+
+                    class BankAccount {
+
+                        String accountHolder;
+                        int accountNumber;
+                        double balance;
+
+                        static String bankName = "State Bank of India";
+                        static int totalAccounts = 0;
+
+                        BankAccount(String name, int accNo, double bal) {
+                            accountHolder = name;
+                            accountNumber = accNo;
+                            balance = bal;
+                            totalAccounts++;
+                        }
+
+                        void deposit(double amount) {
+                            if (amount > 0) {
+                                balance += amount;
+                                System.out.println("Amount Deposited: Rs. " + amount);
+                            } else {
+                                System.out.println("Invalid deposit amount!");
+                            }
+                        }
+
+                        void withdraw(double amount) {
+                            if (amount > 0 && amount <= balance) {
+                                balance -= amount;
+                                System.out.println("Amount Withdrawn: Rs. " + amount);
+                            } else {
+                                System.out.println("Insufficient Balance or Invalid Amount!");
+                            }
+                        }
+
+                        void displayDetails() {
+                            System.out.println("\n----- Account Details -----");
+                            System.out.println("Bank Name: " + bankName);
+                            System.out.println("Account Holder: " + accountHolder);
+                            System.out.println("Account Number: " + accountNumber);
+                            System.out.println("Balance: Rs. " + balance);
+                        }
+
+                        static void displayTotalAccounts() {
+                            System.out.println("Total Accounts: " + totalAccounts);
+                        }
+                    }
+
+                    class SavingsAccount extends BankAccount {
+
+
+                        SavingsAccount(String name, int accNo, double bal) {
+                            super(name, accNo, bal);
+                        }
+
+                        void displaySavingsDetails() {
+                            displayDetails();
+                        }
+                    }
+
+                    public class Bank{
+
+                        public static void main(String[] args) {
+
+                            Scanner sc = new Scanner(System.in);
+
+                            System.out.print("Enter Account Holder Name: ");
+                            String name = sc.nextLine();
+
+                            System.out.print("Enter Account Number: ");
+                            int accNo = sc.nextInt();
+
+                            System.out.print("Enter Initial Balance: ");
+                            double balance = sc.nextDouble();
+
+                            SavingsAccount account =
+                                new SavingsAccount(name, accNo, balance);
+
+                            int choice;
+
+                            do {
+                                System.out.println("\n===== BANK MENU =====");
+                                System.out.println("1. Deposit");
+                                System.out.println("2. Withdraw");
+                                System.out.println("3. Display Account Details");
+                                System.out.println("4. Display Total Accounts");
+                                System.out.println("5. Exit");
+
+                                System.out.print("Enter Your Choice: ");
+                                choice = sc.nextInt();
+
+                                switch (choice) {
+
+                                    case 1:
+                                        System.out.print("Enter Amount to Deposit: ");
+                                        double depositAmount = sc.nextDouble();
+                                        account.deposit(depositAmount);
+                                        break;
+
+                                    case 2:
+                                        System.out.print("Enter Amount to Withdraw: ");
+                                        double withdrawAmount = sc.nextDouble();
+                                        account.withdraw(withdrawAmount);
+                                        break;
+
+                                    case 3:
+                                        account.displaySavingsDetails();
+                                        break;
+
+                                    case 4:
+                                        BankAccount.displayTotalAccounts();
+                                        break;
+
+                                    case 5:
+                                        System.out.println("Thank You for Using Our Banking System!");
+                                        break;
+
+                                    default:
+                                        System.out.println("Invalid Choice! Please Try Again.");
+                                }
+
+                            } while (choice != 5);
+
+                            sc.close();
+                        }
+                    }
+
+    
+</textarea>
+
+    </div>
+</section>
+
+<!-- ================= JAVA PROGRAM  OUTPUT================= -->
+
+<section class="intro c-program-section">
+
+    <div class="program-heading">
+        <h2 class="section-title">
+            Java Program Output
+        </h2>
+
+        <div class="program-actions">
+
+           <button id="copyOutputBtn" class="code-copy-btn">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Output</span>
+            </button>
+
+        </div>
+    </div>
+
+
+    <!-- CODE OUTPUT -->
+
+    <div class="code-container">
+
+        <div class="code-topbar">
+
+            <div class="code-language">
+                <span class="language-dot"></span>
+                Java Output
+            </div>
+
+        </div>
+
+
+        <textarea class="programCode" id="programOutput" spellcheck="false">
+                    Enter Account Holder Name: Java
+                    Enter Account Number: 54201325
+                    Enter Initial Balance: 0
+
+                    ===== BANK MENU =====
+                    1. Deposit
+                    2. Withdraw
+                    3. Display Account Details
+                    4. Display Total Accounts
+                    5. Exit
+                    Enter Your Choice: 1
+                    Enter Amount to Deposit: 1000
+                    Amount Deposited: Rs. 1000.0
+
+                    ===== BANK MENU =====
+                    1. Deposit
+                    2. Withdraw
+                    3. Display Account Details
+                    4. Display Total Accounts
+                    5. Exit
+                    Enter Your Choice: 2
+                    Enter Amount to Withdraw: 576 
+                    Amount Withdrawn: Rs. 576.0
+
+                    ===== BANK MENU =====
+                    1. Deposit
+                    2. Withdraw
+                    3. Display Account Details
+                    4. Display Total Accounts
+                    5. Exit
+                    Enter Your Choice: 3
+
+                    ----- Account Details -----
+                    Bank Name: State Bank of India
+                    Account Holder: Java
+                    Account Number: 54201325
+                    Balance: Rs. 424.0
+
+                    ===== BANK MENU =====
+                    1. Deposit
+                    2. Withdraw
+                    3. Display Account Details
+                    4. Display Total Accounts
+                    5. Exit
+                    Enter Your Choice: 4
+                    Total Accounts: 1
+
+                    ===== BANK MENU =====
+                    1. Deposit
+                    2. Withdraw
+                    3. Display Account Details
+                    4. Display Total Accounts
+                    5. Exit
+                    Enter Your Choice: 5
+                    Thank You for Using Our Banking System!
+
+</textarea>
+
+    </div>
+</section>
+
+
+
+        <!-- PRECAUTIONS -->
+        <section class="precautions">
+
+            <h2>⚠️ Precautions</h2>
+
+            <ul>
+
+                <li>Write a program with correct syntax.</li>
+                <li>Use proper variable names and data types.</li>
+                <li>Ensure that opening and closing braces are used correctly.</li>
+                <li>Save the program with correct file name.</li>
+                <li>Check the output after executing the program. </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- RESULT -->
+        <section class="result">
+
+            <h2>✅ Result</h2>
+
+            <p>
+            Thus, the Java program successfully executed to demonstrate inheritance , static members and menu-driven banking operations using switch-case and a do-while loop.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        OOPS Using Java • Practical No.02
+
+    </footer>
+
+</div>
 
 </body>
+<script src="../Logic/practical.js"></script>
 </html>

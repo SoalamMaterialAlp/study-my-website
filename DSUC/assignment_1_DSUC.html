@@ -1,530 +1,1365 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-        <style>
-        body,html{
-            width:100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
+
+    <title>Assignment 01 | Alam Study Element</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../Style/assignment.css">
+
+    <!-- Additional CSS for Answers and Code -->
+    <style>
+        .answer {
+            margin-top: 12px;
+            font-size: 13px;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
         }
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        .answer p {
+            color: #374151;
+            font-weight: 400;
+            font-size: 13px;
+            margin: 8px 0;
         }
-        h1{
-            font-size: 3rem;
-            color: red;
-            font-style: italic;
-            text-align: center;
-            text-decoration: underline;
+
+        .answer h5 {
+            color: #4338ca;
+            font-size: 16px;
+            margin: 22px 0 10px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid #e7eaf0;
         }
-        .container{
-            width: 100%;
-            height: auto;
-            padding: 10px;
-            border:4px dotted greenyellow;
+
+        .answer h6 {
+            color: #b45309;
+            font-size: 14px;
+            margin: 17px 0 8px;
         }
-        span{
-            font-size: x-large;
+
+        .answer ul,
+        .answer ol {
+            padding-left: 25px;
+            margin: 8px 0 14px;
         }
-        p{
-            font-size: larger;
+
+        .answer li {
+            margin-bottom: 5px;
+            color: #374151;
         }
-        ul{
-            font-size: x-large;
-            padding-left: 25px ;
+
+        .answer strong {
+            color: #172033;
         }
-        ol{
-            color: blue;
-            font-size: x-large;
-        }
-        
-        .tables{
-            width: 100%;
-            height: 100%;
-            
-        }
-        table{
-            border-collapse: collapse;
-        }
-        th,td{
-            border:3px solid blue;
-            padding: 10px;
-            font-size: large;
-        }
-         /* media to responsive mobile  */
-        @media (max-width:768px){
-            *{
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body,html{
-                width: 100%;
-                /* height: auto; */
-            }
-            .container{
-                width: 100%;
-                height: auto;
-                 margin: 0;
-                padding: 0;
-                 
-            }
-            h1{
-            font-size: 1.5rem;
-            }
-            P{
-                font-size: large;
-            }
-            span{
-            width: 100%;
-                font-size: larger;
-            }
-            
-        ul{
-            width: 100%;
-            font-size: larger;
-        }
-        ol{
-            width: 100%;
-            color: blue;
-            font-size: larger;
-        }
-    
-        .tables{
-            width: 100%;
-            height: 100%;
+
+        .answer pre {
+            background: #172033;
+            color: #e2e8f0;
+            padding: 16px;
+            margin: 12px 0;
+            border-radius: 10px;
             overflow-x: auto;
-            margin: 0;
-            padding: 0;
-            position: relative;
+            max-width: 100%;
+            font-size: 13px;
+            line-height: 1.7;
+            border: 1px solid #273449;
+            -webkit-overflow-scrolling: touch;
         }
-        table{
+
+        .answer pre code {
+            font-family: Consolas, Monaco, monospace;
+            white-space: pre;
+        }
+
+        .answer table {
+            width: 100%;
             border-collapse: collapse;
-        font-size: 14px;
+            margin: 16px 0;
+            font-size: 12px;
+        }
 
+        .answer th,
+        .answer td {
+            border: 1px solid #dfe3eb;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
         }
-        th,td{
-            border:2px solid chartreuse;
-            /* padding: 1px; */
-            font-size: large;
+
+        .answer th {
+            background: #eef0ff;
+            color: #3730a3;
         }
+
+        .answer tr:nth-child(even) {
+            background: #f8faff;
         }
-</style>
+
+        .question-body h4 {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #172033;
+        }
+
+        .question-number {
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title > div:last-child {
+            margin-left: 12px;
+        }
+
+        .question:last-child {
+            border-bottom: none;
+        }
+
+        .output {
+            background: #ecfdf5;
+            color: #047857;
+            border-left: 4px solid #10b981;
+            padding: 10px 14px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 650px) {
+            .content-card {
+                padding: 15px;
+            }
+
+            .question {
+                grid-template-columns: 35px minmax(0, 1fr);
+                gap: 9px;
+            }
+
+            .question-number {
+                width: 32px;
+                height: 32px;
+            }
+
+            .answer table {
+                display: block;
+                overflow-x: auto;
+                white-space: normal;
+            }
+
+            .answer pre {
+                font-size: 12px;
+                padding: 12px;
+            }
+
+            .answer h5 {
+                font-size: 15px;
+            }
+        }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            .header .back-btn,
+            .header .print-btn {
+                display: none !important;
+            }
+
+            .header {
+                display: none !important;
+            }
+
+            .container {
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .assignment-hero {
+                background: white !important;
+                color: black !important;
+                border: 1px solid #ccc;
+                padding: 20px;
+            }
+
+            .hero-icon {
+                display: none;
+            }
+
+            .content-card {
+                border: none;
+                padding: 0;
+            }
+
+            .question {
+                break-inside: auto;
+            }
+
+            .answer pre {
+                color: black;
+                background: #f3f4f6 !important;
+                border: 1px solid #ddd;
+                white-space: pre-wrap;
+                overflow-wrap: anywhere;
+            }
+
+            .answer h5,
+            .answer h6 {
+                break-after: avoid;
+            }
+
+            .answer table {
+                font-size: 10px;
+            }
+
+            .answer tr {
+                break-inside: avoid;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <div class="container">
-    <!-- ===========================    Assignment No. 1   ======================== -->
 
-        <h1>Assignment No.-1</h1>
+    <!-- ================= HEADER ================= -->
 
-<!-- =====Question No 1 =======-->
-<span style="color: magenta;">Question 1:-</span><span>Explain data type in C?</span><br>
-<span style="color: magenta;">Answer:-</span>
-<p>A data type specifies the size and type of information a variable can store.</p> <br>
-<span style="color:blueviolet">Types of Data Type:</span><br><br>
-<ol style="color: darkorange;">1.Primitive Data Type</ol>
-    <ol class="list" >
-        <li value="1">(i):-int</li>
-	    <li value="1">(ii):-float</li>
-	    <li value="1">(iii):-double</li>
-	    <li value="1">(iv):-char</li>
-	    <li value="1">(v):-void</li>
-    </ol><br>
+    <header class="header">
 
-<ol style="color: darkorange;">2.Derived Data Type</ol>
-	<ol class="list" >
-        <li value="2">(i):-Array</li>
-	    <li value="2">(ii):-Pointer</li>
-	    <li value="2">(iii):-Function</li>
-    </ol>
-    <br>
+        <a href="../DSUC.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to Assignments
+        </a>
 
-<ol style="color: darkorange;">3.User-Defined Data Types</ol>
-	<ol class="list" >
-        <li value="3">(i):-struct</li>
-	    <li value="3">(ii):-union</li>
-	    <li value="3">(iii):-enum</li>
-	    <li value="3">(iv):-typedef</li>
-    </ol><br>
+        <div class="brand">
 
-<ol style="color: darkorange;">1.Primitive Data Type</ol>
-<ul>
-    <li>Primitive data type are the basic built-in types provided by the compiler.</li>
-    <li>The store simple values like numbers, decimals or characters.</li>
-    <li>It also known as primary data types</li>
-</ul> <br>
-<span style="color: brown;">Types of Primitive Data Types</span> <br>
-<ol class="list">1.(i):-int</ol>
-<ul>
-    <li>int is a keyword in C. It is used to declare variables that store integer values.</li>
-    <li>integer is used to store whole numbers without decimals values.</li>
-    <li>It can store both negative and positive number.</li>
-    <li>In C language, %d is used to input and output integer values.</li>
-    <li>The size of int is usually 2 or 4 bytes according compiler.</li>
-    <li>The standard range for integer data types </li>
-            <ul><li>for 4-byte (32-bit) int = -2147483648 to +2147483647 </li></ul>
-            <ul><li>for 2-byte (16-bit) int = -32768 to +32767 </li></ul>
-    <li>Example: int a = 35; <br>
-        printf("A"%d\n",a);</li>
-</ul> <br>
-<ol class="list">1.(ii):-float:</ol>
-<ul>
-    <li>float keyword it is used to represent the floating point data types.</li>
-    <li>Floating data types are used to store decimal and fractional parts(number).</li>
-    <li>The size of float is 4 bytes (32 bits) in most system.</li>
-    <li>They can store botth positive and negative values.</li>
-    <li>Main floating data types are float,double and laong double.</li>
-    <li>Example: float price = 99.99; <br>
-        printf("Price:%2f\n",price);</li>
-</ul> <br>
-<ol class="list">1.(iii):-double:</ol>
-<ul>
-    <li>double is a primitive data types in C.</li>
-    <li>It is used to store decimal numbers doubles provides more precision then float.</li>
-    <li>It usually occupies 8 bytes of memory.</li>
-    <li>It can store very large and very small decimal values.</li>
-    <li>double is used when high accuracy is required.</li>
-    <li>Example: double pi = 3.141592;</li>
-</ul> <br>
-<ol class="list">1.(iv):-char:</ol>
-<ul>
-    <li>har is a keyword in C. It is used to declare varicables that store character.</li>
-    <li>Character data tyoes are used to store single character a single value in single Quotes('').</li>
-    <li>A character data types take upto 1 byte memory store.</li>
-    <li>It stores character using ASCII (American Standard Code for Information Interchange) values internally.</li>
-    <li>%c is used for input and output.</li>
-    <li>Example: char a = 'K'; <br>printf("character:%c",a);</li>
-</ul><br>
-<ol class="list">1.(v):-void:</ol>
-<ul>
-    <li>void is a primitive data type in C.</li>
-    <li>It means no value or nothing.</li>
-    <li>void is mainly used with functions.</li>
-    <li>A function with void return type does not return any value.</li>
-    <li>It is used when no data is required or returned in a program.</li>
-    <li>void can also be used in functions parameters.</li>
-    <li>void main() indicates the function does not return a value (not recommended in Stanadard C).</li>
-</ul><br>
+            <div class="brand-icon">
+                <img src="../images/logo.png"
+                     alt="Alam Study Element Logo"
+                     style="width:100%;height:100%;object-fit:contain;border-radius:11px;">
+            </div>
 
-    
-<ol style="color: darkorange;">2.Derived Data Types:-</ol>
-<ul>
-    <li>Derived Data types are created from primitive (basic) data types.</li>
-    <li>They are used to handle comples data and memory operations.</li>
-    <li>Deriveed data types make programs more powerful and flexible.</li>
-</ul><br>
-<span style="color: brown;">Types of Derived Data Types:</span> <br>
-<ol class="list" >2.(i):-Array:</ol>
-<ul>
-    <li>An array is a derived data type in C.</li>
-<li>It is used to store multiple values of the same data type.</li>
-<li>All elements of an array are stored in contiguous memory locations.</li>
-<li>Each element is accessed using an index number.</li>
-<li>Array indexing starts from 0 in C.</li>
-</ul><br>
-<span style="color: orangered;">Array Declaration Syntax:-</span> <br>
-<ul>
-    <li>data_type array_name [size];</li>
-    <li>Example: int a [5];</li>
-</ul><br>
-<span style="color: orangered;">Array Initialization Syntax:-</span> <br>
-<ul>
-    <li>data_type array_name [size] = {value1,value2,value3.....}</li>
-    <li>Example: int a [5] = {1,2,3,4,5}</li>
-</ul><br>
-<span style="color: orangered;">Accessing Array Elements:-</span> <br>
-<ul>
-    <li>array_name [index];</li>
-    <li>Example: int a [5] = {1,2,3,4,5} <br>
-                printf("%d",a[0]); // access</li>
-    <li>indexing =	0	1	2	3	4</li>
-    <li>element=	1	2	3	4	5</li>
-</ul><br>
-<span style="color: orangered;">Type of Arrays:-</span>
-<ol style="color:deepskyblue">2.(i)(a).One-Dimensional Array (1D Array) <br>
-2.(i)(b).Two-Dimensional Array (2D Array) <br>
-2(i)(c).Multi-Dimensional Array</ol>  <br><br>
-<ol style="color:deepskyblue">2.(i)(a).One-Dimensional Array:</ol>
-<ul>
-    <li>Store data in a single row.</li>
-    <li>Example: int a [5] = {1,2,3,4,5};</li>
-</ul><br>
-<ol style="color:deepskyblue">2.(i)(b).Two-Dimensional Array:</ol>
-<ul>
-    <li>Store data in row and columns like table,matrix form.</li>
-    <li>Example: int a [2][3] = {{1,2,3},{4,5,6}};</li>
-         <ul><li>[2]= show the number of row</li></ul>
-         <ul><li>[3]=show the number of column</li></ul>
-</ul><br>
-<ol style="color:deepskyblue">2.(i)(c).Multi_Dimensional Array:</ol>
-<ul>
-    <li>Array with more than two dimensions.</li>
-    <li>Use for complex data structures.</li>
-    <li>Example: int a [2][3][4];</li>
-</ul><br>
+            <div>
+                <h1>Alam Study Element</h1>
+                <span>Computer Science and Engineering</span>
+            </div>
 
-<ol class="list" >2.(ii):-Pointer</ol>
-<ul>
-    <li>Apointer is a variable that store the address of another variable.</li>
-    <li>Declared using the* symbol.</li>
-    <li>The & operator gives the address of a variable.</li>
-    <li>Example : int a = 20; <br>
-                  int *b = &a; <br> 
-                  printf(“%d”,*b);<br>
-        Output = 20</li>
-</ul><br>
- 
-<ol class="list" >2.(iii):-Function:</ol>
-<ul>
-    <li>A function is a block of code that performs a specific tasks.</li>
-    <li>Function help in breaking a program into smaller parts.</li>
-    <li>They make programs easy to understand and mainatain.</li>
-    <li>A function can called multiple times in a program.</li>
-    <li>Function reduce coddde reptition.</li>
-    <li>A function may return a value or return nothing (void).</li>
-    <li>Functions can take parameters arguments as input.</li>
-    <li>Function are considered a derived data type in C.</li>
-</ul><br>
-<ol style="color: crimson">Function Declaration:-</ol>
-<ul>
-    <li>return_type function_name(parameter);</li>
-<li>Example: int add(int a, int b);</li>
-</ul><br>
-<ol style="color:crimson">Function Definition:</ol>
-<ul>
-    <li>return_type function_name (parmeter_list){ <br>
-        //function body <br>
-            } <br>
-        int add(int a,int b){ <br>
-        return a+b; <br>
-            }</li>
-</ul><br>
-<ol style="color: crimson">Function call:</ol>
-<ul>
-    <li>function_name(arguments); <br>
-    Example: sum = add(10,20); <br>
-    Example: <br>
-    C language <br>
-    # include <stdio.h> <br>
-    //function definition br
-    int add(int a, int b){ <br>
-    return a+b; <br>
-    } <br>
-    int main(){<br>
-    int result; <br>
-    //function call  <br>
-    result = add(10,20); <br>
-    printf("Sum:%d",result); <br>
-    return 0; <br>
-    } <br>   
-</li>
-</ul>
-<br>
-<ol style="color: darkorange;">3.User-Defined Data Type:</ol>
-<ul>
-    <li>User-defined Data types are types created by the programmer.</li>
-    <li>They allow you to organize and manage complex data.</li>
-</ul><br>
-<span style="color: brown;">Types of User-Defined Data Types</span><br> <br>
+        </div>
 
-<ol class="list" value="3">(i):-Structure(struct):-</ol>
-<ul>
-    <li>Group multiple variables of different types under a single name.</li>
-    <li>Each member has its own memory. </li>
-    <li>Example: struct person{ <br>
-                char name[20]; <br>
-                int age;}; </li>
-</ul> <br>
-<ol class="list" value="3">(ii):-Union(union):-</ol>
-<ul>
-    <li>Similar to struct, but all members share the same memory. </li>
-    <li>Only one member can store a value at a time.</li>
-    <li>Example: union Data { <br>
-        int i; <br>
-        float f; <br> 
-            }; </li>
-</ul> <br>
-<ol class="list" value="3">(iii):-Enumeration(enum):- </ol>
-<ul>
-    <li>Defines a set of named integer consists.</li>
-    <li>Makes code more readable.</li>
-    <li>Example : enum Day(Monday,Tuesday,Wednesday);</li>
-</ul> <br>
-<ol class="list" value="3">(iv):-Typedef:-</ol>
-<ul>
-    <li>Give a new name to an existing data type.</li>
-    <li>Helps in writing cleaner code.</li>
-    <li>Example: typedef unsigned int unit; <br>
-        Unit age = 25;</li>
-</ul> <br><br>
+        <button class="print-btn" onclick="window.print()">
+            <i class="fa-solid fa-print"></i>
+            Print
+        </button>
 
-<!-- =====Question No. 2 =======-->
+    </header>
 
-<span style="color: magenta;">Question 2:-</span> <span>Explain the different way of pointer in C?</span><br>
-<span style="color: magenta;">Answer:-</span><span> Pointer:</span><br>
-<ul>
-    <li>A pointer is a variable that store the address of another variable.</li>
-    <li>Declared using * symbol like *ptr.</li>
-    <li>The & operator gives the address of a variable.</li>
-    <li>Syntax = data_type * pointer_name</li>
-</ul> <br>
-<span>Different Types of Pointer:-</span> <br>
-<ol>(i):-Null Pointer:</ol>
-<ul>
-    <li>A pointer that points to nothing.</li>
-    <li>Example: int *ptr =NULL;</li>
-</ul> <br>
-<ol>(ii):-Void Pointer:</ol>
-<ul>
-    <li>A generic pointer that can point to any data type.</li>
-    <li>Example: void*ptr; <br>
-        int a = 5; <br>
-        ptr = &a;</li>
-</ul><br>
-<ol>(iii):-Dangling Pointer:</ol>
-<ul>
-    <li>A pointer that points to a memory that has been freed.</li>
-    <li>Can cause undefined behaviour.</li>
-    <li>Example:-int*ptr = (int*)malloc(sizeof(int)); <br>
-        free(ptr);</li>
-</ul><br>
-<ol>(iv):-Wild Pointer:</ol>
-<ul>
-    <li>A pointer that is not initialized.</li>
-    <li>Point to random memory.</li>
-    <li>Example :- int* ptr;</li>
-</ul><br>
-<ol>(v):-Function Pointer:-</ol>
-<ul>
-    <li>Points to a function address.</li>
-    <li>Example: int add(int a,int b){return a+b;} <br>
-        int(*func_ptr) (int,int)=add;</li>
-</ul><br>
-<ol>(vi):-Pointer to Pointer:</ol>
-<ul>
-    <li>A pointer that store the address of another pointer.</li>
-    <li>Example:- int a= 10; <br>
-	    int * ptr = &a;<br>
-        int * *ptr = &ptr;</li>
-</ul><br>
-<ol>(vii):-Constant Pointer:</ol>
-<ul>
-    <li>Address cannot change ,value can change.</li>
-    <li>Example: int a = 5; <br>
-		int* const ptr = &a;</li>
-</ul><br>
-<ol>(viii):-Pointer to Constant:</ol>
-<ul>
-    <li>Value cannot change ,address can change.</li>
-    <li>Example: const int*ptr=&a;</li>
-</ul><br><br>
-<!-- =====Question No. 3 =======-->
 
-<span style="color: magenta;">Question 3:-</span><span>What is the basic diffrence between Time Complexity and space complexity ?</span> <br>
-<span style="color: magenta;">Answer:-</span><span>The basic difference between of Time Complexity and Space Complexity are following as:-</span><br><br>
-<div class="tables">
-<table>
-    <thead>
-        <tr>
-            <th>Feature</th>
-            <th>Time Complexity</th>
-            <th>Space Complexity</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Definition</td>
-            <td>The Time Complexity of an algorithm is the amount of time require to execute complete the execution.</td>
-            <td>An algorithm space complexity is the amount of space required to solve a problem and produce and output.</td>
-        </tr>
+    <!-- ================= MAIN ================= -->
 
-        <tr>
-            <td>Purpose</td>
-            <td>Analyze algorithm speed.</td>
-            <td>Analyze memory efficiency.</td>
-        </tr>
-        
-        <tr>
-            <td>Depeds On</td>
-            <td>Number of operations loops recursion.</td>
-            <td>variables, arrays, recursion,stack,data structures.</td>
-        </tr>
-        
-        <tr>
-            <td>Notation</td>
-            <td>Expressed in Big O(O(n)),O(1),O(n <sub>2</sub>)etc.</td>
-            <td>Expressed in BigO(O(n)),O(1),etc.</td>
-        </tr>
-        
-        <tr>
-            <td>Effect</td>
-            <td>Affects program speed.</td>
-            <td>Affect memory usage.</td>
-        </tr>
-        
-        <tr>
-            <td>Trade-off</td>
-            <td>Reducing time may increase space.</td>
-            <td>Reducing space may increase time.</td>
-        </tr>
-        
-        <tr>
-            <td>Design Tip</td>
-            <td>Minimize operations and loops.</td>
-            <td>User memory Efficiently.</td>
-        </tr>
-    </tbody>
-</table></div>
+    <main class="container">
 
-<br>
-<!-- =====Question No. 4 =======-->
+        <!-- ================= ASSIGNMENT HERO ================= -->
 
-<span style="color: magenta;">Question 4:-</span><span>Explain the various ways of notation in C?</span><br>
-<span style="color: magenta;">Answer:-</span><span> Notations are used to describe the time and space complexity of a program .These motations helps us understand how an algorithm behave when the input size increase. <br> <br>
-The main types of notations are:- <br><br>
-<ol>(i):-Big O Notation – (O):-</ol>
-<ul>
-    <li>Represents the worst-case time complexity.</li>
-    <li>Shows the maximum time an algorithm can take.</li>
-    <li>Most commonly used notation.</li>
-    <li>Example: Linear Search - O(n)</li>
-</ul>
-<span style="padding-left: 80px;">f(n)=< C.g(n)</span><br> <br>
-<ol>(ii):-Big Omega Notation &Omega;:</ol>
-<ul>
-    <li>Represents the best-case time complexity.</li>
-    <li>Shows the minimum time required.</li>
-    <li>Example: Best case of  Linear Search  - O(1)</li>
-</ul>
-<span style="padding-left: 80px;">f(n)>= C.g(n) </span><br>
-<span style="padding-left: 80px;">f(n) =  g(n)</span><br><br>
-<ol>(iii):-Theta Notation:</ol>
-<ul>
-    <li>Represents the average or exact case.</li>
-    <li>When best and worst case are the same.</li>
-    <li>Example: Loop running exactly n time =&theta;(n)</li>
-</ul>
-<span style="padding-left: 80px;">f(n)<=C.g(n)</span><br>
-<span style="padding-left: 80px;">f(n)>=Cg(n) </span> <br> <br>
-<ol>(iv):-Little o Notation (o):</ol>
-<ul>
-    <li>Represents upper bound ut not tight.</li>
-    <li>Algorithm grow slower than Big O.</li>
-    <li>Less commonly used.</li>
-</ul><br>
-<ol>(v):-Litte Omega Notation:</ol>
-<ul>
-    <li>Represents lower bound but not tight.</li>
-    <li>Growth is faster than omega.</li>
-    <li>Rearely used in practice.</li>
-</ul> <br>
-</span>
-</span>
-    </div></body>
+        <section class="assignment-hero">
+
+            <div class="hero-left">
+
+                <span class="subject-badge">
+                    <i class="fa-solid fa-microchip"></i>
+                    Subject: Data Structure Using C
+                </span>
+
+                <h2>Assignment No. 01</h2>
+
+                <p>
+                    Data Structure Using C — Assignment Questions and Answers
+                </p>
+
+            </div>
+
+            <div class="hero-icon">
+                <i class="fa-solid fa-clipboard-list"></i>
+            </div>
+
+        </section>
+
+
+        <!-- ================= INFORMATION ================= -->
+
+        <section class="info-grid">
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+
+                <div>
+                    <span>Subject</span>
+                    <strong>Data Structure Using C</strong>
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <div>
+                    <span>Semester</span>
+                    <strong>5<sup>th</sup> Semester</strong>
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="fa-regular fa-calendar"></i>
+                </div>
+
+                <div>
+                    <span>Assignment No.</span>
+                    <strong>01</strong>
+                </div>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <div>
+                    <span>Total Questions</span>
+                    <strong>04</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUESTIONS ================= -->
+
+        <div class="content-layout">
+
+            <section class="content-card">
+
+                <!-- SECTION TITLE -->
+
+                <div class="section-title">
+
+                    <div class="title-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+
+                    <div>
+                        <h3>Assignment Questions</h3>
+                        <span>Answer all questions</span>
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- QUESTION 1 -->
+                <!-- ================================================= -->
+
+                <div class="question">
+
+                    <div class="question-number">Q1</div>
+
+                    <div class="question-body">
+
+                        <h4>Explain data type in C?</h4>
+
+                        <div class="answer">
+
+                            <p>
+                                A data type specifies the type of information
+                                a variable can store and determines the
+                                operations that can be performed on it.
+                            </p>
+
+                            <h5>Types of Data Types</h5>
+
+                            <ol>
+                                <li>
+                                    <strong>Primitive Data Types:</strong>
+                                    int, float, double, char and void.
+                                </li>
+
+                                <li>
+                                    <strong>Derived Data Types:</strong>
+                                    Arrays, pointers and function types.
+                                </li>
+
+                                <li>
+                                    <strong>User-Defined Data Types:</strong>
+                                    Structures, unions, enumerations and
+                                    type aliases created using typedef.
+                                </li>
+                            </ol>
+
+
+                            <h5>1. Primitive Data Types</h5>
+
+                            <ul>
+                                <li>
+                                    Primitive data types are the basic
+                                    types provided by the C language.
+                                </li>
+
+                                <li>
+                                    They are used to represent integers,
+                                    floating-point numbers and characters.
+                                </li>
+                            </ul>
+
+
+                            <h6>(i) int</h6>
+
+                            <ul>
+                                <li>
+                                    int is used to store integer values
+                                    without decimal parts.
+                                </li>
+
+                                <li>
+                                    It can represent positive and negative
+                                    numbers, as well as zero.
+                                </li>
+
+                                <li>
+                                    The %d format specifier is commonly
+                                    used to print an int value.
+                                </li>
+
+                                <li>
+                                    The size of int depends on the
+                                    implementation. It is commonly 4 bytes.
+                                </li>
+
+                                <li>
+                                    A typical 32-bit int has a range from
+                                    -2147483648 to 2147483647.
+                                </li>
+                            </ul>
+
+                            <pre><code>int a = 35;
+printf("A: %d\n", a);</code></pre>
+
+
+                            <h6>(ii) float</h6>
+
+                            <ul>
+                                <li>
+                                    float is used to store floating-point
+                                    numbers.
+                                </li>
+
+                                <li>
+                                    It can represent fractional values.
+                                </li>
+
+                                <li>
+                                    It commonly occupies 4 bytes of memory.
+                                </li>
+
+                                <li>
+                                    The %f format specifier is commonly
+                                    used to print a float value.
+                                </li>
+                            </ul>
+
+                            <pre><code>float price = 99.99f;
+printf("Price: %f\n", price);</code></pre>
+
+
+                            <h6>(iii) double</h6>
+
+                            <ul>
+                                <li>
+                                    double is used to store floating-point
+                                    numbers with greater precision than
+                                    float on typical systems.
+                                </li>
+
+                                <li>
+                                    It commonly occupies 8 bytes of memory.
+                                </li>
+
+                                <li>
+                                    It is useful when higher precision
+                                    is required.
+                                </li>
+                            </ul>
+
+                            <pre><code>double pi = 3.141592;
+printf("Pi: %f\n", pi);</code></pre>
+
+
+                            <h6>(iv) char</h6>
+
+                            <ul>
+                                <li>
+                                    char is used to store a character value.
+                                </li>
+
+                                <li>
+                                    Character constants are written using
+                                    single quotation marks.
+                                </li>
+
+                                <li>
+                                    A char object occupies exactly one byte.
+                                </li>
+
+                                <li>
+                                    The %c format specifier is used to
+                                    print a character.
+                                </li>
+                            </ul>
+
+                            <pre><code>char a = 'K';
+printf("Character: %c\n", a);</code></pre>
+
+
+                            <h6>(v) void</h6>
+
+                            <ul>
+                                <li>
+                                    void represents the absence of a value.
+                                </li>
+
+                                <li>
+                                    It is commonly used as the return type
+                                    of a function that returns no value.
+                                </li>
+
+                                <li>
+                                    void can also indicate that a function
+                                    takes no parameters.
+                                </li>
+                            </ul>
+
+                            <pre><code>void display(void)
+{
+    printf("Hello World");
+}</code></pre>
+
+
+                            <h5>2. Derived Data Types</h5>
+
+                            <p>
+                                Derived types are constructed from other
+                                types and help organize and manipulate data.
+                            </p>
+
+
+                            <h6>(i) Array</h6>
+
+                            <ul>
+                                <li>
+                                    An array stores multiple elements
+                                    of the same type.
+                                </li>
+
+                                <li>
+                                    Its elements occupy contiguous
+                                    memory locations.
+                                </li>
+
+                                <li>
+                                    Array indexing starts from zero.
+                                </li>
+                            </ul>
+
+                            <strong>Array Declaration:</strong>
+
+                            <pre><code>data_type array_name[size];
+
+int a[5];</code></pre>
+
+                            <strong>Array Initialization:</strong>
+
+                            <pre><code>int a[5] = {1, 2, 3, 4, 5};</code></pre>
+
+                            <strong>Accessing Array Elements:</strong>
+
+                            <pre><code>int a[5] = {1, 2, 3, 4, 5};
+
+printf("%d", a[0]);</code></pre>
+
+                            <div class="output">
+                                <strong>Output:</strong> 1
+                            </div>
+
+
+                            <h6>Types of Arrays</h6>
+
+                            <ol>
+                                <li>
+                                    <strong>One-Dimensional Array:</strong>
+                                    Stores elements in a single sequence.
+                                </li>
+
+                                <li>
+                                    <strong>Two-Dimensional Array:</strong>
+                                    Stores elements in rows and columns.
+                                </li>
+
+                                <li>
+                                    <strong>Multidimensional Array:</strong>
+                                    An array with more than two dimensions.
+                                </li>
+                            </ol>
+
+                            <strong>One-Dimensional Array:</strong>
+
+                            <pre><code>int a[5] = {1, 2, 3, 4, 5};</code></pre>
+
+                            <strong>Two-Dimensional Array:</strong>
+
+                            <pre><code>int a[2][3] = {
+    {1, 2, 3},
+    {4, 5, 6}
+};</code></pre>
+
+                            <p>
+                                Here, 2 represents the number of rows
+                                and 3 represents the number of columns.
+                            </p>
+
+                            <strong>Multidimensional Array:</strong>
+
+                            <pre><code>int a[2][3][4];</code></pre>
+
+
+                            <h6>(ii) Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    A pointer stores the address of an
+                                    object or function, depending on
+                                    its type.
+                                </li>
+
+                                <li>
+                                    The * symbol is used in pointer
+                                    declarations.
+                                </li>
+
+                                <li>
+                                    The &amp; operator obtains the address
+                                    of an object.
+                                </li>
+                            </ul>
+
+                            <pre><code>int a = 20;
+int *b = &amp;a;
+
+printf("%d", *b);</code></pre>
+
+                            <div class="output">
+                                <strong>Output:</strong> 20
+                            </div>
+
+
+                            <h6>(iii) Function</h6>
+
+                            <ul>
+                                <li>
+                                    A function is a named block of code
+                                    that performs a particular task.
+                                </li>
+
+                                <li>
+                                    Functions divide programs into smaller
+                                    and manageable parts.
+                                </li>
+
+                                <li>
+                                    They reduce code repetition and
+                                    improve readability.
+                                </li>
+
+                                <li>
+                                    Functions can accept parameters
+                                    and return values.
+                                </li>
+                            </ul>
+
+                            <strong>Function Declaration:</strong>
+
+                            <pre><code>int add(int a, int b);</code></pre>
+
+                            <strong>Function Definition:</strong>
+
+                            <pre><code>int add(int a, int b)
+{
+    return a + b;
+}</code></pre>
+
+                            <strong>Complete Function Program:</strong>
+
+                            <pre><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int main(void)
+{
+    int result;
+
+    result = add(10, 20);
+
+    printf("Sum: %d\n", result);
+
+    return 0;
+}</code></pre>
+
+                            <div class="output">
+                                <strong>Output:</strong> Sum: 30
+                            </div>
+
+
+                            <h5>3. User-Defined Data Types</h5>
+
+                            <p>
+                                User-defined types and type aliases help
+                                programmers organize and represent data
+                                according to program requirements.
+                            </p>
+
+
+                            <h6>(i) Structure (struct)</h6>
+
+                            <ul>
+                                <li>
+                                    A structure groups variables of
+                                    different data types under one name.
+                                </li>
+
+                                <li>
+                                    Each member has its own storage
+                                    within the structure.
+                                </li>
+                            </ul>
+
+                            <pre><code>struct person
+{
+    char name[20];
+    int age;
+};</code></pre>
+
+
+                            <h6>(ii) Union (union)</h6>
+
+                            <ul>
+                                <li>
+                                    A union allows different members
+                                    to share the same memory.
+                                </li>
+
+                                <li>
+                                    Its size is sufficient to accommodate
+                                    its largest member, including alignment.
+                                </li>
+
+                                <li>
+                                    Only one member's value can be stored
+                                    meaningfully at a time.
+                                </li>
+                            </ul>
+
+                            <pre><code>union Data
+{
+    int i;
+    float f;
+};</code></pre>
+
+
+                            <h6>(iii) Enumeration (enum)</h6>
+
+                            <ul>
+                                <li>
+                                    An enumeration defines named
+                                    integer constants.
+                                </li>
+
+                                <li>
+                                    It makes code easier to read.
+                                </li>
+                            </ul>
+
+                            <pre><code>enum Day
+{
+    Monday,
+    Tuesday,
+    Wednesday
+};</code></pre>
+
+
+                            <h6>(iv) typedef</h6>
+
+                            <ul>
+                                <li>
+                                    typedef provides an alternative
+                                    name for an existing type.
+                                </li>
+
+                                <li>
+                                    It can make declarations easier
+                                    to read.
+                                </li>
+                            </ul>
+
+                            <pre><code>typedef unsigned int unit;
+
+unit age = 25;</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- QUESTION 2 -->
+                <!-- ================================================= -->
+
+                <div class="question">
+
+                    <div class="question-number">Q2</div>
+
+                    <div class="question-body">
+
+                        <h4>Explain the different types of pointers in C?</h4>
+
+                        <div class="answer">
+
+                            <p>
+                                A pointer is a variable that stores
+                                the address of another object or function,
+                                depending on its type.
+                            </p>
+
+                            <strong>Pointer Syntax:</strong>
+
+                            <pre><code>data_type *pointer_name;</code></pre>
+
+
+                            <h5>Different Types of Pointers</h5>
+
+
+                            <h6>(i) Null Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    A null pointer does not point to a
+                                    valid object or function.
+                                </li>
+
+                                <li>
+                                    It can be initialized using NULL.
+                                </li>
+                            </ul>
+
+                            <pre><code>int *ptr = NULL;</code></pre>
+
+
+                            <h6>(ii) Void Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    A void pointer can hold the address
+                                    of an object of any data type.
+                                </li>
+
+                                <li>
+                                    It must be converted to an appropriate
+                                    object pointer type before dereferencing.
+                                </li>
+                            </ul>
+
+                            <pre><code>int a = 5;
+
+void *ptr = &amp;a;
+
+printf("%d", *(int *)ptr);</code></pre>
+
+
+                            <h6>(iii) Dangling Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    A dangling pointer refers to an
+                                    object whose lifetime has ended
+                                    or whose allocated memory has
+                                    been freed.
+                                </li>
+
+                                <li>
+                                    Using it can cause undefined behavior.
+                                </li>
+                            </ul>
+
+                            <pre><code>#include &lt;stdlib.h&gt;
+
+int *ptr = malloc(sizeof(int));
+
+if (ptr != NULL)
+{
+    *ptr = 10;
+
+    free(ptr);
+    ptr = NULL;
+}</code></pre>
+
+
+                            <h6>(iv) Wild Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    A wild pointer is an uninitialized
+                                    pointer.
+                                </li>
+
+                                <li>
+                                    Its value is indeterminate.
+                                </li>
+
+                                <li>
+                                    It must not be dereferenced before
+                                    being initialized.
+                                </li>
+                            </ul>
+
+                            <pre><code>int *ptr;
+
+/* Initialize ptr before using it. */</code></pre>
+
+
+                            <h6>(v) Function Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    A function pointer stores the address
+                                    of a function.
+                                </li>
+
+                                <li>
+                                    It can be used to call that function
+                                    indirectly.
+                                </li>
+                            </ul>
+
+                            <pre><code>int add(int a, int b)
+{
+    return a + b;
+}
+
+int (*func_ptr)(int, int) = add;
+
+printf("%d", func_ptr(10, 20));</code></pre>
+
+                            <div class="output">
+                                <strong>Output:</strong> 30
+                            </div>
+
+
+                            <h6>(vi) Pointer to Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    A pointer to pointer stores the
+                                    address of another pointer.
+                                </li>
+                            </ul>
+
+                            <pre><code>int a = 10;
+
+int *ptr = &amp;a;
+
+int **ptr2 = &amp;ptr;
+
+printf("%d", **ptr2);</code></pre>
+
+                            <div class="output">
+                                <strong>Output:</strong> 10
+                            </div>
+
+
+                            <h6>(vii) Constant Pointer</h6>
+
+                            <ul>
+                                <li>
+                                    The pointer's address cannot be
+                                    changed after initialization.
+                                </li>
+
+                                <li>
+                                    The pointed-to value can be changed
+                                    if the object is not constant.
+                                </li>
+                            </ul>
+
+                            <pre><code>int a = 5;
+int b = 10;
+
+int * const ptr = &amp;a;
+
+*ptr = 7;
+
+/* ptr = &amp;b;  Not allowed */</code></pre>
+
+
+                            <h6>(viii) Pointer to Constant</h6>
+
+                            <ul>
+                                <li>
+                                    The pointed-to value cannot be
+                                    changed through this pointer.
+                                </li>
+
+                                <li>
+                                    The pointer can be changed to point
+                                    to another compatible object.
+                                </li>
+                            </ul>
+
+                            <pre><code>int a = 10;
+int b = 20;
+
+const int *ptr = &amp;a;
+
+ptr = &amp;b;
+
+/* *ptr = 30;  Not allowed */</code></pre>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- QUESTION 3 -->
+                <!-- ================================================= -->
+
+                <div class="question">
+
+                    <div class="question-number">Q3</div>
+
+                    <div class="question-body">
+
+                        <h4>
+                            What is the basic difference between time
+                            complexity and space complexity?
+                        </h4>
+
+                        <div class="answer">
+
+                            <p>
+                                Time complexity and space complexity
+                                are used to analyze the efficiency
+                                of algorithms.
+                            </p>
+
+                            <p>
+                                Time complexity describes how
+                                computational work grows with input size,
+                                while space complexity describes how
+                                memory requirements grow with input size.
+                            </p>
+
+                            <table>
+
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Time Complexity</th>
+                                        <th>Space Complexity</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>Definition</td>
+
+                                        <td>
+                                            Describes how the computational
+                                            work of an algorithm grows
+                                            with input size.
+                                        </td>
+
+                                        <td>
+                                            Describes how the memory
+                                            requirements of an algorithm
+                                            grow with input size.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Purpose</td>
+
+                                        <td>
+                                            Analyzes algorithm efficiency
+                                            in terms of computational work.
+                                        </td>
+
+                                        <td>
+                                            Analyzes algorithm efficiency
+                                            in terms of memory usage.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Depends On</td>
+
+                                        <td>
+                                            Operations, loops and
+                                            recursive calls.
+                                        </td>
+
+                                        <td>
+                                            Variables, arrays, recursion,
+                                            stacks and data structures.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Notation</td>
+
+                                        <td>
+                                            O(1), O(n), O(n²), etc.
+                                        </td>
+
+                                        <td>
+                                            O(1), O(n), O(n²), etc.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Effect</td>
+
+                                        <td>
+                                            Relates to execution-time growth.
+                                        </td>
+
+                                        <td>
+                                            Relates to memory requirements.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Trade-off</td>
+
+                                        <td>
+                                            Reducing computational work
+                                            may require additional memory.
+                                        </td>
+
+                                        <td>
+                                            Reducing memory usage may
+                                            require additional computational
+                                            work.
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Design Tip</td>
+
+                                        <td>
+                                            Avoid unnecessary operations
+                                            and repeated work.
+                                        </td>
+
+                                        <td>
+                                            Use memory and data structures
+                                            efficiently.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================================= -->
+                <!-- QUESTION 4 -->
+                <!-- ================================================= -->
+
+                <div class="question">
+
+                    <div class="question-number">Q4</div>
+
+                    <div class="question-body">
+
+                        <h4>
+                            Explain the various types of notations used
+                            in complexity analysis.
+                        </h4>
+
+                        <div class="answer">
+
+                            <p>
+                                Asymptotic notations describe how an
+                                algorithm's time or space requirements
+                                grow as the input size increases.
+                            </p>
+
+
+                            <h5>(i) Big O Notation — O</h5>
+
+                            <ul>
+                                <li>
+                                    Big O represents an asymptotic
+                                    upper bound on a function's growth.
+                                </li>
+
+                                <li>
+                                    It is commonly used to describe
+                                    worst-case time complexity.
+                                </li>
+
+                                <li>
+                                    It describes how computational
+                                    work grows as input size increases.
+                                </li>
+
+                                <li>
+                                    Example: Linear search has O(n)
+                                    worst-case time complexity.
+                                </li>
+                            </ul>
+
+                            <strong>Mathematical Definition:</strong>
+
+                            <p>
+                                f(n) = O(g(n)) if there exist positive
+                                constants c and n₀ such that:
+                            </p>
+
+                            <p>
+                                0 ≤ f(n) ≤ c · g(n), for all n ≥ n₀.
+                            </p>
+
+
+                            <h5>(ii) Big Omega Notation — Ω</h5>
+
+                            <ul>
+                                <li>
+                                    Big Omega represents an asymptotic
+                                    lower bound on a function's growth.
+                                </li>
+
+                                <li>
+                                    It can describe best-case time
+                                    complexity when the input case
+                                    is specified.
+                                </li>
+
+                                <li>
+                                    Example: Linear search has Ω(1)
+                                    best-case time complexity.
+                                </li>
+                            </ul>
+
+                            <strong>Mathematical Definition:</strong>
+
+                            <p>
+                                f(n) = Ω(g(n)) if there exist positive
+                                constants c and n₀ such that:
+                            </p>
+
+                            <p>
+                                0 ≤ c · g(n) ≤ f(n), for all n ≥ n₀.
+                            </p>
+
+
+                            <h5>(iii) Theta Notation — Θ</h5>
+
+                            <ul>
+                                <li>
+                                    Theta represents a tight asymptotic
+                                    bound on a function's growth.
+                                </li>
+
+                                <li>
+                                    It means the function has matching
+                                    upper and lower bounds within
+                                    constant factors.
+                                </li>
+
+                                <li>
+                                    Example: A loop that executes n times
+                                    and performs constant work per
+                                    iteration has Θ(n) time complexity.
+                                </li>
+                            </ul>
+
+                            <strong>Mathematical Definition:</strong>
+
+                            <p>
+                                f(n) = Θ(g(n)) if there exist positive
+                                constants c₁, c₂ and n₀ such that:
+                            </p>
+
+                            <p>
+                                0 ≤ c₁ · g(n) ≤ f(n) ≤ c₂ · g(n),
+                                for all n ≥ n₀.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+</body>
+
 </html>

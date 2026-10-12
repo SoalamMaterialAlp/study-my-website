@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Practical| </title>
+    <title>Practical| OOPS Using Java </title>
         <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
 
 <header class="headers">
 
-    <a href="../OS.html" class="back-btn">
+    <a href="../Java.html" class="back-btn">
         <i class="fa-solid fa-arrow-left"></i>
         Back to Subject
     </a>
@@ -61,10 +61,28 @@
     <header class="header">
 
         <div class="practical-label">
-            Operating System
+            OOPS Using Java
         </div>
 
-        <h1>Practical No. </h1>
+        <h1>Practical No. 04 </h1>
+        <div class="practical-label">
+
+    <button class="pre-btn">
+        <a style="text-decoration:none;"
+           href="practical_3_Java.html">
+            Previous Practical
+        </a>
+    </button>
+
+    <button class="next-btn">
+        <a style="text-decoration:none;"
+           href="practical_5_Java.html">
+            Next Practical
+        </a>
+    </button>
+
+</div>
+
 
       
     </header>
@@ -76,214 +94,213 @@
         <!-- AIM -->
         <div class="aim">
             <p>
-                <strong>Aim:</strong>
-            </p>
+                <strong>Aim :</strong>
+                To write a java program to perform string operations such as comparing two strings, reversing a string
+                and changing the case of a string using built-in  string methods.
+           </p>
         </div>
 
 
         <!-- REQUIREMENT -->
-        <div class="info-grid">
+        <div class="intro">
 
             <div class="info-box">
 
                 <h2>🖥️ Requirements</h2>
 
                 <p>
+                <li>Computer or Laptop</li>
+                 <li>Java Development Kit (JDK)</li>
+                 <li>Java IDE (BlueJ, Eclipse, or NetBeans) or Notepad</li>
+                 <li>Java Compiler and JVM</li>
+
+
                 </p>
 
             </div>
-
-            <div class="info-box">
-
-                <h2>📌 Purpose</h2>
-
-                <p>
-                </p>
-
-            </div>
-
-        </div>
-
+</div>
 
         <!-- INTRODUCTION -->
         <div class="intro">
 
             <h2 class="section-title">
-                Introduction
+                Theory
             </h2>
 
-            <p>
+            <p><li>
+            In Java a String is a sequence of character Java provides several built-in methods
+            to perform operations on string.</li>
             </p>
 
-            <br>
+            <p style="color:black;font-weight:bold">
+            The following methods are used in this program:-
+            </p>
 
-            <p>
+            <p><li>
+            equals():- Compares two strings and checks whether their contents are equal.</li>           
+             </p>
+
+            <p><li>
+            reverse():- Reverse a string. This method is provided by the String Builder class.
+            </li></p>
+
+            <p><li>
+            toUpperCase():- Converts all lower case letters into Upper case letters.
+            </li>
+            </p>
+
+            <p><li>
+            toLowerCase():-Converts all upper case letters into lower case letters.
+            </li>
+            </p>
+            <p><li>
+            Scanner():- Takes string / value input from the user.
+            </li>
             </p>
 
         </div>
 
+        
+<!-- ================= JAVA PROGRAM ================= -->
 
-        <!-- PROCEDURE -->
-        <section class="procedure">
+<section class="intro c-program-section">
 
-            <h2 class="section-title">
-                Procedure
-            </h2>
+    <div class="program-heading">
+        <h2 class="section-title">
+            Java Program
+        </h2>
+
+        <div class="program-actions">
 
 
-            <!-- STEP 1 -->
-            <div class="step">
+            <button id="copyBtn" class="code-copy-btn">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Code</span>
+            </button>
 
-                <div class="step-number">01</div>
+        </div>
+    </div>
 
-                <div class="step-content">
 
-                    <h3></h3>
+    <!-- CODE EDITOR -->
 
-                    <p>
-                    </p>
+    <div class="code-container">
 
-                </div>
+        <div class="code-topbar">
 
+            <div class="code-language">
+                <span class="language-dot"></span>
+                Java
             </div>
 
-
-            <!-- STEP 2 -->
-            <div class="step">
-
-                <div class="step-number">02</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
+            <div id="compileStatus" class="compile-status">
+                Ready
             </div>
 
+        </div>
 
-            <!-- STEP 3 -->
-            <div class="step">
 
-                <div class="step-number">03</div>
+        <textarea class="programCode" id="programCode" spellcheck="false">
 
-                <div class="step-content">
+        import java.util.Scanner;
 
-                    <h3></h3>
+            public class practical_4{
+                public static void main(String[] args) {
+                    Scanner sc = new Scanner(System.in);
 
-                    <p>
-                    </p>
+                    System.out.print("Enter First String: ");
+                    String str1 = sc.nextLine();
 
-                </div>
+                    System.out.print("Enter Second String: ");
+                    String str2 = sc.nextLine();
 
+                    // Compare two strings
+                    if (str1.equals(str2)) {
+                        System.out.println("Both Strings are Equal.");
+                    } else {
+                        System.out.println("Strings are Not Equal.");
+                    }
+
+                    // Reverse the string
+                    String rev = new StringBuilder(str1).reverse().toString();
+                    System.out.println("Reversed String(First String): " + rev);
+                    String rev2 = new StringBuilder(str2).reverse().toString();
+                    System.out.println("Reversed String(Second String): " + rev2);
+
+
+                    // Convert to uppercase
+                    System.out.println("Uppercase (First String): " + str1.toUpperCase());
+                    System.out.println("Uppercase (Second String): " + str2.toUpperCase());
+
+                    // Convert to lowercase
+                    System.out.println("Lowercase (First String): " + str1.toLowerCase());
+                    System.out.println("Lowercase (Second String): " + str2.toLowerCase());
+
+
+                    sc.close();
+                }
+            }
+
+    
+</textarea>
+
+    </div>
+</section>
+
+<!-- ================= JAVA PROGRAM  OUTPUT================= -->
+
+<section class="intro c-program-section">
+
+    <div class="program-heading">
+        <h2 class="section-title">
+            Java Program Output
+        </h2>
+
+        <div class="program-actions">
+
+        <button id="copyOutputBtn" class="code-copy-btn" >
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Output</span>
+            </button>
+          
+        </div>
+    </div>
+
+    <!-- CODE OUTPUT -->
+
+    <div class="code-container">
+
+        <div class="code-topbar">
+
+            <div class="code-language">
+                <span class="language-dot"></span>
+                Java Output
             </div>
 
-
-            <!-- STEP 4 -->
-            <div class="step">
-
-                <div class="step-number">04</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
+            <div id="compileStatus" class="compile-status">
+                Ready
             </div>
 
-
-            <!-- STEP 5 -->
-            <div class="step">
-
-                <div class="step-number">05</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
+        </div>
 
 
-            <!-- STEP 6 -->
-            <div class="step">
+        <textarea class="programCode" id="programOutput" style="min-height:300px" spellcheck="false">
+            Enter First String: Hello
+            Enter Second String: Java
+            Strings are Not Equal.
+            Reversed String(First String):  olleH
+            Reversed String(Second String): avaJ
+            Uppercase (First String): HELLO
+            Uppercase (Second String): JAVA
+            Lowercase (First String): hello
+            Lowercase (Second String): java
+    
+</textarea>
+</div>
 
-                <div class="step-number">06</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 7 -->
-            <div class="step">
-
-                <div class="step-number">07</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
+</section>
 
 
-            <!-- STEP 8 -->
-            <div class="step">
-
-                <div class="step-number">08</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 9 -->
-            <div class="step">
-
-                <div class="step-number">09</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
 
 
         <!-- PRECAUTIONS -->
@@ -293,14 +310,11 @@
 
             <ul>
 
-                <li>
-                </li>
-
-                <li>
-                </li>
-
-                <li>
-                </li>
+                <li>Write a program with correct syntax.</li>
+                <li>Use proper variable names and data types.</li>
+                <li>Ensure that opening and closing braces are used correctly.</li>
+                <li>Save the program with correct file name.</li>
+                <li>Check the output after executing the program. </li>
 
             </ul>
 
@@ -313,7 +327,7 @@
             <h2>✅ Result</h2>
 
             <p>
-            </p>
+            Thus, the Java program to perform string operations such as equality checking ,reversing a string and changing the case of a string was executed successfully.            </p>
 
         </section>
 
@@ -323,11 +337,13 @@
     <!-- FOOTER -->
     <footer class="footer">
 
-        Subject Name • Practical No. 
+        OOPS Using Java • Practical No. 04
 
     </footer>
 
 </div>
 
 </body>
+<script src="../Logic/practical.js"> </script>
+
 </html>

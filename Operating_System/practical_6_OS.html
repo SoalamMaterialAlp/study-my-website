@@ -398,17 +398,51 @@
                         and checks whether the system is in a safe state.
                     </p>
 
+<!-- ================= C PROGRAM ================= -->
 
-                    <div class="code">
+<section class="intro c-program-section">
 
-                        <button id="copyBtn">
-                            <i class="fa-solid fa-copy"></i>
-                            Copy Code
-                        </button>
+    <div class="program-heading">
+        <h2 class="section-title">
+            C Program
+        </h2>
 
-                        <span>c</span>
+        <div class="program-actions">
 
-                        <pre id="program">#include &lt;stdio.h&gt;
+            <button id="runBtn" class="run-code-btn">
+                <i class="fa-solid fa-play"></i>
+                <span>Run Code</span>
+            </button>
+
+            <button id="copyBtn" class="code-copy-btn">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Code</span>
+            </button>
+
+        </div>
+    </div>
+
+
+    <!-- CODE EDITOR -->
+
+    <div class="code-container">
+
+        <div class="code-topbar">
+
+            <div class="code-language">
+                <span class="language-dot"></span>
+                C
+            </div>
+
+            <div id="compileStatus" class="compile-status">
+                Ready
+            </div>
+
+        </div>
+
+
+        <textarea id="programCode" spellcheck="false">#include <stdio.h>
+
 
 int main() {
 
@@ -621,13 +655,10 @@ int main() {
 
 
     return 0;
-}</pre>
-
-                    </div>
+}                   </textarea>
 
                 </div>
-
-            </div>
+</section>
 
 
             <!-- ================= DEADLOCK AVOIDANCE ================= -->

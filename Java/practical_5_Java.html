@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Practical| </title>
+    <title>Practical| OOPS Using Java </title>
         <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
 
 <header class="headers">
 
-    <a href="../OS.html" class="back-btn">
+    <a href="../Java.html" class="back-btn">
         <i class="fa-solid fa-arrow-left"></i>
         Back to Subject
     </a>
@@ -61,10 +61,28 @@
     <header class="header">
 
         <div class="practical-label">
-            Operating System
+            OOPS Using Java
         </div>
 
-        <h1>Practical No. </h1>
+        <h1>Practical No. 05 </h1>
+        <div class="practical-label">
+
+    <button class="pre-btn">
+        <a style="text-decoration:none;"
+           href="practical_4_Java.html">
+            Previous Practical
+        </a>
+    </button>
+
+    <button class="next-btn">
+        <a style="text-decoration:none;"
+           href="practical_6_Java.html">
+            Next Practical
+        </a>
+    </button>
+
+</div>
+
 
       
     </header>
@@ -77,213 +95,203 @@
         <div class="aim">
             <p>
                 <strong>Aim:</strong>
-            </p>
+                To write a Java program to demonstrate the concept of Class and Objects using the Car class.
+           </p>
         </div>
 
 
         <!-- REQUIREMENT -->
-        <div class="info-grid">
+        <div class="intro">
 
             <div class="info-box">
 
                 <h2>🖥️ Requirements</h2>
 
                 <p>
+                <li>Computer or Laptop</li>
+                 <li>Java Development Kit (JDK)</li>
+                 <li>Java IDE (BlueJ, Eclipse, or NetBeans) or Notepad</li>
+                 <li>Java Compiler and JVM</li>
+
+
                 </p>
 
             </div>
-
-            <div class="info-box">
-
-                <h2>📌 Purpose</h2>
-
-                <p>
-                </p>
-
-            </div>
-
-        </div>
-
+</div>
 
         <!-- INTRODUCTION -->
         <div class="intro">
 
             <h2 class="section-title">
-                Introduction
+                Theory
             </h2>
 
-            <p>
+            <p><li>
+            A class is a blueprint or template used to create objects. It defines the properties and methods of objects.</li>
             </p>
 
-            <br>
+            <p><li>
+            An object is an instance of a class. Each object has its own properties and can use the methods defined in the class.</li>
+            </p>
 
             <p>
-            </p>
+            In this program,</p>
+            <p><li> Car is a class, and Santro Xing, Alto, and Wagon R are represented by three objects: c1, c2, and c3.</li></p>
+
+            <p><li>
+            The properties of the Car class are model, year, colour, and topSpeed. The methods are Create(), Sold(), and display().</li></p>
+
+
+        </div>
+
+        
+<!-- ================= JAVA PROGRAM ================= -->
+
+<section class="intro c-program-section">
+
+    <div class="program-heading">
+        <h2 class="section-title">
+            Java Program
+        </h2>
+
+        <div class="program-actions">
+
+
+            <button id="copyBtn" class="code-copy-btn">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Code</span>
+            </button>
+
+        </div>
+    </div>
+
+
+    <!-- CODE EDITOR -->
+
+    <div class="code-container">
+
+        <div class="code-topbar">
+
+            <div class="code-language">
+                <span class="language-dot"></span>
+                Java
+            </div>
+
+            <div id="compileStatus" class="compile-status">
+                Ready
+            </div>
 
         </div>
 
 
-        <!-- PROCEDURE -->
-        <section class="procedure">
+        <textarea class="programCode" id="programCode" spellcheck="false">
+    class Car {
+            String model;
+            int year;
+            String colour;
+            int topSpeed; 
+    void Create(String m, int y, String c, int s){
+                model =m;
+                year = y;
+                colour = c; 
+                topSpeed = s; 
+            } 
+     void Sold() {
+            System.out.println(model + " car is sold."); 
+         }
 
-            <h2 class="section-title">
-                Procedure
-            </h2>
+     void display() {
+            System.out.println("Model: " + model); 
+            System.out.println("Year: " + year); 
+            System.out.println("Colour: " + colour);
+            System.out.println("Top Speed: " + topSpeed + " km/h"); 
+            System.out.println("----------------------");
+                
+        } 
+    public static void main(String[] args) {
+            Car c1 = new Car(); 
+            Car c2 = new Car(); 
+            Car c3 = new Car(); 
+
+            c1.Create("Santro Xing", 2010,"White", 140);
+            c2.Create("Alto", 2022, "Red", 160); 
+            c3.Create("Wagon R", 2023, "Blue", 170); 
+
+                    c1.display();
+                    c2.display();
+                    c3.display(); 
+
+                c1.Sold(); 
+        }
+    }
+
+</textarea>
+
+    </div>
+</section>
+
+<!-- ================= JAVA PROGRAM  OUTPUT================= -->
+
+<section class="intro c-program-section">
+
+    <div class="program-heading">
+        <h2 class="section-title">
+            Java Program Output
+        </h2>
+
+        <div class="program-actions">
+
+                    <button id="copyOutputBtn" class="code-copy-btn" >
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Output</span>
+            </button>
+
+        </div>
+    </div>
 
 
-            <!-- STEP 1 -->
-            <div class="step">
+    <!-- CODE OUTPUT -->
 
-                <div class="step-number">01</div>
+    <div class="code-container">
 
-                <div class="step-content">
+        <div class="code-topbar">
 
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
+            <div class="code-language">
+                <span class="language-dot"></span>
+                Java Output
             </div>
 
-
-            <!-- STEP 2 -->
-            <div class="step">
-
-                <div class="step-number">02</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
+            <div id="compileStatus" class="compile-status">
+                Ready
             </div>
 
-
-            <!-- STEP 3 -->
-            <div class="step">
-
-                <div class="step-number">03</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
+        </div>
 
 
-            <!-- STEP 4 -->
-            <div class="step">
-
-                <div class="step-number">04</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 5 -->
-            <div class="step">
-
-                <div class="step-number">05</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
+        <textarea class="programCode" style="min-height:450px"  id="programOutput" spellcheck="false">
+        Model: Santro Xing
+        Year: 2010
+        Colour: White
+        Top Speed: 140 km/h
+        ----------------------
+        Model: Alto
+        Year: 2022
+        Colour: Red
+        Top Speed: 160 km/h
+        ----------------------
+        Model: Wagon R
+        Year: 2023
+        Colour: Blue
+        Top Speed: 170 km/h
+        ----------------------
+        Santro Xing car is sold.
 
 
-            <!-- STEP 6 -->
-            <div class="step">
+</textarea>
 
-                <div class="step-number">06</div>
+    </div>
+</section>
 
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 7 -->
-            <div class="step">
-
-                <div class="step-number">07</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 8 -->
-            <div class="step">
-
-                <div class="step-number">08</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- STEP 9 -->
-            <div class="step">
-
-                <div class="step-number">09</div>
-
-                <div class="step-content">
-
-                    <h3></h3>
-
-                    <p>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
 
 
         <!-- PRECAUTIONS -->
@@ -293,14 +301,11 @@
 
             <ul>
 
-                <li>
-                </li>
-
-                <li>
-                </li>
-
-                <li>
-                </li>
+                <li>Write a program with correct syntax.</li>
+                <li>Use proper variable names and data types.</li>
+                <li>Ensure that opening and closing braces are used correctly.</li>
+                <li>Save the program with correct file name.</li>
+                <li>Check the output after executing the program. </li>
 
             </ul>
 
@@ -313,6 +318,7 @@
             <h2>✅ Result</h2>
 
             <p>
+            Thus, the Java program was successfully executed to demonstrate the concepts of class, objects, properties, and methods.
             </p>
 
         </section>
@@ -323,11 +329,13 @@
     <!-- FOOTER -->
     <footer class="footer">
 
-        Subject Name • Practical No. 
+        OOPS Using Java • Practical No. 5 
 
     </footer>
 
 </div>
 
 </body>
+<script src="../Logic/practical.js"> </script>
+
 </html>

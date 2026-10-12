@@ -445,292 +445,308 @@
 
 </section>
 
-<!-- PROGRAM -->
+<!-- ================= C PROGRAM ================= -->
 
-<section class="intro">
+<section class="intro c-program-section">
 
- 
-<h2 class="section-title">
-    C Program
-</h2>
+    <div class="program-heading">
+        <h2 class="section-title">
+            C Program
+        </h2>
 
-<div class="code">
+        <div class="program-actions">
 
-    <button id="copyBtn">
-        <i class="fa-solid fa-copy"></i>
-        Copy Code
-    </button>
+            <button id="runBtn" class="run-code-btn">
+                <i class="fa-solid fa-play"></i>
+                <span>Run Code</span>
+            </button>
 
-    <span>c</span>
+            <button id="copyBtn" class="code-copy-btn">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy Code</span>
+            </button>
 
-    <pre id="program"><code>#include &lt;stdio.h&gt;
- 
+        </div>
+    </div>
+
+
+    <!-- CODE EDITOR -->
+
+    <div class="code-container">
+
+        <div class="code-topbar">
+
+            <div class="code-language">
+                <span class="language-dot"></span>
+                C
+            </div>
+
+            <div id="compileStatus" class="compile-status">
+                Ready
+            </div>
+
+        </div>
+
+
+        <textarea id="programCode" spellcheck="false">#include <stdio.h>
 
 void firstFit(int blockSize[], int m, int processSize[], int n) {
 
- 
-int allocation[n];
+    int allocation[n];
 
-for (int i = 0; i &lt; n; i++)
-    allocation[i] = -1;
+    for (int i = 0; i < n; i++)
+        allocation[i] = -1;
 
-printf("\n================ FIRST FIT STEP TABLE ================\n");
-printf("-------------------------------------------------------------\n");
-printf("| Process | Process Size | Block Allocated | Remaining Block Size |\n");
-printf("-------------------------------------------------------------\n");
+    printf("\n================ FIRST FIT STEP TABLE ================\n");
+    printf("-------------------------------------------------------------\n");
+    printf("| Process | Process Size | Block Allocated | Remaining Block Size |\n");
+    printf("-------------------------------------------------------------\n");
 
-for (int i = 0; i &lt; n; i++) {
+    for (int i = 0; i < n; i++) {
 
-    int allocated = 0;
+        int allocated = 0;
 
-    for (int j = 0; j &lt; m; j++) {
+        for (int j = 0; j < m; j++) {
 
-        if (blockSize[j] &gt;= processSize[i]) {
+            if (blockSize[j] >= processSize[i]) {
 
-            allocation[i] = j;
+                allocation[i] = j;
 
-            printf("|   P%-5d | %-12d | Block %-9d | %d - %d = %d |\n",
+                printf("|   P%-5d | %-12d | Block %-9d | %d - %d = %d |\n",
+                       i + 1,
+                       processSize[i],
+                       j + 1,
+                       blockSize[j],
+                       processSize[i],
+                       blockSize[j] - processSize[i]);
+
+                blockSize[j] -= processSize[i];
+
+                allocated = 1;
+                break;
+            }
+        }
+
+        if (!allocated) {
+
+            printf("|   P%-5d | %-12d | Not Allocated   | --- |\n",
                    i + 1,
-                   processSize[i],
-                   j + 1,
-                   blockSize[j],
-                   processSize[i],
-                   blockSize[j] - processSize[i]);
-
-            blockSize[j] -= processSize[i];
-
-            allocated = 1;
-            break;
+                   processSize[i]);
         }
     }
 
-    if (!allocated) {
+    printf("-------------------------------------------------------------\n");
 
-        printf("|   P%-5d | %-12d | Not Allocated   | --- |\n",
+    printf("\nFinal First Fit Allocation:\n");
+    printf("Process No.\tProcess Size\tBlock No.\n");
+
+    for (int i = 0; i < n; i++) {
+
+        printf("%d\t\t%d\t\t",
                i + 1,
                processSize[i]);
+
+        if (allocation[i] != -1)
+            printf("%d\n", allocation[i] + 1);
+        else
+            printf("Not Allocated\n");
     }
 }
 
-printf("-------------------------------------------------------------\n");
-
-printf("\nFinal First Fit Allocation:\n");
-printf("Process No.\tProcess Size\tBlock No.\n");
-
-for (int i = 0; i &lt; n; i++) {
-
-    printf("%d\t\t%d\t\t",
-           i + 1,
-           processSize[i]);
-
-    if (allocation[i] != -1)
-        printf("%d\n", allocation[i] + 1);
-    else
-        printf("Not Allocated\n");
-}
- 
-
-}
 
 void bestFit(int blockSize[], int m, int processSize[], int n) {
 
- 
-int allocation[n];
+    int allocation[n];
 
-for (int i = 0; i &lt; n; i++)
-    allocation[i] = -1;
+    for (int i = 0; i < n; i++)
+        allocation[i] = -1;
 
-printf("\n================ BEST FIT STEP TABLE ================\n");
-printf("---------------------------------------------------------------------\n");
-printf("| Process | Process Size | Block Allocated (Best) | Remaining Block Size |\n");
-printf("---------------------------------------------------------------------\n");
+    printf("\n================ BEST FIT STEP TABLE ================\n");
+    printf("---------------------------------------------------------------------\n");
+    printf("| Process | Process Size | Block Allocated (Best) | Remaining Block Size |\n");
+    printf("---------------------------------------------------------------------\n");
 
-for (int i = 0; i &lt; n; i++) {
+    for (int i = 0; i < n; i++) {
 
-    int bestIdx = -1;
+        int bestIdx = -1;
 
-    for (int j = 0; j &lt; m; j++) {
+        for (int j = 0; j < m; j++) {
 
-        if (blockSize[j] &gt;= processSize[i]) {
+            if (blockSize[j] >= processSize[i]) {
 
-            if (bestIdx == -1 ||
-                blockSize[j] &lt; blockSize[bestIdx]) {
+                if (bestIdx == -1 ||
+                    blockSize[j] < blockSize[bestIdx]) {
 
-                bestIdx = j;
+                    bestIdx = j;
+                }
             }
+        }
+
+        if (bestIdx != -1) {
+
+            printf("|   P%-5d | %-12d | Block %-18d | %d - %d = %d |\n",
+                   i + 1,
+                   processSize[i],
+                   bestIdx + 1,
+                   blockSize[bestIdx],
+                   processSize[i],
+                   blockSize[bestIdx] - processSize[i]);
+
+            allocation[i] = bestIdx;
+
+            blockSize[bestIdx] -= processSize[i];
+
+        } else {
+
+            printf("|   P%-5d | %-12d | Not Allocated        | --- |\n",
+                   i + 1,
+                   processSize[i]);
         }
     }
 
-    if (bestIdx != -1) {
+    printf("---------------------------------------------------------------------\n");
 
-        printf("|   P%-5d | %-12d | Block %-18d | %d - %d = %d |\n",
-               i + 1,
-               processSize[i],
-               bestIdx + 1,
-               blockSize[bestIdx],
-               processSize[i],
-               blockSize[bestIdx] - processSize[i]);
+    printf("\nFinal Best Fit Allocation:\n");
+    printf("Process No.\tProcess Size\tBlock No.\n");
 
-        allocation[i] = bestIdx;
+    for (int i = 0; i < n; i++) {
 
-        blockSize[bestIdx] -= processSize[i];
-
-    } else {
-
-        printf("|   P%-5d | %-12d | Not Allocated        | --- |\n",
+        printf("%d\t\t%d\t\t",
                i + 1,
                processSize[i]);
+
+        if (allocation[i] != -1)
+            printf("%d\n", allocation[i] + 1);
+        else
+            printf("Not Allocated\n");
     }
 }
 
-printf("---------------------------------------------------------------------\n");
-
-printf("\nFinal Best Fit Allocation:\n");
-printf("Process No.\tProcess Size\tBlock No.\n");
-
-for (int i = 0; i &lt; n; i++) {
-
-    printf("%d\t\t%d\t\t",
-           i + 1,
-           processSize[i]);
-
-    if (allocation[i] != -1)
-        printf("%d\n", allocation[i] + 1);
-    else
-        printf("Not Allocated\n");
-}
- 
-
-}
 
 void worstFit(int blockSize[], int m, int processSize[], int n) {
 
- 
-int allocation[n];
+    int allocation[n];
 
-for (int i = 0; i &lt; n; i++)
-    allocation[i] = -1;
+    for (int i = 0; i < n; i++)
+        allocation[i] = -1;
 
-printf("\n================ WORST FIT STEP TABLE ================\n");
-printf("---------------------------------------------------------------------\n");
-printf("| Process | Process Size | Block Allocated (Worst) | Remaining Block Size |\n");
-printf("---------------------------------------------------------------------\n");
+    printf("\n================ WORST FIT STEP TABLE ================\n");
+    printf("---------------------------------------------------------------------\n");
+    printf("| Process | Process Size | Block Allocated (Worst) | Remaining Block Size |\n");
+    printf("---------------------------------------------------------------------\n");
 
-for (int i = 0; i &lt; n; i++) {
+    for (int i = 0; i < n; i++) {
 
-    int worstIdx = -1;
+        int worstIdx = -1;
 
-    for (int j = 0; j &lt; m; j++) {
+        for (int j = 0; j < m; j++) {
 
-        if (blockSize[j] &gt;= processSize[i]) {
+            if (blockSize[j] >= processSize[i]) {
 
-            if (worstIdx == -1 ||
-                blockSize[j] &gt; blockSize[worstIdx]) {
+                if (worstIdx == -1 ||
+                    blockSize[j] > blockSize[worstIdx]) {
 
-                worstIdx = j;
+                    worstIdx = j;
+                }
             }
+        }
+
+        if (worstIdx != -1) {
+
+            printf("|   P%-5d | %-12d | Block %-18d | %d - %d = %d |\n",
+                   i + 1,
+                   processSize[i],
+                   worstIdx + 1,
+                   blockSize[worstIdx],
+                   processSize[i],
+                   blockSize[worstIdx] - processSize[i]);
+
+            allocation[i] = worstIdx;
+
+            blockSize[worstIdx] -= processSize[i];
+
+        } else {
+
+            printf("|   P%-5d | %-12d | Not Allocated        | --- |\n",
+                   i + 1,
+                   processSize[i]);
         }
     }
 
-    if (worstIdx != -1) {
+    printf("---------------------------------------------------------------------\n");
 
-        printf("|   P%-5d | %-12d | Block %-18d | %d - %d = %d |\n",
-               i + 1,
-               processSize[i],
-               worstIdx + 1,
-               blockSize[worstIdx],
-               processSize[i],
-               blockSize[worstIdx] - processSize[i]);
+    printf("\nFinal Worst Fit Allocation:\n");
+    printf("Process No.\tProcess Size\tBlock No.\n");
 
-        allocation[i] = worstIdx;
+    for (int i = 0; i < n; i++) {
 
-        blockSize[worstIdx] -= processSize[i];
-
-    } else {
-
-        printf("|   P%-5d | %-12d | Not Allocated        | --- |\n",
+        printf("%d\t\t%d\t\t",
                i + 1,
                processSize[i]);
+
+        if (allocation[i] != -1)
+            printf("%d\n", allocation[i] + 1);
+        else
+            printf("Not Allocated\n");
     }
+
+    printf("\nFirst Fit, Best Fit & Worst Fit Contiguous Memory Allocation Program performed by Kadir Alam\n");
 }
 
-printf("---------------------------------------------------------------------\n");
-
-printf("\nFinal Worst Fit Allocation:\n");
-printf("Process No.\tProcess Size\tBlock No.\n");
-
-for (int i = 0; i &lt; n; i++) {
-
-    printf("%d\t\t%d\t\t",
-           i + 1,
-           processSize[i]);
-
-    if (allocation[i] != -1)
-        printf("%d\n", allocation[i] + 1);
-    else
-        printf("Not Allocated\n");
-}
-
-printf("\nFirst Fit, Best Fit &amp; Worst Fit Contiguous Memory Allocation Program performed by Kadir Alam\n");
- 
-
-}
 
 int main() {
 
- 
-int m, n;
+    int m, n;
 
-printf("First Fit, Best Fit &amp; Worst Fit Contiguous Memory Allocation Program performed by Kadir Alam\n");
+    printf("First Fit, Best Fit & Worst Fit Contiguous Memory Allocation Program performed by Kadir Alam\n");
 
-printf("\nEnter number of memory blocks: ");
-scanf("%d", &amp;m);
+    printf("\nEnter number of memory blocks: ");
+    scanf("%d", &m);
 
-int blockSize[m];
+    int blockSize[m];
 
-printf("Enter size of each memory block:\n");
+    printf("Enter size of each memory block:\n");
 
-for (int i = 0; i &lt; m; i++)
-    scanf("%d", &amp;blockSize[i]);
-
-
-printf("\nEnter number of processes: ");
-scanf("%d", &amp;n);
-
-int processSize[n];
-
-printf("Enter size of each process:\n");
-
-for (int i = 0; i &lt; n; i++)
-    scanf("%d", &amp;processSize[i]);
+    for (int i = 0; i < m; i++)
+        scanf("%d", &blockSize[i]);
 
 
-int blockCopy1[m];
-int blockCopy2[m];
-int blockCopy3[m];
+    printf("\nEnter number of processes: ");
+    scanf("%d", &n);
 
-for (int i = 0; i &lt; m; i++) {
+    int processSize[n];
 
-    blockCopy1[i] = blockSize[i];
-    blockCopy2[i] = blockSize[i];
-    blockCopy3[i] = blockSize[i];
-}
+    printf("Enter size of each process:\n");
+
+    for (int i = 0; i < n; i++)
+        scanf("%d", &processSize[i]);
 
 
-firstFit(blockCopy1, m, processSize, n);
+    int blockCopy1[m];
+    int blockCopy2[m];
+    int blockCopy3[m];
 
-bestFit(blockCopy2, m, processSize, n);
+    for (int i = 0; i < m; i++) {
 
-worstFit(blockCopy3, m, processSize, n);
+        blockCopy1[i] = blockSize[i];
+        blockCopy2[i] = blockSize[i];
+        blockCopy3[i] = blockSize[i];
+    }
 
-return 0;
- 
 
-}</code></pre>
+    firstFit(blockCopy1, m, processSize, n);
 
- 
-</div>
- 
+    bestFit(blockCopy2, m, processSize, n);
+
+    worstFit(blockCopy3, m, processSize, n);
+
+    return 0;
+}</textarea>
+
+    </div>
+
+
+
 
 </section>
 
@@ -801,15 +817,23 @@ Operating System • Practical No. 7
 </div>
 
 <!-- COPY CODE SCRIPT -->
+<script>
 
-<script type="module">
+document.getElementById("runBtn").addEventListener("click", function () {
 
-    import { copycode } from './function.js';
+    const code = document.getElementById("program").innerText;
 
-    document.getElementById("copyBtn")
-        .addEventListener("click", copycode);
+    localStorage.setItem("runCCode", code);
+
+    window.location.href = "run-code.html";
+
+});
 
 </script>
+<script src="../Logic/practical.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@live-codes/clang-wasm@0.2.0/dist/clang-wasm.global.js"></script>
+
 
 </body>
 </html>
+
