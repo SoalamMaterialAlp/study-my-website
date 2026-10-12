@@ -119,62 +119,60 @@ themeBtn.addEventListener("click",()=>{
 
 /* =====================================================
    SEARCH + SEMESTER FILTER
+   DESKTOP + MOBILE FIX
 ===================================================== */
 
-const search =
-    document.getElementById("search");
+const search = document.getElementById("search");
 
-const filters =
-    document.querySelectorAll(".filter");
+const searchBtn = document.getElementById("searchBtn");
 
-const noResult =
-    document.getElementById("noResult");
+const filters = document.querySelectorAll(".filter");
 
+const noResult = document.getElementById("noResult");
+
+const subjectCards = document.querySelectorAll(".subject-card");
 
 let selectedSemester = "all";
 
 
-function filterSubjects(){
+/* SEARCH AND FILTER FUNCTION */
 
-    const query =
-        search.value
+function filterSubjects() {
+
+    const query = search.value
         .toLowerCase()
         .trim();
 
-
     let visible = 0;
 
+    subjectCards.forEach(card => {
 
-    cards.forEach(card=>{
+        // Subject name
+        const name = (
+            card.dataset.name ||
+            card.querySelector("h3")?.textContent ||
+            ""
+        ).toLowerCase();
 
-        const name =
-            card.dataset.name
-            .toLowerCase();
+        // Semester
+        const semester = card.dataset.sem || "";
 
-        const sem =
-            card.dataset.sem;
+        // Search matching
+        const matchesSearch = name.includes(query);
 
-
-        const matchesSearch =
-            name.includes(query);
-
-
+        // Semester matching
         const matchesSemester =
-            selectedSemester === "all"
-            ||
-            sem === selectedSemester;
+            selectedSemester === "all" ||
+            semester === selectedSemester;
 
-
-        if(
-            matchesSearch &&
-            matchesSemester
-        ){
+        // Show or hide subject
+        if (matchesSearch && matchesSemester) {
 
             card.classList.remove("hidden");
 
             visible++;
 
-        }else{
+        } else {
 
             card.classList.add("hidden");
 
@@ -183,46 +181,64 @@ function filterSubjects(){
     });
 
 
-    noResult.style.display =
-        visible === 0
-        ? "block"
-        : "none";
+    // No result message
+    if (noResult) {
+
+        noResult.style.display =
+            visible === 0 ? "block" : "none";
+
+    }
 
 }
 
 
-search.addEventListener(
-    "input",
-    filterSubjects
-);
+/* SEARCH WHILE TYPING */
+
+search.addEventListener("input", filterSubjects);
 
 
-filters.forEach(button=>{
+/* SEARCH BUTTON CLICK */
 
-    button.addEventListener(
-        "click",
-        ()=>{
-
-            filters.forEach(btn=>
-                btn.classList.remove("active")
-            );
+searchBtn.addEventListener("click", filterSubjects);
 
 
-            button.classList.add("active");
+/* SEARCH ON ENTER KEY */
 
+search.addEventListener("keydown", function(event) {
 
-            selectedSemester =
-                button.dataset.sem;
+    if (event.key === "Enter") {
 
+        event.preventDefault();
 
-            filterSubjects();
+        filterSubjects();
 
-        }
-    );
+    }
 
 });
 
 
+/* SEMESTER FILTER */
+
+filters.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        // Update active button
+        filters.forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        // Update selected semester
+        selectedSemester = button.dataset.sem;
+
+        // Apply search + semester filter
+        filterSubjects();
+
+    });
+
+});
 
 /* =====================================================
    BOOKMARK
