@@ -18,7 +18,7 @@
 
 <!-- CSS Link -->
 
-<link rel="stylesheet" href="../Style/practical.CSS">
+<link rel="stylesheet" href="../Style/practical.css">
 </head>
 
 <body>
@@ -69,14 +69,14 @@
 
     <button class="pre-btn">
         <a style="text-decoration:none;"
-           href="practical_4_Java.html">
+           href="practical_10_Java.html">
             Previous Practical
         </a>
     </button>
 
     <button class="next-btn">
         <a style="text-decoration:none;"
-           href="practical_6_Java.html">
+           href="practical_12_Java.html">
             Next Practical
         </a>
     </button>
@@ -95,7 +95,6 @@
         <div class="aim">
             <p>
                 <strong>Aim:</strong>
-                To write a Java program to demonstrate the concept of Class and Objects using the Car class.
            </p>
         </div>
 
@@ -125,21 +124,6 @@
             <h2 class="section-title">
                 Theory
             </h2>
-
-            <p><li>
-            A class is a blueprint or template used to create objects. It defines the properties and methods of objects.</li>
-            </p>
-
-            <p><li>
-            An object is an instance of a class. Each object has its own properties and can use the methods defined in the class.</li>
-            </p>
-
-            <p>
-            In this program,</p>
-            <p><li> Car is a class, and Santro Xing, Alto, and Wagon R are represented by three objects: c1, c2, and c3.</li></p>
-
-            <p><li>
-            The properties of the Car class are model, year, colour, and topSpeed. The methods are Create(), Sold(), and display().</li></p>
 
 
         </div>
@@ -177,53 +161,11 @@
                 Java
             </div>
 
-            <div id="compileStatus" class="compile-status">
-                Ready
-            </div>
 
         </div>
 
 
-        <textarea id="programCode" spellcheck="false">
-    class Car {
-            String model;
-            int year;
-            String colour;
-            int topSpeed; 
-    void Create(String m, int y, String c, int s){
-                model =m;
-                year = y;
-                colour = c; 
-                topSpeed = s; 
-            } 
-     void Sold() {
-            System.out.println(model + " car is sold."); 
-         }
-
-     void display() {
-            System.out.println("Model: " + model); 
-            System.out.println("Year: " + year); 
-            System.out.println("Colour: " + colour);
-            System.out.println("Top Speed: " + topSpeed + " km/h"); 
-            System.out.println("----------------------");
-                
-        } 
-    public static void main(String[] args) {
-            Car c1 = new Car(); 
-            Car c2 = new Car(); 
-            Car c3 = new Car(); 
-
-            c1.Create("Santro Xing", 2010,"White", 140);
-            c2.Create("Alto", 2022, "Red", 160); 
-            c3.Create("Wagon R", 2023, "Blue", 170); 
-
-                    c1.display();
-                    c2.display();
-                    c3.display(); 
-
-                c1.Sold(); 
-        }
-    }
+        <textarea class="programCode" id="programCode" spellcheck="false">
 
 </textarea>
 
@@ -241,7 +183,7 @@
 
         <div class="program-actions">
 
-           <button id="copyBtn" class="code-copy-btn">
+           <button id="copyOutputBtn" class="code-copy-btn">
                 <i class="fa-solid fa-copy"></i>
                 <span>Copy Output</span>
             </button>
@@ -261,30 +203,11 @@
                 Java Output
             </div>
 
-            <div id="compileStatus" class="compile-status">
-                Ready
-            </div>
 
         </div>
 
 
-        <textarea id="programCode" spellcheck="false">
-        Model: Santro Xing
-        Year: 2010
-        Colour: White
-        Top Speed: 140 km/h
-        ----------------------
-        Model: Alto
-        Year: 2022
-        Colour: Red
-        Top Speed: 160 km/h
-        ----------------------
-        Model: Wagon R
-        Year: 2023
-        Colour: Blue
-        Top Speed: 170 km/h
-        ----------------------
-        Santro Xing car is sold.
+        <textarea class="programCode" id="programOutput" spellcheck="false">
 
 
 </textarea>
@@ -318,7 +241,6 @@
             <h2>✅ Result</h2>
 
             <p>
-            Thus, the Java program was successfully executed to demonstrate the concepts of class, objects, properties, and methods.
             </p>
 
         </section>
@@ -329,11 +251,12 @@
     <!-- FOOTER -->
     <footer class="footer">
 
-        OOPS Using Java • Practical No. 5 
+        OOPS Using Java • Practical No. 11 
 
     </footer>
 
 </div>
 
 </body>
+<script src="../Logic/practical.js"> </script>
 </html>

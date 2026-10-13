@@ -18,7 +18,7 @@
 
 <!-- CSS Link -->
 
-<link rel="stylesheet" href="../Style/practical.CSS">
+<link rel="stylesheet" href="../Style/practical.css">
 </head>
 
 <body>
@@ -64,19 +64,19 @@
             OOPS Using Java
         </div>
 
-        <h1>Practical No. 5 </h1>
+        <h1>Practical No. 06 </h1>
         <div class="practical-label">
 
     <button class="pre-btn">
         <a style="text-decoration:none;"
-           href="practical_4_Java.html">
+           href="practical_5_Java.html">
             Previous Practical
         </a>
     </button>
 
     <button class="next-btn">
         <a style="text-decoration:none;"
-           href="practical_6_Java.html">
+           href="practical_7_Java.html">
             Next Practical
         </a>
     </button>
@@ -95,7 +95,7 @@
         <div class="aim">
             <p>
                 <strong>Aim:</strong>
-                To write a Java program to demonstrate the concept of Class and Objects using the Car class.
+To create an Employee base class that provides common properties and behaviours to different types of employees in a software company, where their roles, responsibilities and perks differ.
            </p>
         </div>
 
@@ -127,19 +127,23 @@
             </h2>
 
             <p><li>
-            A class is a blueprint or template used to create objects. It defines the properties and methods of objects.</li>
+            Inheritance is an important feature of Object-Oriented Programming (OOP) in Java. It allows one class to acquire the properties and methods of another class.
             </p>
-
-            <p><li>
-            An object is an instance of a class. Each object has its own properties and can use the methods defined in the class.</li>
-            </p>
-
+            
             <p>
             In this program,</p>
-            <p><li> Car is a class, and Santro Xing, Alto, and Wagon R are represented by three objects: c1, c2, and c3.</li></p>
+            <p><li>
+            Employee is the base class that contains common properties such as Employee ID, Name, Designation and Salary, along with methods to display employee details and work information.
+            </li></p>
+            
+            <p><li>
+            Different employee classes, such as SoftwareEngineer, SrSoftwareEngineer, ProjectManager, ProjectLead, ProgramManager, TechnicalLead, ModuleLead and Director, inherit the Employee class using the extends keyword.
+            </li></p>
+
 
             <p><li>
-            The properties of the Car class are model, year, colour, and topSpeed. The methods are Create(), Sold(), and display().</li></p>
+Inheritance promotes code reusability and reduces code duplication.
+            </li></p>
 
 
         </div>
@@ -177,53 +181,160 @@
                 Java
             </div>
 
-            <div id="compileStatus" class="compile-status">
-                Ready
-            </div>
 
         </div>
 
 
-        <textarea id="programCode" spellcheck="false">
-    class Car {
-            String model;
-            int year;
-            String colour;
-            int topSpeed; 
-    void Create(String m, int y, String c, int s){
-                model =m;
-                year = y;
-                colour = c; 
-                topSpeed = s; 
-            } 
-     void Sold() {
-            System.out.println(model + " car is sold."); 
-         }
+        <textarea class="programCode" id="programCode" spellcheck="false">
+             class Employee {
+                    int employeeId;
+                    String name;
+                    String designation;
+                    double salary;
 
-     void display() {
-            System.out.println("Model: " + model); 
-            System.out.println("Year: " + year); 
-            System.out.println("Colour: " + colour);
-            System.out.println("Top Speed: " + topSpeed + " km/h"); 
-            System.out.println("----------------------");
-                
-        } 
-    public static void main(String[] args) {
-            Car c1 = new Car(); 
-            Car c2 = new Car(); 
-            Car c3 = new Car(); 
+                    Employee(int id, String n, String d, double s) {
+                        employeeId = id;
+                        name = n;
+                        designation = d;
+                        salary = s;
+                    }
 
-            c1.Create("Santro Xing", 2010,"White", 140);
-            c2.Create("Alto", 2022, "Red", 160); 
-            c3.Create("Wagon R", 2023, "Blue", 170); 
+                  void displayDetails() {
+                        System.out.println("Employee ID: " + employeeId);
+                        System.out.println("Name: " + name);
+                        System.out.println("Designation: " + designation);
+                        System.out.println("Salary: " + salary);
+                    }
 
-                    c1.display();
-                    c2.display();
-                    c3.display(); 
+                  void work() {
+                        System.out.println(name + " is working in the company.");
+                    }
+                }
+                // class Senior Software Engineer
+                class SrSoftwareEngineer extends Employee {
+                    SrSoftwareEngineer(int id, String n, double s) {
+                        super(id, n, "Sr. Software Engineer", s);
+                    }
+                }
+                        // class Software Engineer
+                class SoftwareEngineer extends Employee {
+                    SoftwareEngineer(int id, String n, double s) {
+                        super(id, n, "Software Engineer", s);
+                    }
+                }
+                        // class Project Manager
+                class ProjectManager extends Employee {
+                    ProjectManager(int id, String n, double s) {
+                        super(id, n, "Project Manager", s);
+                    }
+                }
+                    // class Project Lead
+                class ProjectLead extends Employee{
+                    ProjectLead(int id, String n, double s){
+                        super(id,n,"Project Lead",s);
+                    }
+                }
+                    // class Program Manager
+                class ProgramManager extends Employee{
+                    ProgramManager(int id, String n, double s){
+                        super(id,n,"Program Manager",s);
+                    }
+                }
+                    //class Technical Lead 
+                class TechnicalLead extends Employee{
+                    TechnicalLead(int id, String n, double s){
+                        super(id,n,"Technical Lead",s);
+                    }
+                }
 
-                c1.Sold(); 
-        }
-    }
+                    // class Module Lead 
+                class ModuleLead extends Employee{
+                    ModuleLead(int id , String n, double s){
+                        super(id,n,"Module Lead",s);
+                    }
+                }
+                    // class Director
+                class Director extends Employee {
+                    Director(int id, String n, double s) {
+                        super(id, n, "Director", s);
+                    }
+                }
+                public class Company {
+                    public static void main(String[] args) {
+                        SrSoftwareEngineer e1 = 
+                            new SrSoftwareEngineer(101, "Kumar Sir" ,40000);
+                        
+                        SoftwareEngineer e2 =
+                            new SoftwareEngineer(102, "Rahul", 35000);
+
+                        ProjectManager e3 =
+                            new ProjectManager(103, "Ankit", 30000);
+
+                        ProjectLead e4 =
+                            new ProjectLead(104, "Sunil",31000);
+                        
+                        ProgramManager e5 =
+                            new ProgramManager(105,"Arvind",36000);
+
+                        TechnicalLead e6 =
+                            new TechnicalLead(106,"Tannu",37000);
+                        
+                        ModuleLead e7 =
+                            new ModuleLead(107,"Ankita",38000);
+
+                        Director e8 = new Director(108, "Vikas", 50000);
+
+                        System.out.println("All empolyee Details:");
+                        
+                        System.out.println("Sr. Software Engineer Details:");
+                        e1.displayDetails();
+                        e1.work();
+
+                        System.out.println();
+
+                        System.out.println("Software Engineer Details:");
+                        e2.displayDetails();
+                        e2.work();
+
+                        System.out.println();
+
+                        System.out.println("Project Manager Details:");
+                        e3.displayDetails();
+                        e3.work();
+
+                        System.out.println();
+
+                    System.out.println("Project Lead Details:");
+                        e4.displayDetails();
+                        e4.work();
+
+                        System.out.println();
+
+                    System.out.println("Program Manager Details:");
+                        e5.displayDetails();
+                        e5.work();
+
+                        System.out.println();
+
+                        System.out.println("Technical Lead Details:");
+                        e6.displayDetails();
+                        e6.work();
+
+                        System.out.println();
+
+                    System.out.println("Module Lead Details:");
+                        e7.displayDetails();
+                        e7.work();
+
+                        System.out.println();
+
+                    System.out.println("Director Details:");
+                        e8.displayDetails();
+                        e8.work();      
+
+                    }
+                }
+
 
 </textarea>
 
@@ -241,7 +352,7 @@
 
         <div class="program-actions">
 
-           <button id="copyBtn" class="code-copy-btn">
+           <button id="copyOutputBtn" class="code-copy-btn">
                 <i class="fa-solid fa-copy"></i>
                 <span>Copy Output</span>
             </button>
@@ -261,32 +372,68 @@
                 Java Output
             </div>
 
-            <div id="compileStatus" class="compile-status">
-                Ready
-            </div>
-
         </div>
 
 
-        <textarea id="programCode" spellcheck="false">
-        Model: Santro Xing
-        Year: 2010
-        Colour: White
-        Top Speed: 140 km/h
-        ----------------------
-        Model: Alto
-        Year: 2022
-        Colour: Red
-        Top Speed: 160 km/h
-        ----------------------
-        Model: Wagon R
-        Year: 2023
-        Colour: Blue
-        Top Speed: 170 km/h
-        ----------------------
-        Santro Xing car is sold.
+        <textarea class="programCode" id="programOutput" spellcheck="false">
 
 
+                        All empolyee Details:
+                        Sr. Software Engineer Details:
+                        Employee ID: 101
+                        Name: Kumar Sir
+                        Designation: Sr. Software Engineer
+                        Salary: 40000.0
+                        Kumar Sir is working in the company.
+
+                        Software Engineer Details:
+                        Employee ID: 102
+                        Name: Rahul
+                        Designation: Software Engineer
+                        Salary: 35000.0
+                        Rahul is working in the company.
+
+                        Project Manager Details:
+                        Employee ID: 103
+                        Name: Ankit
+                        Designation: Project Manager
+                        Salary: 30000.0
+                        Ankit is working in the company.
+
+                        Project Lead Details:
+                        Employee ID: 104
+                        Name: Sunil
+                        Designation: Project Lead
+                        Salary: 31000.0
+                        Sunil is working in the company.
+
+                        Program Manager Details:
+                        Employee ID: 105
+                        Name: Arvind
+                        Designation: Program Manager
+                        Salary: 36000.0
+                        Arvind is working in the company.
+
+                        Technical Lead Details:
+                        Employee ID: 106
+                        Name: Tannu
+                        Designation: Technical Lead
+                        Salary: 37000.0
+                        Tannu is working in the company.
+
+                        Module Lead Details:
+                        Employee ID: 107
+                        Name: Ankita
+                        Designation: Module Lead
+                        Salary: 38000.0
+                        Ankita is working in the company.
+
+                        Director Details:
+                        Employee ID: 108
+                        Name: Vikas
+                        Designation: Director
+                        Salary: 50000.0
+                        Vikas is working in the company.
 </textarea>
 
     </div>
@@ -318,7 +465,7 @@
             <h2>✅ Result</h2>
 
             <p>
-            Thus, the Java program was successfully executed to demonstrate the concepts of class, objects, properties, and methods.
+            The Employee base class was successfully created with common properties and behaviours. Different employee designations were implemented as child classes using inheritance.
             </p>
 
         </section>
@@ -329,11 +476,13 @@
     <!-- FOOTER -->
     <footer class="footer">
 
-        OOPS Using Java • Practical No. 5 
+        OOPS Using Java • Practical No. 06 
 
     </footer>
 
 </div>
 
 </body>
+<script src="../Logic/practical.js"> </script>
+
 </html>
